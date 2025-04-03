@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import './assets/styles/App.css';
+import logo from './assets/images/WhiteML_Logo-w-tag-vector.svg';
 import OrderList from './components/OrderList';
 
 function App() {
@@ -39,13 +39,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <img src={logo} alt="Mighty Lube Logo" className="logo" />
-        <div className="company-info">
-          <h1>MIGHTY LUBE</h1>
-          <h2>Systematic Lubrication, Inc.</h2>
-          <p>Industrial 4.0 Conveyor Chain Maintenance Solutions</p>
+      <header className="logo-header">
+        <div className="logo-container">
+          <img src={logo} alt="Mighty Lube Logo" className="logo" />
         </div>
+        <nav className="nav-links">
+          <a href="#orders">Orders</a>
+          <a href="#settings">Settings</a>
+        </nav>
       </header>
 
       <OrderList orders={orders} />
