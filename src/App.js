@@ -1,7 +1,7 @@
 import React from 'react';
-import './assets/styles/App.css';
-import logo from './assets/images/WhiteML_Logo-w-tag-vector.svg';
-import OrderList from './components/OrderList';
+import './Assets/styles/App.css';
+import logo from './Assets/Images/WhiteML_Logo-w-tag-vector.svg';
+import OrderList from './components/OrderList.js';
 
 function App() {
   const orders = [
