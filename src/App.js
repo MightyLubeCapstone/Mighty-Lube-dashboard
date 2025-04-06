@@ -1,7 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './Assets/styles/App.css';
 import logo from './Assets/Images/WhiteML_Logo-w-tag-vector.svg';
 import OrderList from './components/OrderList.js';
+import Login from './Pages/Login.js';
+import Dashboard from './Pages/Dashboard.js';
+
 
 function App() {
   const orders = [
@@ -38,19 +42,14 @@ function App() {
   };
 
   return (
+    <Router>
     <div className="App">
-      <header className="logo-header">
-        <div className="logo-container">
-          <img src={logo} alt="Mighty Lube Logo" className="logo" />
-        </div>
-        <nav className="nav-links">
-          <a href="#orders">Orders</a>
-          <a href="#settings">Settings</a>
-        </nav>
-      </header>
-
-      <OrderList orders={orders} />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </div>
+    </Router>
   );
 }
 
