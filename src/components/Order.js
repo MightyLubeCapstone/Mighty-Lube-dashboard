@@ -1,6 +1,12 @@
+/*
+This file takes in a list of order information and displays the information in a row table format. Individual rows are created here.
+*/
+
 import React from 'react';
 
+// This function takes in order information and displays a table
 function Order({ order }) {
+  // Function to determine the color based on order status
   const getStatusColor = (status) => {
     switch (status) {
       case 'Processing':
@@ -20,12 +26,7 @@ function Order({ order }) {
       <td>{order.user}</td>
       <td>{order.part}</td>
       <td>
-        <span
-          className="status-label"
-          style={{ color: getStatusColor(order.status) }}
-        >
-          {order.status}
-        </span>
+        <span className="status-label" style={{ color: getStatusColor(order.status) }}>{order.status}</span>
       </td>
       <td>{order.quantity}</td>
       <td>
@@ -35,4 +36,4 @@ function Order({ order }) {
   );
 }
 
-export default Order; 
+export default Order;

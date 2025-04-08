@@ -1,46 +1,58 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Assets/styles/login.css';
 import OrderList from '../components/OrderList';
 import logo from '../Assets/Images/WhiteML_Logo-w-tag-vector.svg';
+import { useOrders } from '../hooks/useOrders';
+/*
+Notes:
+- Currently we import a JSON to fill in the table below. The table is generated using the OrderList.js file, which takes in the JSON data and creates a table.
+- Using OrderList.js will make our life much easier, we just need to make a fetch request to an API that provides the data. The fetch can be set to a variable and then barely any code needs to change
+- The table is generated here, with the rest of the page elements like logo, navigation, and settings. The logout button is created within the orders table
+*/
+
+
 
 function Dashboard() {
   const navigate = useNavigate();
-  const orders = [
-    { id: '334', user: 'User #2222', part: 'DX 544 XLT', status: 'Processing', quantity: 5 },
-    { id: '335', user: 'User #2223', part: 'Engine Oil', status: 'Completed', quantity: 3 },
-    { id: '336', user: 'User #2224', part: 'Filter', status: 'Pending', quantity: 2 },
-    { id: '337', user: 'User #2225', part: 'Brake Pads', status: 'Processing', quantity: 1 },
-    { id: '338', user: 'User #2226', part: 'Transmission Fluid', status: 'Completed', quantity: 4 },
-    { id: '339', user: 'User #2227', part: 'Coolant', status: 'Completed', quantity: 6 },
-  ];
+  const { orders, loading, error } = useOrders();
 
   const handleLogout = () => {
     // Here you would typically clear any authentication tokens
     navigate('/');
   };
 
+  if (loading) {
+    return <div>Loading orders...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className="dashboard">
-      <div className="logo-header">
-        <div className="logo-container">
-          <img src={logo} alt="Mighty Lube Logo" className="logo" />
+    // Main dashboard container
+    <div id="mainDiv">
+        {/* Logo container */}
+        <img src={logo} alt="Mighty Lube Logo" className="logo" />
+
+      <div className="dashboard">
+        {/* Div for the table */}
+        <div className="dashboard-content">
+
+          <header className="dashboard-header">
+            <h1>Dashboard</h1>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+          </header>
+
+          <main id="tblDashboard">
+            <OrderList orders={orders} />
+          </main>
+
         </div>
-        <nav className="nav-links">
-          <a href="#orders">Orders</a>
-          <a href="#settings">Settings</a>
-        </nav>
-      </div>
-      <div className="dashboard-content">
-        <header className="dashboard-header">
-          <h1>Dashboard</h1>
-          <button onClick={handleLogout} className="logout-button">Logout</button>
-        </header>
-        <main>
-          <OrderList orders={orders} />
-        </main>
+
       </div>
     </div>
+
   );
 }
 

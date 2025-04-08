@@ -17,19 +17,7 @@
     max-width: 400px;
     margin: 0 auto;
   }
-  
-  .logo-container {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .logo {
-    max-width: 100%;
-    max-height: auto;
-    flex-shrink: 0;
-    filter: brightness(0) saturate(100%) invert(47%) sepia(100%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
-  }
-  
+
   .login-box h1 {
     text-align: center;
     color: #2c3e50;
@@ -77,102 +65,4 @@
   
   .login-box input::placeholder {
     color: #95a5a6;
-  }
-  
-  /* Dashboard Styles */
-  .dashboard {
-    min-height: 100vh;
-    width: 100%;
-    background-color: #0088cc;
-    display: flex;
-  }
-  
-  .logo-header {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    background-color: #0088cc;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    max-width: 175px;
-    width: 100%;
-    box-shadow: 4px 0 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.25em;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-links a:hover {
-    background-color: #0077bb;
-  }
-  
-  .dashboard-content {
-    flex: 1;
-    padding: 2rem;
-    background-color: #f8f9fa;
-    overflow-x: auto;
-  }
-  
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .dashboard-header h1 {
-    color: #2c3e50;
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .logout-button {
-    padding: 0.5rem 1.5rem;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .logout-button:hover {
-    background-color: #c0392b;
-  }
-  
-  @media (max-width: 768px) {
-    .logo-header {
-      max-width: 120px;
-    }
-    
-    .dashboard-content {
-      margin-left: 20px;
-      padding: 10px;
-    }
   }
