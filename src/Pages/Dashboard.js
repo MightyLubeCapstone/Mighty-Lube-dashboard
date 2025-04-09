@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
 import OrderList from '../components/OrderList';
-import logo from '../Assets/Images/WhiteML_Logo-w-tag-vector.svg';
+import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -16,13 +16,12 @@ function Dashboard() {
   ];
 
   const handleLogout = () => {
-    // Here you would typically clear any authentication tokens
     navigate('/');
   };
 
   return (
     <div className="dashboard">
-      <div className="logo-header">
+      <header className="dashboard-header">
         <div className="logo-container">
           <img src={logo} alt="Mighty Lube Logo" className="logo" />
         </div>
@@ -30,15 +29,19 @@ function Dashboard() {
           <a href="#orders">Orders</a>
           <a href="#settings">Settings</a>
         </nav>
-      </div>
+        <button onClick={handleLogout} className="logout-button">Logout</button>
+      </header>
       <div className="dashboard-content">
-        <header className="dashboard-header">
-          <h1>Dashboard</h1>
-          <button onClick={handleLogout} className="logout-button">Logout</button>
-        </header>
-        <main>
+        <div className="summary-card">
+          <h2>Summary</h2>
+          <p>Total Orders: {orders.length}</p>
+          <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
+          <p>Orders by Status: Processing (2), Completed (3), Pending (1)</p>
+        </div>
+        <div className="order-list-card">
+          <h2>Order List</h2>
           <OrderList orders={orders} />
-        </main>
+        </div>
       </div>
     </div>
   );

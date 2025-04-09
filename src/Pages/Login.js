@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
-import logo from '../Assets/Images/WhiteML_Logo-w-tag-vector.svg';
+import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -19,7 +19,7 @@ const Login = () => {
                 <div className="logo-container">
                     <img src={logo} alt="Mighty Lube Logo" className="logo" />
                 </div>
-                <h1>Login</h1>
+                <h1>Welcome Back</h1>
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="email" 
