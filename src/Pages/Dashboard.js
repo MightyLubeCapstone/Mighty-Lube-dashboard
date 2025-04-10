@@ -39,7 +39,6 @@ function Dashboard() {
           <p>Orders by Status: Processing (2), Completed (3), Pending (1)</p>
         </div>
         <div className="order-list-card">
-          <h2>Order List</h2>
           <OrderList orders={orders} />
         </div>
       </div>

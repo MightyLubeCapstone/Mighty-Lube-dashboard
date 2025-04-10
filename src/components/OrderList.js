@@ -15,13 +15,6 @@ function OrderList({ orders }) {
 
   return (
     <div className="dashboard-container">
-      <div className="summary-card">
-        <h2>Summary</h2>
-        <p>Total Orders: {orders.length}</p>
-        <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
-        <p>Orders by Status: {getTotalsByStatus()}</p>
-      </div>
-
       <div className="order-list-card">
         <h2>Order List</h2>
         <table>
