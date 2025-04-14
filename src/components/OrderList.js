@@ -14,27 +14,25 @@ function OrderList({ orders }) {
   };
 
   return (
-    <div className="dashboard-container">
-      <div className="order-list-card">
-        <h2>Order List</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Order ID</th>
-              <th>User</th>
-              <th>Ordered Part</th>
-              <th>Status</th>
-              <th>Quantity</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <Order key={order.id} order={order} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div style={{ margin: '0 20px' }}>
+      <h2>Order List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>User</th>
+            <th>Ordered Part</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <Order key={order.id} order={order} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

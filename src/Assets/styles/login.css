@@ -6,7 +6,7 @@
 }
 
 .dashboard .logo {
-  width: 150px;
+  width: 120px;
   height: auto;
 }
 
@@ -104,7 +104,7 @@
 .dashboard-header {
   display: flex;
   align-items: center;
-  padding: 20px 30px;
+  padding: 10px 30px;
   background-color: white;
   position: sticky;
   top: 20px;
@@ -113,8 +113,9 @@
   box-sizing: border-box;
   gap: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 32px;
+  margin: 32px 32px 20px 32px;
   border-radius: 10px;
+  justify-content: space-between;
 }
 
 .dashboard-header h1 {
@@ -124,7 +125,7 @@
 }
 
 .logout-button {
-  padding: 0.5rem 1.5rem;
+  padding: 0.4rem 1.2rem;
   background-color: #e74c3c;
   color: white;
   border: none;
@@ -132,6 +133,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 0;
 }
 
 .logout-button:hover {
@@ -144,15 +146,15 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  flex: 1;
+  justify-content: flex-end;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #333;
-  font-size: 1.25em;
+  font-size: 1.15em;
   font-weight: bold;
-  padding: 10px;
+  padding: 6px 10px;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
@@ -164,7 +166,7 @@
 
 .dashboard-content {
   flex: 1;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   background-color: #0088cc;
   overflow-x: auto;
 }
