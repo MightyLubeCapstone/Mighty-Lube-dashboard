@@ -1,1 +1,1 @@
-# MightyLubeDashboard
+# Mighty-Lube-dashboard
