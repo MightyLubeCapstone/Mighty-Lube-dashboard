@@ -1,3 +1,8 @@
+/*
+This file contains the styling for most of the main app elements. These are essentially the global styles
+React handles css files as global, make sure you reference unique elements. Do not attempt to edit these containers anywhere else
+Example: In this file we access the body element this changes all body tags, even those this file is loaded into dynamically
+*/
 
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css');
 
