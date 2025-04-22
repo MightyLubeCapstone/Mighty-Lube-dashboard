@@ -11,6 +11,7 @@ var app = express()
 
 // Take in endpoint logic from a file
 const login = require('./routes/login')
+const order = require('./routes/order')
 const HTTP_PORT = 8000
 
 app.use(cors({
@@ -22,6 +23,7 @@ app.use(express.json())
 
 // set up callable endpoint to use
 app.use('/api/login', login)
+app.use('/api/order', order)
 
 
 // The naked domain
