@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
 import OrderList from '../components/OrderList';
 import NavbarPopup from '../components/NavbarPopup';
-import logo from '../Assets/Images/WhiteML_Logo-w-tag-vector.svg';
+import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 import { useOrders } from '../hooks/useOrders';
 /*
 Notes:
@@ -47,77 +47,76 @@ function Dashboard() {
     // Main dashboard container
     <div id="mainDiv">
 
-      {/* Div for the table */}
-      <div className="dashboard-content">
+      <div className="dashboard">
+        {/* Div for the table */}
+        <div className="dashboard-content">
 
-        {/* Summary card */}
-        <div className="summary-card">
-          <div style={{ margin: '0 20px' }}>
-            <h2>Summary</h2>
-            <p>Total Orders: {orders.length}</p>
-            <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
-            <p>Orders by Status: Processing (2), Completed (3), Pending (1)</p>
-          </div>
-        </div>
-
-        <header className="dashboard-header">
-          <h1>Dashboard</h1>
-
-          {/* Logo container */}
-          <div className="logo-container">
+          <header className="dashboard-header">
+          
+            {/* Logo container */}
             <img src={logo} alt="Mighty Lube Logo" className="logo" />
+
+            <h1>Dashboard</h1>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+
+              <nav className="nav-links">
+                <a href="#admin" onClick={openAdminPopup}>Admin</a>
+                <a href="#settings" onClick={openSettingsPopup}>Settings</a>
+              </nav>
+
+              <button onClick={handleLogout} className="logout-button">Logout</button>
+
+            </div>
+          </header>
+
+          {/* Summary card */}
+          <div className="summary-card">
+            <div style={{ margin: '0 20px' }}>
+              <h2>Summary</h2>
+              <p>Total Orders: {orders.length}</p>
+              <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
+              <p>Orders by Status: Processing (2), Completed (3), Pending (1)</p>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <main id="tblDashboard">
+            <OrderList orders={orders} />
+          </main>
 
-            <nav className="nav-links">
-              <a href="#admin" onClick={openAdminPopup}>Admin</a>
-              <a href="#settings" onClick={openSettingsPopup}>Settings</a>
-            </nav>
+          {/* Admin Popup */}
+          <NavbarPopup
+            isOpen={adminPopupOpen}
+            onClose={closeAdminPopup}
+            title="Admin Panel"
+          >
+            <div style={{ minHeight: '300px' }}>
+              <p>Admin functionality goes here.</p>
+              <ul>
+                <li>User Management</li>
+                <li>Role Permissions</li>
+                <li>System Configuration</li>
+              </ul>
+            </div>
+          </NavbarPopup>
 
-            <button onClick={handleLogout} className="logout-button">Logout</button>
-
-          </div>
-        </header>
-
-
-        <main id="tblDashboard">
-          <OrderList orders={orders} />
-        </main>
-
-        {/* Admin Popup */}
-        <NavbarPopup
-          isOpen={adminPopupOpen}
-          onClose={closeAdminPopup}
-          title="Admin Panel"
-        >
-          <div style={{ minHeight: '300px' }}>
-            <p>Admin functionality goes here.</p>
-            <ul>
-              <li>User Management</li>
-              <li>Role Permissions</li>
-              <li>System Configuration</li>
-            </ul>
-          </div>
-        </NavbarPopup>
-
-        {/* Settings Popup */}
-        <NavbarPopup
-          isOpen={settingsPopupOpen}
-          onClose={closeSettingsPopup}
-          title="Settings"
-        >
-          <div style={{ minHeight: '300px' }}>
-            <p>Settings options go here.</p>
-            <ul>
-              <li>Account Settings</li>
-              <li>Notification Preferences</li>
-              <li>Theme Options</li>
-              <li>Language Settings</li>
-            </ul>
-          </div>
-        </NavbarPopup>
-
+          {/* Settings Popup */}
+          <NavbarPopup
+            isOpen={settingsPopupOpen}
+            onClose={closeSettingsPopup}
+            title="Settings"
+          >
+            <div style={{ minHeight: '300px' }}>
+              <p>Settings options go here.</p>
+              <ul>
+                <li>Account Settings</li>
+                <li>Notification Preferences</li>
+                <li>Theme Options</li>
+                <li>Language Settings</li>
+              </ul>
+            </div>
+          </NavbarPopup>
+        </div>
       </div>
 
     </div>
