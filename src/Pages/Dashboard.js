@@ -12,7 +12,19 @@ Notes:
 - The table is generated here, with the rest of the page elements like logo, navigation, and settings. The logout button is created within the orders table
 */
 
-
+// Status color function - duplicated from OrderList for consistency
+const getStatusColor = (status) => {
+  switch (status) {
+    case 'Processing':
+      return '#ffd700'; // Yellow for Processing
+    case 'Completed':
+      return '#28a745'; // Green for Completed
+    case 'Pending':
+      return '#ff8c00'; // Orange for Pending
+    default:
+      return 'black';
+  }
+};
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -41,6 +53,25 @@ function Dashboard() {
 
   const closeSettingsPopup = () => {
     setSettingsPopupOpen(false);
+  };
+
+  // Create formatted status counts with appropriate colors
+  const getColoredStatusCounts = () => {
+    // Count orders by status
+    const counts = orders.reduce((acc, order) => {
+      acc[order.status] = (acc[order.status] || 0) + 1;
+      return acc;
+    }, {});
+    
+    // Convert to array of formatted spans with colors
+    return Object.entries(counts).map(([status, count], index) => (
+      <span key={status}>
+        <span style={{ color: getStatusColor(status) }}>
+          {status} ({count})
+        </span>
+        {index < Object.entries(counts).length - 1 ? ', ' : ''}
+      </span>
+    ));
   };
 
   return (
@@ -76,7 +107,7 @@ function Dashboard() {
               <h2>Summary</h2>
               <p>Total Orders: {orders.length}</p>
               <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
-              <p>Orders by Status: Processing (2), Completed (3), Pending (1)</p>
+              <p>Orders by Status: {getColoredStatusCounts()}</p>
             </div>
           </div>
 

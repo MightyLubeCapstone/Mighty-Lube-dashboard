@@ -7,11 +7,11 @@ import Order from './Order';
 const getStatusColor = (status) => {
   switch (status) {
     case 'Processing':
-      return '#ffa500';
+      return '#ffd700';
     case 'Completed':
       return '#28a745';
     case 'Pending':
-      return '#ffa500';
+      return '#ff8c00';
     default:
       return 'black';
   }

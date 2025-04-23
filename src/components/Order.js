@@ -12,11 +12,11 @@ function Order({ order }) {
   const getStatusColor = (status) => {
     switch (status) {
       case 'Processing':
-        return '#ffa500';
+        return '#ffd700'; // Yellow for Processing
       case 'Completed':
-        return '#28a745';
+        return '#28a745'; // Green for Completed
       case 'Pending':
-        return '#ffa500';
+        return '#ff8c00'; // Orange for Pending
       default:
         return 'black';
     }
