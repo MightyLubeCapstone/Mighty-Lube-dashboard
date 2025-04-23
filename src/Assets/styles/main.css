@@ -46,10 +46,10 @@ h1, h2 {
 .logo {
     overflow: hidden;
     display: flex;
-    padding: 25px;
+    padding: 15px;
     top: 0;
-    max-width: 300px;
-    width: 30%;
+    max-width: 250px;
+    width: 25%;
     max-height: auto;
     flex-shrink: 1;
 }
@@ -115,17 +115,23 @@ h1, h2 {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .dashboard {
     display: flex;
     justify-content: center;
     padding: 2rem;
+    overflow: auto;
 }
 
 .dashboard-content {
     background-color: #0088cc;
     width: 100%;
+    overflow: auto;
 }
 
 .dashboard-header {
@@ -133,15 +139,16 @@ h1, h2 {
     justify-content: space-between;
     align-items: center;
     background: white;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
     margin-top: 1rem;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logout-button {
@@ -159,6 +166,7 @@ h1, h2 {
     background-color: #c0392b;
 }
 
+/* Individual card styles */
 .summary-card {
     display: flex;
     justify-content: space-between;
@@ -168,31 +176,23 @@ h1, h2 {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin: 0 auto;
-    max-width: 80%;
-
+    width: 80%;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-#tblDashboard {
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    height: 100%;
-    padding: 1rem;
-    margin: 0 auto;
-    max-width: 80%;
-
-}
-
-#tblDashboard::-webkit-scrollbar { 
-    display: none;
-}
-
+/* Shared card styles */
 .summary-card,
 .order-list-card {
     background: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .summary-card p {
@@ -238,68 +238,94 @@ tr:nth-child(even) {
     background-color: #006699;
 }
 
+/* Add specific styling for order-list-card to ensure it matches header width */
+.order-list-card {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem 2rem; /* Match padding with header */
+}
+
+#tblDashboard {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: auto;
+    padding: 0; /* Remove padding to prevent nested padding issues */
+    margin: 0 auto;
+    max-width: 100%; /* Expand to full width of its container */
+}
+
+#tblDashboard::-webkit-scrollbar { 
+    display: none;
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 1024px) {
+    .dashboard-header,
+    .summary-card,
+    .order-list-card {
+        width: 95%;
+    }
+    
     .dashboard-header {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center; /* Align items to the left */
-        padding: 1rem; /* Reduce padding */
+        align-items: center;
+        padding: 0.5rem;
+    }
+    
+    .summary-card {
+        margin-top: 0;
     }
 
     .logo {
-        max-width: 100%; /* Allow logo to scale down */
+        max-width: 100%;
         width: 55%;
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    .summary-card,
-    #tblDashboard {
-        width: 95%; /* Increase flexibility for smaller screens */
+        height: auto;
     }
 }
 
 @media (max-width: 768px) {
     .dashboard {
-        padding: 1rem; /* Reduce padding */
+        padding: 1rem;
     }
 
-    .dashboard-header {
-        padding: 0.5rem 1rem; /* Further reduce padding */
-    }
-
+    .dashboard-header,
     .summary-card,
-    #tblDashboard {
-        width: 100%; /* Use full width for very small screens */
+    .order-list-card {
+        width: 100%;
+        padding: 0.5rem 1rem;
     }
 
     table {
-        display: block; /* Allow horizontal scrolling for tables */
+        display: block;
         overflow-x: auto;
         white-space: nowrap;
     }
 
     th, td {
-        font-size: 0.9rem; /* Reduce font size for table content */
+        font-size: 0.9rem;
     }
 
     h1 {
-        font-size: 1.5rem; /* Adjust header size */
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .logout-button {
-        padding: 0.5rem 1rem; /* Reduce button size */
-        font-size: 0.9rem; /* Adjust font size */
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 
     .details-button {
-        padding: 4px 8px; /* Reduce button size */
-        font-size: 0.8rem; /* Adjust font size */
+        padding: 4px 8px;
+        font-size: 0.8rem;
     }
 
-    .dashboard-header {
-        padding: 0.5rem; /* Compact header padding */
+    .dashboard-header,
+    .summary-card,
+    .order-list-card {
+        padding: 0.5rem;
     }
 }
