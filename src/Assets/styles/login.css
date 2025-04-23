@@ -1,3 +1,8 @@
+/*
+This file contains the styling for login form elements. React handles css files as global. 
+Do not attempt to edit these containers anywhere else, and make sure you reference completely unique elements
+*/
+
 .login-container {
     display: flex;
     justify-content: center;
