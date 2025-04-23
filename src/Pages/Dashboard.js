@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import OrderList from '../components/OrderList';
 import logo from '../Assets/Images/WhiteML_Logo-w-tag-vector.svg';
 import { useOrders } from '../hooks/useOrders';
+import { parseCartFromUserData } from '../hooks/useUsers';
+import OrderTable from '../components/UseList';
+import { useState, useEffect } from 'react';
 /*
 Notes:
 - Currently we import a JSON to fill in the table below. The table is generated using the OrderList.js file, which takes in the JSON data and creates a table.
@@ -13,6 +16,15 @@ Notes:
 
 
 function Dashboard() {
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+      fetch('/users.json')
+        .then(res => res.json())
+        .then(json => {
+          const parsed = parseCartFromUserData(json);
+          setCart(parsed);
+        });
+    }, []);
   const navigate = useNavigate();
   const { orders, loading, error } = useOrders();
 
@@ -45,7 +57,7 @@ function Dashboard() {
           </header>
 
           <main id="tblDashboard">
-            <OrderList orders={orders} />
+            <OrderTable orders={cart} />
           </main>
 
         </div>
