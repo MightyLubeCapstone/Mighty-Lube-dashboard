@@ -7,11 +7,11 @@ import Order from './Order';
 const getStatusColor = (status) => {
   switch (status) {
     case 'Processing':
-      return '#ffd700';
+      return '#ffa500';
     case 'Completed':
       return '#28a745';
     case 'Pending':
-      return '#ff8c00';
+      return '#ffa500';
     default:
       return 'black';
   }
@@ -30,35 +30,42 @@ function OrderList({ orders }) {
       .join(', ');
   };
 
-/* Here the table begins generating the overall look. It creates the headers and fills in the body of the table using a reference to the Order.js file.
-  The body of the table is filled dynamically using the map function to iterate through the orders array and create a new Order component for each order.
-  The key prop is used to uniquely identify each order in the list.
-  The HTML return from Order.js is used here to generate table rows for the table body.
-*/
-
   return (
-    <div className="order-list-card">
-      
-      <h2>Order List</h2>
+    <div className="dashboard-container">
+      <div className="summary-card">
+        <h2>Summary</h2>
+        <p>Total Orders: {orders.length}</p>
+        <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
+        <p>Orders by Status: {getTotalsByStatus()}</p>
+      </div>
 
-      <table>
-        <thead>
+      {/* Here the table begins generating the overall look. It creates the headers and fills in the body of the table using a reference to the Order.js file.
+          The body of the table is filled dynamically using the map function to iterate through the orders array and create a new Order component for each order.
+          The key prop is used to uniquely identify each order in the list.
+          The HTML return from Order.js is used here to generate table rows for the table body.
+      */}
 
-          <tr>
-            <th>Order ID</th>
-            <th>User</th>
-            <th>Ordered Part</th>
-            <th>Status</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-          </tr>
-
-        </thead>
-
-        <tbody> {orders.map((order) => (<Order key={order.id} order={order} />))} </tbody>
-      
-      </table>
-
+      <div className="order-list-card">
+        <h2>Order List</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Type</th>
+              <th>Conveyor</th>
+              <th>Status</th>
+              <th>Quantity</th>
+              <th>Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map(order => (
+              <Order key={order.orderID} order={order} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

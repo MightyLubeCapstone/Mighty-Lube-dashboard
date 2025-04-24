@@ -32,12 +32,7 @@ function OrderTable({ orders }) {
 
   return (
     <div className="dashboard-container">
-      <div className="summary-card">
-        <h2>Summary</h2>
-        <p>Total Orders: {orders.length}</p>
-        <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
-        <p>Orders by Status: {getTotalsByStatus()}</p>
-      </div>
+ 
 
       {/* Here the table begins generating the overall look. It creates the headers and fills in the body of the table using a reference to the Order.js file.
           The body of the table is filled dynamically using the map function to iterate through the orders array and create a new Order component for each order.
