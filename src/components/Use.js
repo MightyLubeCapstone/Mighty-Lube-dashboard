@@ -4,11 +4,7 @@ import { useState } from 'react';
 
 function Order({ order }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const getStatus = (quantity) => {
-    if (quantity >= 2) return 'Processing';
-    if (quantity === 1) return 'Pending';
-    return 'Completed';
-  };
+  const getStatus = (quantity) => 'Pending';
 
   const openPopup = () => {
     setIsPopupOpen(true);

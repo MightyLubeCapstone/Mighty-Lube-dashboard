@@ -385,7 +385,7 @@
 	],
 	"configurations": [
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Configuration #1",
 			"cart": [
 				{
@@ -410,7 +410,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1741036360781" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Test",
 			"cart": [
 				{
@@ -489,7 +489,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1743172010081" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Apple Test",
 			"cart": [
 				{
@@ -517,7 +517,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1743639725210" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Apple Test",
 			"cart": [
 				{
@@ -545,7 +545,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1743653380016" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Apple Test (New)",
 			"cart": [
 				{
@@ -573,7 +573,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1743653486192" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "Apple Test (Newest)",
 			"cart": [
 				{
@@ -601,7 +601,7 @@
 			"dateOrdered": { "$date": { "$numberLong": "1743657285087" } }
 		},
 		{
-			"orderStatus": "Incomplete",
+			"orderStatus": "Pending",
 			"configurationName": "WOOOOHOOOOOO",
 			"cart": [
 				{

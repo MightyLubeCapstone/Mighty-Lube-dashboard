@@ -747,7 +747,7 @@ module.exports = {
       "id": "3344",
       "user": "User #2222",
       "part": "DX 544 XLTTTT",
-      "status": "Processing",
+      "status": "Pending",
       "quantity": 5,
       "__v": 0
     },
@@ -756,7 +756,7 @@ module.exports = {
       "id": "335",
       "user": "User #9876",
       "part": "Hydraulic Pump",
-      "status": "Completed",
+      "status": "Pending",
       "quantity": 2,
       "__v": 0
     },
@@ -774,7 +774,7 @@ module.exports = {
       "id": "337",
       "user": "User #1357",
       "part": "Brake Disc Elite",
-      "status": "Processing",
+      "status": "Pending",
       "quantity": 1,
       "__v": 0
     },
@@ -783,7 +783,7 @@ module.exports = {
       "id": "338",
       "user": "User #2468",
       "part": "Transmission Fluid X",
-      "status": "Completed",
+      "status": "Pending",
       "quantity": 7,
       "__v": 0
     },
