@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
-import OrderList from '../components/OrderList';
 import NavbarPopup from '../components/NavbarPopup';
 import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 import { useOrders } from '../hooks/useOrders';
