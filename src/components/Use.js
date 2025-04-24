@@ -1,10 +1,21 @@
 import React from 'react';
+import Popup from './Popup';
+import { useState } from 'react';
 
 function Order({ order }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const getStatus = (quantity) => {
     if (quantity >= 2) return 'Processing';
     if (quantity === 1) return 'Pending';
     return 'Completed';
+  };
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
   };
 
   const getStatusColor = (status) => {
@@ -23,7 +34,8 @@ function Order({ order }) {
   const status = getStatus(order.quantity);
 
   return (
-    <tr>
+    <>
+    <tr key={order.orderID}>
       <td>#{order.orderID}</td>
       <td>{order.productType}</td>
       <td>{order.conveyorName}</td>
@@ -36,6 +48,11 @@ function Order({ order }) {
         <button className="details-button">Details</button>
       </td>
     </tr>
+    <Popup isOpen={isPopupOpen} onClose={closePopup}>
+        <h2>Order Details</h2>
+        <p>Here you can add detailed information about order #{order.id}</p>
+      </Popup>
+    </>
   );
 }
 
