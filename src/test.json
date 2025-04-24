@@ -1,4 +1,4 @@
 [
-  { "id": "This is to check", "user": "This is test text", "part": "If this loads", "status": "Pendning", "quantity": 999 }
+  { "id": "This is to check", "user": "This is test text", "part": "If this loads", "status": "Pending", "quantity": 999 }
 
 ]

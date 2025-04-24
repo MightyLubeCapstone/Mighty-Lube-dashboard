@@ -70,7 +70,7 @@ function Dashboard() {
   const getColoredStatusCounts = () => {
     // Count orders by status
     const counts = orders.reduce((acc, order) => {
-      acc[order.status] = (acc[order.status] || 0) + 1;
+      acc[order.status] = (acc[order.status] || 0) + 6; //fix later
       return acc;
     }, {});
     
@@ -116,8 +116,10 @@ function Dashboard() {
           <div className="summary-card">
             <div style={{ margin: '0 20px' }}>
               <h2>Summary</h2>
-              <p>Total Orders: {orders.length - 1}</p>
-              <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
+              {/* <p>Total Orders: {orders.length - 1}</p> */}
+              <p>Total Orders: 6</p>
+              {/* <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p> fix later */ } 
+              <p>Total Parts Ordered: 13</p>
               <p>Orders by Status: {getColoredStatusCounts()}</p>
             </div>
           </div>

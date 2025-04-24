@@ -628,7 +628,7 @@
 			"configurationName": "test",
 			"cart": [
 				{
-					"orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+					"orderID": "#e7b0c6a1-54fa-4c91-8f56-3a02efb42a91 ",
 					"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
 					"numRequested": { "$numberInt": "1" },
 					"productConfigurationInfo": {
@@ -663,7 +663,7 @@
 					"_id": { "$oid": "67f837c6a9228e4a10f00222" }
 				},
 				{
-					"orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+					"orderID": "#e7b0c6a1-54fa-4c91-8f56-3a02efb42a91 5",
 					"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
 					"numRequested": { "$numberInt": "1" },
 					"productConfigurationInfo": {
@@ -922,7 +922,7 @@
 	],
 	"cart": [
 		{
-			"orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+			"orderID": "#e7b0c6a1-54fa-4c91-8f56-3a02efb42a91 ",
 			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
 			"numRequested": { "$numberInt": "1" },
 			"productConfigurationInfo": {

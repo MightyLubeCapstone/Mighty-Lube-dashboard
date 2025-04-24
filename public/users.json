@@ -216,11 +216,11 @@
 			"_id": { "$oid": "67f837c6a9228e4a10f00222" }
 		},
 		{
-			"orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+			"orderID": "e7b0c6a1-54fa-4c91-8f56-3a02efb42a91 ",
 			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
-			"numRequested": { "$numberInt": "1" },
+			"numRequested": { "$numberInt": "5" },
 			"productConfigurationInfo": {
-				"conveyorName": "a",
+				"conveyorName": "b",
 				"chainPinType": { "$numberInt": "1" },
 				"conveyorLength": { "$numberInt": "1" },
 				"conveyorLengthUnit": { "$numberInt": "1" },
@@ -251,7 +251,7 @@
 			"_id": { "$oid": "67f837c6a9228e4a10f00222" }
 		},
 		{
-			"orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+			"orderID": "4b2ecf32-3186-4708-b45c-0f8896db4d66",
 			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
 			"numRequested": { "$numberInt": "1" },
 			"productConfigurationInfo": {
@@ -282,8 +282,32 @@
 				"conductor2": { "$numberInt": "1" },
 				"_id": { "$oid": "67f837c5a9228e4a10f00221" }
 			},
-			"productType": "FGLM",
+			"productType": "LLGF",
 			"_id": { "$oid": "67f837c6a9228e4a10f00222" }
+		},
+		{
+			"orderID": "f1e6b95e-a237-4c8c-a89a-92e6a962c8c2",
+			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
+			"numRequested": { "$numberInt": "3" },
+			"productConfigurationInfo": { "conveyorName": "c" },
+			"productType": "TQLD",
+			"_id": { "$oid": "dup1" }
+		},
+		{
+			"orderID": "9ae7a51f-3fc4-4bc4-9ac7-4ff6020ef4e3 ",
+			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
+			"numRequested": { "$numberInt": "1" },
+			"productConfigurationInfo": { "conveyorName": "b" },
+			"productType": "MMRP",
+			"_id": { "$oid": "dup2" }
+		},
+		{
+			"orderID": "0c9e835f-e458-4218-9e9a-f50e9c8c7ab0  ",
+			"orderCreated": { "$date": { "$numberLong": "1744320454023" } },
+			"numRequested": { "$numberInt": "2" },
+			"productConfigurationInfo": { "conveyorName": "a" },
+			"productType": "FGLM",
+			"_id": { "$oid": "dup3" }
 		}
 	],
 	"drafts": [
