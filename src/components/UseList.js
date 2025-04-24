@@ -55,8 +55,8 @@ function OrderTable({ orders }) {
             </tr>
           </thead>
           <tbody>
-            {orders.map(order => (
-              <Order key={order.orderID} order={order} />
+            {orders.map((order, idx) => (
+              <Order key={`${order.orderID}-${idx}`} order={order} />
             ))}
           </tbody>
         </table>

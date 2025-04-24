@@ -116,7 +116,7 @@ function Dashboard() {
           <div className="summary-card">
             <div style={{ margin: '0 20px' }}>
               <h2>Summary</h2>
-              <p>Total Orders: {orders.length}</p>
+              <p>Total Orders: {orders.length - 1}</p>
               <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
               <p>Orders by Status: {getColoredStatusCounts()}</p>
             </div>
