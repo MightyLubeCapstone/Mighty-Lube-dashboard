@@ -5,12 +5,21 @@
 
 const express = require('express')
 const cors = require('cors')
-const db = require('../db/database')
+const db = require('../../db/database')
 
 const router = express.Router()
 const app = router()
 
 app.use(cors());
 app.use(express.json());
+
+app.get('/orders', (req, res) => {
+    const orders = req.body.orders;
+
+    try {
+        const query = 'SELECT * FROM orders';
+    } catch (error) {
+    }
+})
 
 module.exports = router
