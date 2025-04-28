@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-// MongoDB Atlas connection URI with correct case for database name
+// MongoDB Connection URI
 const uri = 'mongodb+srv://lucascolbydowlen:3rIbPfyNGaGGOUsK@dash-cluster-1.upt8jyd.mongodb.net/Dashboard';
 
 console.log('Attempting to connect to MongoDB Atlas...');
@@ -12,7 +12,7 @@ mongoose.connect(uri)
   .then(async () => {
     console.log('Connected to MongoDB Atlas successfully!');
     
-    // List all collections
+    // List collections
     try {
       const collections = await mongoose.connection.db.listCollections().toArray();
       console.log('Available collections:');
@@ -30,10 +30,8 @@ mongoose.connect(uri)
     process.exit(1);
   });
 
-// Use a generic schema with no predefined fields to accept any document structure from MongoDB
 const orderSchema = new mongoose.Schema({}, { strict: false });
 
-// Define models for the collections
 const Order = mongoose.model('Order', orderSchema);
 const Orders = mongoose.model('Orders', orderSchema, 'orders');
 
@@ -53,7 +51,7 @@ async function fetchOrders() {
       console.log(`Found ${orders.length} documents in the "orders" collection.`);
     }
     
-    // Save to JSON file without any transformation
+    // Save to JSON file
     const filePath = path.join(__dirname, 'fullorders.json');
     fs.writeFileSync(filePath, JSON.stringify({ orders }, null, 2));
     

@@ -264,7 +264,7 @@ tr:nth-child(even) {
     .dashboard-header,
     .summary-card,
     .order-list-card {
-        width: 95%;
+        width: 95%; /* Slightly increase from previous responsive setting */
     }
     
     .dashboard-header {

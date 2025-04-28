@@ -1,4 +1,4 @@
-{
+module.exports = {
   "Collection": [
     {
       "_id": "67c13b23f07b868c07364b02",
@@ -747,54 +747,54 @@
       "id": "3344",
       "user": "User #2222",
       "part": "DX 544 XLTTTT",
-      "status": "Processing",
+      "status": "Pending",
       "quantity": 5,
       "__v": 0
     },
     {
       "_id": "6807b7088853f2c14c10e44a",
       "id": "335",
-      "user": "User #2223",
-      "part": "Engine Oil",
-      "status": "Completed",
-      "quantity": 3,
-      "__v": 0
-    },
-    {
-      "_id": "6807b7088853f2c14c10e44b",
-      "id": "336",
-      "user": "User #2224",
-      "part": "Filter",
+      "user": "User #9876",
+      "part": "Hydraulic Pump",
       "status": "Pending",
       "quantity": 2,
       "__v": 0
     },
     {
+      "_id": "6807b7088853f2c14c10e44b",
+      "id": "336",
+      "user": "User #5432",
+      "part": "Air Filter Pro",
+      "status": "Pending",
+      "quantity": 4,
+      "__v": 0
+    },
+    {
       "_id": "6807b7088853f2c14c10e44c",
       "id": "337",
-      "user": "User #2225",
-      "part": "Brake Pads",
-      "status": "Processing",
+      "user": "User #1357",
+      "part": "Brake Disc Elite",
+      "status": "Pending",
       "quantity": 1,
       "__v": 0
     },
     {
       "_id": "6807b7088853f2c14c10e44d",
       "id": "338",
-      "user": "User #2226",
-      "part": "Transmission Fluid",
-      "status": "Completed",
-      "quantity": 4,
+      "user": "User #2468",
+      "part": "Transmission Fluid X",
+      "status": "Pending",
+      "quantity": 7,
       "__v": 0
     },
     {
-      "_id": "6807b7088853f2c14c10e44e",
-      "id": "339",
-      "user": "User #2227",
-      "part": "Coolant",
-      "status": "Completed",
-      "quantity": 6,
+      "_id": "6807b7088853f2c14c10e44f",
+      "id": "340",
+      "user": "User #5588",
+      "part": "Gear Set Deluxe",
+      "status": "Pending",
+      "quantity": 8,
       "__v": 0
     }
   ]
-}
+};

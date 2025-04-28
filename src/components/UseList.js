@@ -2,7 +2,7 @@
 This file is responsible for displaying the entire table of orders. It takes the individual rows created in Order.js and puts them together.
 */
 import React from 'react';
-import Order from './Order';
+import Order from './Use';
 
 const getStatusColor = (status) => {
   switch (status) {
@@ -17,7 +17,7 @@ const getStatusColor = (status) => {
   }
 };
 
-function OrderList({ orders }) {
+function OrderTable({ orders }) {
   // Function to calculate totals by status
   const getTotalsByStatus = () => {
     const counts = orders.reduce((acc, order) => {
@@ -32,12 +32,7 @@ function OrderList({ orders }) {
 
   return (
     <div className="dashboard-container">
-      <div className="summary-card">
-        <h2>Summary</h2>
-        <p>Total Orders: {orders.length}</p>
-        <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
-        <p>Orders by Status: {getTotalsByStatus()}</p>
-      </div>
+ 
 
       {/* Here the table begins generating the overall look. It creates the headers and fills in the body of the table using a reference to the Order.js file.
           The body of the table is filled dynamically using the map function to iterate through the orders array and create a new Order component for each order.
@@ -60,8 +55,8 @@ function OrderList({ orders }) {
             </tr>
           </thead>
           <tbody>
-            {orders.map(order => (
-              <Order key={order.orderID} order={order} />
+            {orders.map((order, idx) => (
+              <Order key={`${order.orderID}-${idx}`} order={order} />
             ))}
           </tbody>
         </table>
@@ -70,4 +65,4 @@ function OrderList({ orders }) {
   );
 }
 
-export default OrderList;
+export default OrderTable;

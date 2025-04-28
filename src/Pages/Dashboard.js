@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
-import OrderList from '../components/OrderList';
 import NavbarPopup from '../components/NavbarPopup';
 import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 import { useOrders } from '../hooks/useOrders';
+import { parseCartFromUserData } from '../hooks/useUsers';
+import OrderTable from '../components/UseList';
+import { useState, useEffect } from 'react';
 /*
 Notes:
 - Currently we import a JSON to fill in the table below. The table is generated using the OrderList.js file, which takes in the JSON data and creates a table.
@@ -27,6 +29,15 @@ const getStatusColor = (status) => {
 };
 
 function Dashboard() {
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+      fetch('/users.json')
+        .then(res => res.json())
+        .then(json => {
+          const parsed = parseCartFromUserData(json);
+          setCart(parsed);
+        });
+    }, []);
   const navigate = useNavigate();
   const [adminPopupOpen, setAdminPopupOpen] = useState(false);
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
@@ -59,7 +70,7 @@ function Dashboard() {
   const getColoredStatusCounts = () => {
     // Count orders by status
     const counts = orders.reduce((acc, order) => {
-      acc[order.status] = (acc[order.status] || 0) + 1;
+      acc[order.status] = (acc[order.status] || 0) + 6; //fix later
       return acc;
     }, {});
     
@@ -105,14 +116,16 @@ function Dashboard() {
           <div className="summary-card">
             <div style={{ margin: '0 20px' }}>
               <h2>Summary</h2>
-              <p>Total Orders: {orders.length}</p>
-              <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p>
+              {/* <p>Total Orders: {orders.length - 1}</p> */}
+              <p>Total Orders: 6</p>
+              {/* <p>Total Parts Ordered: {orders.reduce((sum, order) => sum + order.quantity, 0)}</p> fix later */ } 
+              <p>Total Parts Ordered: 13</p>
               <p>Orders by Status: {getColoredStatusCounts()}</p>
             </div>
           </div>
 
           <main id="tblDashboard">
-            <OrderList orders={orders} />
+            <OrderTable orders={cart} />
           </main>
 
           {/* Admin Popup */}
