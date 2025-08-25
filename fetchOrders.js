@@ -52,7 +52,7 @@ async function fetchOrders() {
     }
     
     // Save to JSON file
-    const filePath = path.join(__dirname, 'fullorders.json');
+    const filePath = path.join(__dirname, 'public', 'fullorders.json');
     fs.writeFileSync(filePath, JSON.stringify({ orders }, null, 2));
     
     console.log(`Orders saved to ${filePath}`);
