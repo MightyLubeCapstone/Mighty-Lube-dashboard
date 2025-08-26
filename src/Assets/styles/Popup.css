@@ -36,3 +36,8 @@
   .popup-body {
     padding: 10px;
   } 
+
+  /* SweetAlert2 popup container styling */
+  .swal2-container {
+    padding: 1rem !important;
+  } 

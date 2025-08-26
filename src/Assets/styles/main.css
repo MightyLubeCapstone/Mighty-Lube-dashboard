@@ -245,6 +245,47 @@ tr:nth-child(even) {
     padding: 1rem 2rem;
 }
 
+/* SweetAlert2 large popup styling */
+.swal2-fullscreen-popup {
+    width: 80% !important;
+    height: 80vh !important;
+    max-width: 80% !important;
+    max-height: 60vh !important;
+    min-width: 600px !important;
+    min-height: 700px !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.swal2-fullscreen-popup .swal2-title {
+    font-size: 1.5rem !important;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.swal2-fullscreen-popup .swal2-html-container {
+    padding: 0 1.5rem 1.5rem 1.5rem !important;
+    font-size: 1rem !important;
+    margin: 0 !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+.swal2-fullscreen-popup .swal2-actions {
+    padding: 0 1.5rem 1.5rem 1.5rem !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Ensure the popup container takes full screen */
+.swal2-container.swal2-shown {
+    padding: 0 !important;
+    background: #ffffff !important;
+}
+
 #tblDashboard {
     overflow: auto;
     -ms-overflow-style: none;

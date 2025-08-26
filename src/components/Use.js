@@ -1,17 +1,47 @@
 import React from 'react';
-import Popup from './Popup';
-import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function Order({ order }) {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const getStatus = (quantity) => 'Pending';
 
-  const openPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
+  const handleDetailsClick = () => {
+    Swal.fire({
+      title: `Order #${order.orderID} Details`,
+      html: `
+        <div style="text-align: left; padding: 20px;">
+          <div style="margin-bottom: 15px;">
+            <strong>Order ID:</strong> #${order.orderID}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Product Type:</strong> ${order.productType}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Conveyor:</strong> ${order.conveyorName}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Status:</strong> <span style="color: #ffa500;">${getStatus(order.quantity)}</span>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Quantity:</strong> ${order.quantity}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <strong>Created Date:</strong> ${order.createdDate}
+          </div>
+        </div>
+      `,
+      background: '#ffffff',
+      showConfirmButton: true,
+      confirmButtonText: 'Close',
+      confirmButtonColor: '#007bff',
+      showCloseButton: true,
+      allowOutsideClick: true,
+      allowEscapeKey: true,
+      width: '80%',
+      height: '60vh',
+      customClass: {
+        popup: 'swal2-fullscreen-popup'
+      }
+    });
   };
 
   const getStatusColor = (status) => {
@@ -41,13 +71,9 @@ function Order({ order }) {
       <td>{order.quantity}</td>
       <td>{order.createdDate}</td>
       <td>
-        <button className="details-button">Details</button>
+        <button className="details-button" onClick={handleDetailsClick}>Details</button>
       </td>
     </tr>
-    <Popup isOpen={isPopupOpen} onClose={closePopup}>
-        <h2>Order Details</h2>
-        <p>Here you can add detailed information about order #{order.id}</p>
-      </Popup>
     </>
   );
 }
