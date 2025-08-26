@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
-import { useOrders } from '../hooks/useOrders';
 import { parseCartFromUserData } from '../hooks/useUsers';
 import OrderTable from '../components/UseList';
 import { useState, useEffect } from 'react';
@@ -39,7 +38,6 @@ function Dashboard() {
   const navigate = useNavigate();
   const [adminPopupOpen, setAdminPopupOpen] = useState(false);
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
-  const { orders, loading, error } = useOrders();
 
   const handleLogout = () => {
     // Here you would typically clear any authentication tokens

@@ -4,32 +4,7 @@ This file is responsible for displaying the entire table of orders. It takes the
 import React from 'react';
 import Order from './Use';
 
-const getStatusColor = (status) => {
-  switch (status) {
-    case 'Processing':
-      return '#ffa500';
-    case 'Completed':
-      return '#28a745';
-    case 'Pending':
-      return '#ffa500';
-    default:
-      return 'black';
-  }
-};
-
 function OrderTable({ orders }) {
-  // Function to calculate totals by status
-  const getTotalsByStatus = () => {
-    const counts = orders.reduce((acc, order) => {
-      acc[order.status] = (acc[order.status] || 0) + 1;
-      return acc;
-    }, {});
-
-    return Object.entries(counts)
-      .map(([status, count]) => `${status} (${count})`)
-      .join(', ');
-  };
-
   return (
     <div className="dashboard-container">
  
