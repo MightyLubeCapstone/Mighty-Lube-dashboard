@@ -1,0 +1,2964 @@
+{
+  "users": [
+    {
+      "_id": "67c13b23f07b868c07364b02",
+      "userID": "8d6cf435-e789-42a3-8ac6-82cf9b06dcc0",
+      "username": "jdoe123",
+      "password": "$2b$10$DZjKrC2YQubBuyfaA7L//.Ve0sJ9XaBI80MKjx5eTYc3Vy53h.1Xu",
+      "firstName": "JohnNEWTEST",
+      "lastName": "Doe",
+      "email": "jdoe@gmail.com",
+      "phoneNumber": "1234567891",
+      "companyName": "aabc",
+      "country": "United States",
+      "sessions": [
+        {
+          "sessionID": "e746835e-eff2-4d57-812e-3b867c8249fd",
+          "_id": "67e553eb71fda268ad1de15a",
+          "createdAt": "2025-03-27T13:34:35.015Z",
+          "expiresAt": "2025-03-28T01:34:35.015Z"
+        },
+        {
+          "sessionID": "53ea0a18-2699-432c-aeba-96681ddb4825",
+          "_id": "67e5e89471fda268ad1de277",
+          "createdAt": "2025-03-28T00:08:52.544Z",
+          "expiresAt": "2025-03-28T12:08:52.544Z"
+        },
+        {
+          "sessionID": "b3ff97b7-5abd-4896-9b9e-f04fb656cdf9",
+          "_id": "67e705c3456e646162bade49",
+          "createdAt": "2025-03-28T20:25:39.627Z",
+          "expiresAt": "2025-03-29T08:25:39.627Z"
+        },
+        {
+          "sessionID": "16690e2a-5289-485a-afc9-64420695fdac",
+          "_id": "67e707dd456e646162badf3a",
+          "createdAt": "2025-03-28T20:34:37.567Z",
+          "expiresAt": "2025-03-29T08:34:37.567Z"
+        },
+        {
+          "sessionID": "2d5c7b56-29b5-407c-ae73-1489becec70c",
+          "_id": "67ebf07697bd35ba37b6151f",
+          "createdAt": "2025-04-01T13:56:06.549Z",
+          "expiresAt": "2025-04-02T01:56:06.549Z"
+        },
+        {
+          "sessionID": "1ebdd118-97c4-4f8a-ae5d-7cedec9c5dfd",
+          "_id": "67eddc1197bd35ba37b61ad1",
+          "createdAt": "2025-04-03T00:53:37.501Z",
+          "expiresAt": "2025-04-03T12:53:37.501Z"
+        },
+        {
+          "sessionID": "0b3ef78a-ca6e-42eb-94a8-df7081816c1e",
+          "_id": "67eddc5397bd35ba37b61bb3",
+          "createdAt": "2025-04-03T00:54:43.570Z",
+          "expiresAt": "2025-04-03T12:54:43.570Z"
+        },
+        {
+          "sessionID": "290a5595-463f-4ef0-bb72-23f6d6f58669",
+          "_id": "67eddd9d97bd35ba37b61ce9",
+          "createdAt": "2025-04-03T01:00:13.453Z",
+          "expiresAt": "2025-04-03T13:00:13.453Z"
+        },
+        {
+          "sessionID": "765f4efa-6614-44c0-9403-8e95c65a48a1",
+          "_id": "67edde3f97bd35ba37b61d54",
+          "createdAt": "2025-04-03T01:02:55.733Z",
+          "expiresAt": "2025-04-03T13:02:55.733Z"
+        },
+        {
+          "sessionID": "6e821bf4-cb7f-4d11-9af2-50fd60b8f7dc",
+          "_id": "67ee618997bd35ba37b630c1",
+          "createdAt": "2025-04-03T10:23:05.292Z",
+          "expiresAt": "2025-04-03T22:23:05.292Z"
+        },
+        {
+          "sessionID": "453f69d4-17ee-4bcd-b088-27baa92f1a6b",
+          "_id": "67eee07797bd35ba37b632a1",
+          "createdAt": "2025-04-03T19:24:39.804Z",
+          "expiresAt": "2025-04-04T07:24:39.804Z"
+        },
+        {
+          "sessionID": "74416e66-bbe9-4309-bc1e-db50b21d1098",
+          "_id": "67ef28f797bd35ba37b635ae",
+          "createdAt": "2025-04-04T00:33:59.833Z",
+          "expiresAt": "2025-04-04T12:33:59.833Z"
+        },
+        {
+          "sessionID": "a3f4a6fa-3a10-40c3-bddb-97de698538cd",
+          "_id": "67ef37909d49609a34dd522e",
+          "createdAt": "2025-04-04T01:36:16.962Z",
+          "expiresAt": "2025-04-04T13:36:16.962Z"
+        },
+        {
+          "sessionID": "1c04eb11-f0e1-41a5-8948-a42fc45c72db",
+          "_id": "67f044946d6db3afa2aa6b75",
+          "createdAt": "2025-04-04T20:44:04.252Z",
+          "expiresAt": "2025-04-05T08:44:04.252Z"
+        },
+        {
+          "sessionID": "3ffbcb6a-0768-4392-8b83-59b42dbc6e2a",
+          "_id": "67f046956d6db3afa2aa6d20",
+          "createdAt": "2025-04-04T20:52:37.793Z",
+          "expiresAt": "2025-04-05T08:52:37.793Z"
+        },
+        {
+          "sessionID": "360fb18a-7577-4e94-9043-dd9090d8b550",
+          "_id": "67f047bc6d6db3afa2aa6f2c",
+          "createdAt": "2025-04-04T20:57:32.769Z",
+          "expiresAt": "2025-04-05T08:57:32.769Z"
+        },
+        {
+          "sessionID": "1ee6c476-2a1c-4698-8ced-91d88c8c7429",
+          "_id": "67f3ec716d6db3afa2aa8f60",
+          "createdAt": "2025-04-07T15:17:05.674Z",
+          "expiresAt": "2025-04-08T03:17:05.674Z"
+        },
+        {
+          "sessionID": "5c4c8843-0125-45c0-9d4d-62ce12c8a656",
+          "_id": "67f7f01c86ff010e57412e9c",
+          "createdAt": "2025-04-10T16:21:48.467Z",
+          "expiresAt": "2025-04-11T04:21:48.467Z"
+        },
+        {
+          "sessionID": "869290ad-b7be-4238-be9f-119cdaccfc24",
+          "_id": "67f7f09386ff010e57412fbf",
+          "createdAt": "2025-04-10T16:23:47.184Z",
+          "expiresAt": "2025-04-11T04:23:47.184Z"
+        },
+        {
+          "sessionID": "f74f6abb-b589-4035-8d58-093e1f885978",
+          "_id": "67f7f96764145a0b484798b5",
+          "createdAt": "2025-04-10T17:01:27.246Z",
+          "expiresAt": "2025-04-11T05:01:27.246Z"
+        },
+        {
+          "sessionID": "6a38bbfd-647f-47ba-991f-f69d3d50ab4d",
+          "_id": "67f7f9a464145a0b484799ac",
+          "createdAt": "2025-04-10T17:02:28.931Z",
+          "expiresAt": "2025-04-11T05:02:28.931Z"
+        },
+        {
+          "sessionID": "6f7f5450-6926-432c-ad88-c28d1cae72ba",
+          "_id": "67f7fa1f64145a0b48479b16",
+          "createdAt": "2025-04-10T17:04:31.609Z",
+          "expiresAt": "2025-04-11T05:04:31.609Z"
+        },
+        {
+          "sessionID": "63d1357d-58b6-4709-8c41-2cb526a2fbe0",
+          "_id": "67f827f7a9228e4a10efed91",
+          "createdAt": "2025-04-10T20:20:07.961Z",
+          "expiresAt": "2025-04-11T08:20:07.961Z"
+        },
+        {
+          "sessionID": "6a856f87-0d59-408b-b417-766e200b573c",
+          "_id": "67f977eaa9228e4a10f01825",
+          "createdAt": "2025-04-11T20:13:30.054Z",
+          "expiresAt": "2025-04-12T08:13:30.055Z"
+        },
+        {
+          "sessionID": "ca55bd59-c2cf-4fff-89a1-fde4aa1cda95",
+          "_id": "67fc6bc2278de37f4110bf36",
+          "createdAt": "2025-04-14T01:58:26.565Z",
+          "expiresAt": "2025-04-14T13:58:26.565Z"
+        },
+        {
+          "sessionID": "3dc4ad9a-1f15-498a-99e4-d6ad20094666",
+          "_id": "67fd0b1973553ef8eef6169e",
+          "createdAt": "2025-04-14T13:18:17.271Z",
+          "expiresAt": "2025-04-15T01:18:17.271Z"
+        },
+        {
+          "sessionID": "e863725d-effa-4e6f-b8f3-c0ec2bd4ccd9",
+          "_id": "67fd65ffef93c3b0dd187da7",
+          "createdAt": "2025-04-14T19:46:07.572Z",
+          "expiresAt": "2025-04-15T07:46:07.572Z"
+        },
+        {
+          "sessionID": "32256b6a-615d-4d70-9ec6-2686cefb4fd7",
+          "_id": "67fe5b854450db589a589172",
+          "createdAt": "2025-04-15T13:13:41.955Z",
+          "expiresAt": "2025-04-16T01:13:41.955Z"
+        }
+      ],
+      "cart": [
+        {
+          "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+          "orderCreated": "2025-04-10T21:27:34.023Z",
+          "numRequested": 1,
+          "productConfigurationInfo": {
+            "conveyorName": "a",
+            "chainPinType": 1,
+            "conveyorLength": 1,
+            "conveyorLengthUnit": 1,
+            "conveyorSpeed": 1,
+            "conveyorSpeedUnit": 1,
+            "conveyorIndex": "",
+            "travelDirection": 1,
+            "metalType": 1,
+            "conveyorStyle": 2,
+            "trolleyColor": 1,
+            "trolleyType": 4,
+            "surroundingTemp": 1,
+            "conveyorLoaded": 1,
+            "conveyorSwing": 2,
+            "plantLayout": 1,
+            "requiredPics": 1,
+            "operatingVoltage": 1,
+            "sideLube": 1,
+            "topLube": 1,
+            "cleanChain": 2,
+            "wireMeasurementUnit": 1,
+            "conductor4": 1,
+            "conductor7": 1,
+            "conductor2": 1,
+            "_id": "67f837c5a9228e4a10f00221"
+          },
+          "productType": "FGLM",
+          "_id": "67f837c6a9228e4a10f00222"
+        }
+      ],
+      "drafts": [
+        {
+          "cart": [
+            {
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e",
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z"
+            }
+          ],
+          "draftTitle": "Apple Test (Newest)",
+          "_id": "67ee192b97bd35ba37b62f17",
+          "cartID": "10707408-f9d0-4ac0-99f8-dc5272a4c8e7",
+          "dateSaved": "2025-04-03T05:14:19.478Z"
+        },
+        {
+          "cart": [
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222",
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z"
+            }
+          ],
+          "draftTitle": "FGLM",
+          "_id": "67f837cfa9228e4a10f003de",
+          "cartID": "d54090e7-9413-49dc-aef1-169a97334b36",
+          "dateSaved": "2025-04-10T21:27:43.822Z"
+        }
+      ],
+      "configurations": [
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Configuration #1",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            }
+          ],
+          "_id": "67c61b4887ac21635dd5f006",
+          "dateOrdered": "2025-03-03T21:12:40.781Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Test",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            },
+            {
+              "orderID": "b89c1280-2f39-4ede-92bb-87229070bdc5",
+              "orderCreated": "2025-03-01T01:12:19.188Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef35fc972fe69b8674f"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef35fc972fe69b86750"
+            },
+            {
+              "orderID": "d7d23cf8-75ee-4fec-a4f5-98779f287161",
+              "orderCreated": "2025-03-02T04:46:31.084Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainPinType": 1,
+                "conveyorLength": "1",
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": "1",
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "1",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 3,
+                "trolleyColor": 2,
+                "trolleyType": 2,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 1,
+                "plantLayout": 2,
+                "requiredPics": 2,
+                "operatingVoltage": "1",
+                "existingMonitor": 1,
+                "newMonitor": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 3,
+                "conductor4": "1",
+                "conductor7": "1",
+                "conductor2": "1",
+                "_id": "67c3e2a7baddd4448f374300"
+              },
+              "productType": "FGLM",
+              "_id": "67c3e2a7baddd4448f374301"
+            }
+          ],
+          "_id": "67e6b1aa456e646162badcb6",
+          "dateOrdered": "2025-03-28T14:26:50.081Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67edd4ad97bd35ba37b619ec",
+          "dateOrdered": "2025-04-03T00:22:05.210Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a0497bd35ba37b62ab0",
+          "dateOrdered": "2025-04-03T04:09:40.016Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (New)",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a6e97bd35ba37b62c38",
+          "dateOrdered": "2025-04-03T04:11:26.192Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (Newest)",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ee194597bd35ba37b6302b",
+          "dateOrdered": "2025-04-03T05:14:45.087Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "WOOOOHOOOOOO",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef2d9b97bd35ba37b64adb",
+          "dateOrdered": "2025-04-04T00:53:47.530Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Zach Congif",
+          "cart": [
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            },
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef3b009d49609a34dd6024",
+          "dateOrdered": "2025-04-04T01:50:56.464Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "test",
+          "cart": [
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": -1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 2,
+                "conveyorSwing": 1,
+                "plantLayout": -1,
+                "requiredPics": -1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f9785aa9228e4a10f01def"
+              },
+              "productType": "FGLM",
+              "_id": "67f9785aa9228e4a10f01df0",
+              "orderID": "bf342d51-7f0d-452d-9d65-0a5c01892496",
+              "orderCreated": "2025-04-11T20:15:22.207Z"
+            }
+          ],
+          "_id": "67fc6bd1278de37f4110c0b2",
+          "dateOrdered": "2025-04-14T01:58:41.212Z"
+        }
+      ],
+      "__v": 268
+    },
+    {
+      "_id": "68adeb2965b9d0c5da950b3a",
+      "userID": "74422-e789-42a3-8ac6-82cf9b06dcc0",
+      "username": "jdoe123",
+      "password": "$2b$10$DZjKrC2YQubBuyfaA7L//.Ve0sJ9XaBI80MKjx5eTYc3Vy53h.1Xu",
+      "firstName": "JohnSecondNewTest",
+      "lastName": "Doe",
+      "email": "jdoe@gmail.com",
+      "phoneNumber": "1234567891",
+      "companyName": "aabc",
+      "country": "United States",
+      "sessions": [
+        {
+          "sessionID": "e746835e-eff2-4d57-812e-3b867c8249fd",
+          "_id": "67e553eb71fda268ad1de15a",
+          "createdAt": "2025-03-27T13:34:35.015Z",
+          "expiresAt": "2025-03-28T01:34:35.015Z"
+        },
+        {
+          "sessionID": "53ea0a18-2699-432c-aeba-96681ddb4825",
+          "_id": "67e5e89471fda268ad1de277",
+          "createdAt": "2025-03-28T00:08:52.544Z",
+          "expiresAt": "2025-03-28T12:08:52.544Z"
+        },
+        {
+          "sessionID": "b3ff97b7-5abd-4896-9b9e-f04fb656cdf9",
+          "_id": "67e705c3456e646162bade49",
+          "createdAt": "2025-03-28T20:25:39.627Z",
+          "expiresAt": "2025-03-29T08:25:39.627Z"
+        },
+        {
+          "sessionID": "16690e2a-5289-485a-afc9-64420695fdac",
+          "_id": "67e707dd456e646162badf3a",
+          "createdAt": "2025-03-28T20:34:37.567Z",
+          "expiresAt": "2025-03-29T08:34:37.567Z"
+        },
+        {
+          "sessionID": "2d5c7b56-29b5-407c-ae73-1489becec70c",
+          "_id": "67ebf07697bd35ba37b6151f",
+          "createdAt": "2025-04-01T13:56:06.549Z",
+          "expiresAt": "2025-04-02T01:56:06.549Z"
+        },
+        {
+          "sessionID": "1ebdd118-97c4-4f8a-ae5d-7cedec9c5dfd",
+          "_id": "67eddc1197bd35ba37b61ad1",
+          "createdAt": "2025-04-03T00:53:37.501Z",
+          "expiresAt": "2025-04-03T12:53:37.501Z"
+        },
+        {
+          "sessionID": "0b3ef78a-ca6e-42eb-94a8-df7081816c1e",
+          "_id": "67eddc5397bd35ba37b61bb3",
+          "createdAt": "2025-04-03T00:54:43.570Z",
+          "expiresAt": "2025-04-03T12:54:43.570Z"
+        },
+        {
+          "sessionID": "290a5595-463f-4ef0-bb72-23f6d6f58669",
+          "_id": "67eddd9d97bd35ba37b61ce9",
+          "createdAt": "2025-04-03T01:00:13.453Z",
+          "expiresAt": "2025-04-03T13:00:13.453Z"
+        },
+        {
+          "sessionID": "765f4efa-6614-44c0-9403-8e95c65a48a1",
+          "_id": "67edde3f97bd35ba37b61d54",
+          "createdAt": "2025-04-03T01:02:55.733Z",
+          "expiresAt": "2025-04-03T13:02:55.733Z"
+        },
+        {
+          "sessionID": "6e821bf4-cb7f-4d11-9af2-50fd60b8f7dc",
+          "_id": "67ee618997bd35ba37b630c1",
+          "createdAt": "2025-04-03T10:23:05.292Z",
+          "expiresAt": "2025-04-03T22:23:05.292Z"
+        },
+        {
+          "sessionID": "453f69d4-17ee-4bcd-b088-27baa92f1a6b",
+          "_id": "67eee07797bd35ba37b632a1",
+          "createdAt": "2025-04-03T19:24:39.804Z",
+          "expiresAt": "2025-04-04T07:24:39.804Z"
+        },
+        {
+          "sessionID": "74416e66-bbe9-4309-bc1e-db50b21d1098",
+          "_id": "67ef28f797bd35ba37b635ae",
+          "createdAt": "2025-04-04T00:33:59.833Z",
+          "expiresAt": "2025-04-04T12:33:59.833Z"
+        },
+        {
+          "sessionID": "a3f4a6fa-3a10-40c3-bddb-97de698538cd",
+          "_id": "67ef37909d49609a34dd522e",
+          "createdAt": "2025-04-04T01:36:16.962Z",
+          "expiresAt": "2025-04-04T13:36:16.962Z"
+        },
+        {
+          "sessionID": "1c04eb11-f0e1-41a5-8948-a42fc45c72db",
+          "_id": "67f044946d6db3afa2aa6b75",
+          "createdAt": "2025-04-04T20:44:04.252Z",
+          "expiresAt": "2025-04-05T08:44:04.252Z"
+        },
+        {
+          "sessionID": "3ffbcb6a-0768-4392-8b83-59b42dbc6e2a",
+          "_id": "67f046956d6db3afa2aa6d20",
+          "createdAt": "2025-04-04T20:52:37.793Z",
+          "expiresAt": "2025-04-05T08:52:37.793Z"
+        },
+        {
+          "sessionID": "360fb18a-7577-4e94-9043-dd9090d8b550",
+          "_id": "67f047bc6d6db3afa2aa6f2c",
+          "createdAt": "2025-04-04T20:57:32.769Z",
+          "expiresAt": "2025-04-05T08:57:32.769Z"
+        },
+        {
+          "sessionID": "1ee6c476-2a1c-4698-8ced-91d88c8c7429",
+          "_id": "67f3ec716d6db3afa2aa8f60",
+          "createdAt": "2025-04-07T15:17:05.674Z",
+          "expiresAt": "2025-04-08T03:17:05.674Z"
+        },
+        {
+          "sessionID": "5c4c8843-0125-45c0-9d4d-62ce12c8a656",
+          "_id": "67f7f01c86ff010e57412e9c",
+          "createdAt": "2025-04-10T16:21:48.467Z",
+          "expiresAt": "2025-04-11T04:21:48.467Z"
+        },
+        {
+          "sessionID": "869290ad-b7be-4238-be9f-119cdaccfc24",
+          "_id": "67f7f09386ff010e57412fbf",
+          "createdAt": "2025-04-10T16:23:47.184Z",
+          "expiresAt": "2025-04-11T04:23:47.184Z"
+        },
+        {
+          "sessionID": "f74f6abb-b589-4035-8d58-093e1f885978",
+          "_id": "67f7f96764145a0b484798b5",
+          "createdAt": "2025-04-10T17:01:27.246Z",
+          "expiresAt": "2025-04-11T05:01:27.246Z"
+        },
+        {
+          "sessionID": "6a38bbfd-647f-47ba-991f-f69d3d50ab4d",
+          "_id": "67f7f9a464145a0b484799ac",
+          "createdAt": "2025-04-10T17:02:28.931Z",
+          "expiresAt": "2025-04-11T05:02:28.931Z"
+        },
+        {
+          "sessionID": "6f7f5450-6926-432c-ad88-c28d1cae72ba",
+          "_id": "67f7fa1f64145a0b48479b16",
+          "createdAt": "2025-04-10T17:04:31.609Z",
+          "expiresAt": "2025-04-11T05:04:31.609Z"
+        },
+        {
+          "sessionID": "63d1357d-58b6-4709-8c41-2cb526a2fbe0",
+          "_id": "67f827f7a9228e4a10efed91",
+          "createdAt": "2025-04-10T20:20:07.961Z",
+          "expiresAt": "2025-04-11T08:20:07.961Z"
+        },
+        {
+          "sessionID": "6a856f87-0d59-408b-b417-766e200b573c",
+          "_id": "67f977eaa9228e4a10f01825",
+          "createdAt": "2025-04-11T20:13:30.054Z",
+          "expiresAt": "2025-04-12T08:13:30.055Z"
+        },
+        {
+          "sessionID": "ca55bd59-c2cf-4fff-89a1-fde4aa1cda95",
+          "_id": "67fc6bc2278de37f4110bf36",
+          "createdAt": "2025-04-14T01:58:26.565Z",
+          "expiresAt": "2025-04-14T13:58:26.565Z"
+        },
+        {
+          "sessionID": "3dc4ad9a-1f15-498a-99e4-d6ad20094666",
+          "_id": "67fd0b1973553ef8eef6169e",
+          "createdAt": "2025-04-14T13:18:17.271Z",
+          "expiresAt": "2025-04-15T01:18:17.271Z"
+        },
+        {
+          "sessionID": "e863725d-effa-4e6f-b8f3-c0ec2bd4ccd9",
+          "_id": "67fd65ffef93c3b0dd187da7",
+          "createdAt": "2025-04-14T19:46:07.572Z",
+          "expiresAt": "2025-04-15T07:46:07.572Z"
+        },
+        {
+          "sessionID": "32256b6a-615d-4d70-9ec6-2686cefb4fd7",
+          "_id": "67fe5b854450db589a589172",
+          "createdAt": "2025-04-15T13:13:41.955Z",
+          "expiresAt": "2025-04-16T01:13:41.955Z"
+        }
+      ],
+      "cart": [
+        {
+          "orderID": "7777hn-101f-4c2e-bc05-bf609c5bdfb5",
+          "orderCreated": "2025-04-10T21:27:34.023Z",
+          "numRequested": 1,
+          "productConfigurationInfo": {
+            "conveyorName": "a",
+            "chainPinType": 1,
+            "conveyorLength": 1,
+            "conveyorLengthUnit": 1,
+            "conveyorSpeed": 1,
+            "conveyorSpeedUnit": 1,
+            "conveyorIndex": "",
+            "travelDirection": 1,
+            "metalType": 1,
+            "conveyorStyle": 2,
+            "trolleyColor": 1,
+            "trolleyType": 4,
+            "surroundingTemp": 1,
+            "conveyorLoaded": 1,
+            "conveyorSwing": 2,
+            "plantLayout": 1,
+            "requiredPics": 1,
+            "operatingVoltage": 1,
+            "sideLube": 1,
+            "topLube": 1,
+            "cleanChain": 2,
+            "wireMeasurementUnit": 1,
+            "conductor4": 1,
+            "conductor7": 1,
+            "conductor2": 1,
+            "_id": "67f837c5a9228e4a10f00221"
+          },
+          "productType": "FGLM",
+          "_id": "67f837c6a9228e4a10f00222"
+        }
+      ],
+      "drafts": [
+        {
+          "cart": [
+            {
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e",
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z"
+            }
+          ],
+          "draftTitle": "Apple Test (Newest)",
+          "_id": "67ee192b97bd35ba37b62f17",
+          "cartID": "10707408-f9d0-4ac0-99f8-dc5272a4c8e7",
+          "dateSaved": "2025-04-03T05:14:19.478Z"
+        },
+        {
+          "cart": [
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222",
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z"
+            }
+          ],
+          "draftTitle": "FGLM",
+          "_id": "67f837cfa9228e4a10f003de",
+          "cartID": "d54090e7-9413-49dc-aef1-169a97334b36",
+          "dateSaved": "2025-04-10T21:27:43.822Z"
+        }
+      ],
+      "configurations": [
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Configuration #1",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            }
+          ],
+          "_id": "67c61b4887ac21635dd5f006",
+          "dateOrdered": "2025-03-03T21:12:40.781Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Test",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            },
+            {
+              "orderID": "b89c1280-2f39-4ede-92bb-87229070bdc5",
+              "orderCreated": "2025-03-01T01:12:19.188Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef35fc972fe69b8674f"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef35fc972fe69b86750"
+            },
+            {
+              "orderID": "d7d23cf8-75ee-4fec-a4f5-98779f287161",
+              "orderCreated": "2025-03-02T04:46:31.084Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainPinType": 1,
+                "conveyorLength": "1",
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": "1",
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "1",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 3,
+                "trolleyColor": 2,
+                "trolleyType": 2,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 1,
+                "plantLayout": 2,
+                "requiredPics": 2,
+                "operatingVoltage": "1",
+                "existingMonitor": 1,
+                "newMonitor": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 3,
+                "conductor4": "1",
+                "conductor7": "1",
+                "conductor2": "1",
+                "_id": "67c3e2a7baddd4448f374300"
+              },
+              "productType": "FGLM",
+              "_id": "67c3e2a7baddd4448f374301"
+            }
+          ],
+          "_id": "67e6b1aa456e646162badcb6",
+          "dateOrdered": "2025-03-28T14:26:50.081Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67edd4ad97bd35ba37b619ec",
+          "dateOrdered": "2025-04-03T00:22:05.210Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a0497bd35ba37b62ab0",
+          "dateOrdered": "2025-04-03T04:09:40.016Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (New)",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a6e97bd35ba37b62c38",
+          "dateOrdered": "2025-04-03T04:11:26.192Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (Newest)",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ee194597bd35ba37b6302b",
+          "dateOrdered": "2025-04-03T05:14:45.087Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "WOOOOHOOOOOO",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef2d9b97bd35ba37b64adb",
+          "dateOrdered": "2025-04-04T00:53:47.530Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Zach Congif",
+          "cart": [
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            },
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef3b009d49609a34dd6024",
+          "dateOrdered": "2025-04-04T01:50:56.464Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "test",
+          "cart": [
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": -1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 2,
+                "conveyorSwing": 1,
+                "plantLayout": -1,
+                "requiredPics": -1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f9785aa9228e4a10f01def"
+              },
+              "productType": "FGLM",
+              "_id": "67f9785aa9228e4a10f01df0",
+              "orderID": "bf342d51-7f0d-452d-9d65-0a5c01892496",
+              "orderCreated": "2025-04-11T20:15:22.207Z"
+            }
+          ],
+          "_id": "67fc6bd1278de37f4110c0b2",
+          "dateOrdered": "2025-04-14T01:58:41.212Z"
+        }
+      ],
+      "__v": 268
+    },
+    {
+      "_id": "68adeda465b9d0c5da950b3b",
+      "userID": "7432235-e789-42a3-8ac6-82cf9b06dcc0",
+      "username": "jdoe123",
+      "password": "$2b$10$DZjKrC2YQubBuyfaA7L//.Ve0sJ9XaBI80MKjx5eTYc3Vy53h.1Xu",
+      "firstName": "JohnSecondNewTest",
+      "lastName": "Doe",
+      "email": "jdoe@gmail.com",
+      "phoneNumber": "1234567891",
+      "companyName": "aabc",
+      "country": "United States",
+      "sessions": [
+        {
+          "sessionID": "e746835e-eff2-4d57-812e-3b867c8249fd",
+          "_id": "67e553eb71fda268ad1de15a",
+          "createdAt": "2025-03-27T13:34:35.015Z",
+          "expiresAt": "2025-03-28T01:34:35.015Z"
+        },
+        {
+          "sessionID": "53ea0a18-2699-432c-aeba-96681ddb4825",
+          "_id": "67e5e89471fda268ad1de277",
+          "createdAt": "2025-03-28T00:08:52.544Z",
+          "expiresAt": "2025-03-28T12:08:52.544Z"
+        },
+        {
+          "sessionID": "b3ff97b7-5abd-4896-9b9e-f04fb656cdf9",
+          "_id": "67e705c3456e646162bade49",
+          "createdAt": "2025-03-28T20:25:39.627Z",
+          "expiresAt": "2025-03-29T08:25:39.627Z"
+        },
+        {
+          "sessionID": "16690e2a-5289-485a-afc9-64420695fdac",
+          "_id": "67e707dd456e646162badf3a",
+          "createdAt": "2025-03-28T20:34:37.567Z",
+          "expiresAt": "2025-03-29T08:34:37.567Z"
+        },
+        {
+          "sessionID": "2d5c7b56-29b5-407c-ae73-1489becec70c",
+          "_id": "67ebf07697bd35ba37b6151f",
+          "createdAt": "2025-04-01T13:56:06.549Z",
+          "expiresAt": "2025-04-02T01:56:06.549Z"
+        },
+        {
+          "sessionID": "1ebdd118-97c4-4f8a-ae5d-7cedec9c5dfd",
+          "_id": "67eddc1197bd35ba37b61ad1",
+          "createdAt": "2025-04-03T00:53:37.501Z",
+          "expiresAt": "2025-04-03T12:53:37.501Z"
+        },
+        {
+          "sessionID": "0b3ef78a-ca6e-42eb-94a8-df7081816c1e",
+          "_id": "67eddc5397bd35ba37b61bb3",
+          "createdAt": "2025-04-03T00:54:43.570Z",
+          "expiresAt": "2025-04-03T12:54:43.570Z"
+        },
+        {
+          "sessionID": "290a5595-463f-4ef0-bb72-23f6d6f58669",
+          "_id": "67eddd9d97bd35ba37b61ce9",
+          "createdAt": "2025-04-03T01:00:13.453Z",
+          "expiresAt": "2025-04-03T13:00:13.453Z"
+        },
+        {
+          "sessionID": "765f4efa-6614-44c0-9403-8e95c65a48a1",
+          "_id": "67edde3f97bd35ba37b61d54",
+          "createdAt": "2025-04-03T01:02:55.733Z",
+          "expiresAt": "2025-04-03T13:02:55.733Z"
+        },
+        {
+          "sessionID": "6e821bf4-cb7f-4d11-9af2-50fd60b8f7dc",
+          "_id": "67ee618997bd35ba37b630c1",
+          "createdAt": "2025-04-03T10:23:05.292Z",
+          "expiresAt": "2025-04-03T22:23:05.292Z"
+        },
+        {
+          "sessionID": "453f69d4-17ee-4bcd-b088-27baa92f1a6b",
+          "_id": "67eee07797bd35ba37b632a1",
+          "createdAt": "2025-04-03T19:24:39.804Z",
+          "expiresAt": "2025-04-04T07:24:39.804Z"
+        },
+        {
+          "sessionID": "74416e66-bbe9-4309-bc1e-db50b21d1098",
+          "_id": "67ef28f797bd35ba37b635ae",
+          "createdAt": "2025-04-04T00:33:59.833Z",
+          "expiresAt": "2025-04-04T12:33:59.833Z"
+        },
+        {
+          "sessionID": "a3f4a6fa-3a10-40c3-bddb-97de698538cd",
+          "_id": "67ef37909d49609a34dd522e",
+          "createdAt": "2025-04-04T01:36:16.962Z",
+          "expiresAt": "2025-04-04T13:36:16.962Z"
+        },
+        {
+          "sessionID": "1c04eb11-f0e1-41a5-8948-a42fc45c72db",
+          "_id": "67f044946d6db3afa2aa6b75",
+          "createdAt": "2025-04-04T20:44:04.252Z",
+          "expiresAt": "2025-04-05T08:44:04.252Z"
+        },
+        {
+          "sessionID": "3ffbcb6a-0768-4392-8b83-59b42dbc6e2a",
+          "_id": "67f046956d6db3afa2aa6d20",
+          "createdAt": "2025-04-04T20:52:37.793Z",
+          "expiresAt": "2025-04-05T08:52:37.793Z"
+        },
+        {
+          "sessionID": "360fb18a-7577-4e94-9043-dd9090d8b550",
+          "_id": "67f047bc6d6db3afa2aa6f2c",
+          "createdAt": "2025-04-04T20:57:32.769Z",
+          "expiresAt": "2025-04-05T08:57:32.769Z"
+        },
+        {
+          "sessionID": "1ee6c476-2a1c-4698-8ced-91d88c8c7429",
+          "_id": "67f3ec716d6db3afa2aa8f60",
+          "createdAt": "2025-04-07T15:17:05.674Z",
+          "expiresAt": "2025-04-08T03:17:05.674Z"
+        },
+        {
+          "sessionID": "5c4c8843-0125-45c0-9d4d-62ce12c8a656",
+          "_id": "67f7f01c86ff010e57412e9c",
+          "createdAt": "2025-04-10T16:21:48.467Z",
+          "expiresAt": "2025-04-11T04:21:48.467Z"
+        },
+        {
+          "sessionID": "869290ad-b7be-4238-be9f-119cdaccfc24",
+          "_id": "67f7f09386ff010e57412fbf",
+          "createdAt": "2025-04-10T16:23:47.184Z",
+          "expiresAt": "2025-04-11T04:23:47.184Z"
+        },
+        {
+          "sessionID": "f74f6abb-b589-4035-8d58-093e1f885978",
+          "_id": "67f7f96764145a0b484798b5",
+          "createdAt": "2025-04-10T17:01:27.246Z",
+          "expiresAt": "2025-04-11T05:01:27.246Z"
+        },
+        {
+          "sessionID": "6a38bbfd-647f-47ba-991f-f69d3d50ab4d",
+          "_id": "67f7f9a464145a0b484799ac",
+          "createdAt": "2025-04-10T17:02:28.931Z",
+          "expiresAt": "2025-04-11T05:02:28.931Z"
+        },
+        {
+          "sessionID": "6f7f5450-6926-432c-ad88-c28d1cae72ba",
+          "_id": "67f7fa1f64145a0b48479b16",
+          "createdAt": "2025-04-10T17:04:31.609Z",
+          "expiresAt": "2025-04-11T05:04:31.609Z"
+        },
+        {
+          "sessionID": "63d1357d-58b6-4709-8c41-2cb526a2fbe0",
+          "_id": "67f827f7a9228e4a10efed91",
+          "createdAt": "2025-04-10T20:20:07.961Z",
+          "expiresAt": "2025-04-11T08:20:07.961Z"
+        },
+        {
+          "sessionID": "6a856f87-0d59-408b-b417-766e200b573c",
+          "_id": "67f977eaa9228e4a10f01825",
+          "createdAt": "2025-04-11T20:13:30.054Z",
+          "expiresAt": "2025-04-12T08:13:30.055Z"
+        },
+        {
+          "sessionID": "ca55bd59-c2cf-4fff-89a1-fde4aa1cda95",
+          "_id": "67fc6bc2278de37f4110bf36",
+          "createdAt": "2025-04-14T01:58:26.565Z",
+          "expiresAt": "2025-04-14T13:58:26.565Z"
+        },
+        {
+          "sessionID": "3dc4ad9a-1f15-498a-99e4-d6ad20094666",
+          "_id": "67fd0b1973553ef8eef6169e",
+          "createdAt": "2025-04-14T13:18:17.271Z",
+          "expiresAt": "2025-04-15T01:18:17.271Z"
+        },
+        {
+          "sessionID": "e863725d-effa-4e6f-b8f3-c0ec2bd4ccd9",
+          "_id": "67fd65ffef93c3b0dd187da7",
+          "createdAt": "2025-04-14T19:46:07.572Z",
+          "expiresAt": "2025-04-15T07:46:07.572Z"
+        },
+        {
+          "sessionID": "32256b6a-615d-4d70-9ec6-2686cefb4fd7",
+          "_id": "67fe5b854450db589a589172",
+          "createdAt": "2025-04-15T13:13:41.955Z",
+          "expiresAt": "2025-04-16T01:13:41.955Z"
+        }
+      ],
+      "cart": [
+        {
+          "orderID": "hsldkf55-101f-4c2e-bc05-bf609c5bdfb5",
+          "orderCreated": "2025-04-10T21:27:34.023Z",
+          "numRequested": 1,
+          "productConfigurationInfo": {
+            "conveyorName": "a",
+            "chainPinType": 1,
+            "conveyorLength": 1,
+            "conveyorLengthUnit": 1,
+            "conveyorSpeed": 1,
+            "conveyorSpeedUnit": 1,
+            "conveyorIndex": "",
+            "travelDirection": 1,
+            "metalType": 1,
+            "conveyorStyle": 2,
+            "trolleyColor": 1,
+            "trolleyType": 4,
+            "surroundingTemp": 1,
+            "conveyorLoaded": 1,
+            "conveyorSwing": 2,
+            "plantLayout": 1,
+            "requiredPics": 1,
+            "operatingVoltage": 1,
+            "sideLube": 1,
+            "topLube": 1,
+            "cleanChain": 2,
+            "wireMeasurementUnit": 1,
+            "conductor4": 1,
+            "conductor7": 1,
+            "conductor2": 1,
+            "_id": "67f837c5a9228e4a10f00221"
+          },
+          "productType": "FGLM",
+          "_id": "67f837c6a9228e4a10f00222"
+        }
+      ],
+      "drafts": [
+        {
+          "cart": [
+            {
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e",
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z"
+            }
+          ],
+          "draftTitle": "Apple Test (Newest)",
+          "_id": "67ee192b97bd35ba37b62f17",
+          "cartID": "10707408-f9d0-4ac0-99f8-dc5272a4c8e7",
+          "dateSaved": "2025-04-03T05:14:19.478Z"
+        },
+        {
+          "cart": [
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222",
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z"
+            }
+          ],
+          "draftTitle": "FGLM",
+          "_id": "67f837cfa9228e4a10f003de",
+          "cartID": "d54090e7-9413-49dc-aef1-169a97334b36",
+          "dateSaved": "2025-04-10T21:27:43.822Z"
+        }
+      ],
+      "configurations": [
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Configuration #1",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            }
+          ],
+          "_id": "67c61b4887ac21635dd5f006",
+          "dateOrdered": "2025-03-03T21:12:40.781Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Test",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            },
+            {
+              "orderID": "b89c1280-2f39-4ede-92bb-87229070bdc5",
+              "orderCreated": "2025-03-01T01:12:19.188Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef35fc972fe69b8674f"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef35fc972fe69b86750"
+            },
+            {
+              "orderID": "d7d23cf8-75ee-4fec-a4f5-98779f287161",
+              "orderCreated": "2025-03-02T04:46:31.084Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainPinType": 1,
+                "conveyorLength": "1",
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": "1",
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "1",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 3,
+                "trolleyColor": 2,
+                "trolleyType": 2,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 1,
+                "plantLayout": 2,
+                "requiredPics": 2,
+                "operatingVoltage": "1",
+                "existingMonitor": 1,
+                "newMonitor": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 3,
+                "conductor4": "1",
+                "conductor7": "1",
+                "conductor2": "1",
+                "_id": "67c3e2a7baddd4448f374300"
+              },
+              "productType": "FGLM",
+              "_id": "67c3e2a7baddd4448f374301"
+            }
+          ],
+          "_id": "67e6b1aa456e646162badcb6",
+          "dateOrdered": "2025-03-28T14:26:50.081Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67edd4ad97bd35ba37b619ec",
+          "dateOrdered": "2025-04-03T00:22:05.210Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a0497bd35ba37b62ab0",
+          "dateOrdered": "2025-04-03T04:09:40.016Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (New)",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a6e97bd35ba37b62c38",
+          "dateOrdered": "2025-04-03T04:11:26.192Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (Newest)",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ee194597bd35ba37b6302b",
+          "dateOrdered": "2025-04-03T05:14:45.087Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "WOOOOHOOOOOO",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef2d9b97bd35ba37b64adb",
+          "dateOrdered": "2025-04-04T00:53:47.530Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Zach Congif",
+          "cart": [
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            },
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef3b009d49609a34dd6024",
+          "dateOrdered": "2025-04-04T01:50:56.464Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "test",
+          "cart": [
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": -1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 2,
+                "conveyorSwing": 1,
+                "plantLayout": -1,
+                "requiredPics": -1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f9785aa9228e4a10f01def"
+              },
+              "productType": "FGLM",
+              "_id": "67f9785aa9228e4a10f01df0",
+              "orderID": "bf342d51-7f0d-452d-9d65-0a5c01892496",
+              "orderCreated": "2025-04-11T20:15:22.207Z"
+            }
+          ],
+          "_id": "67fc6bd1278de37f4110c0b2",
+          "dateOrdered": "2025-04-14T01:58:41.212Z"
+        }
+      ],
+      "__v": 268
+    },
+    {
+      "_id": "68adee0147bd3ff782c8f778",
+      "userID": "0980-e789-42a3-8ac6-82cf9b06dcc0",
+      "username": "jdoe123",
+      "password": "$2b$10$DZjKrC2YQubBuyfaA7L//.Ve0sJ9XaBI80MKjx5eTYc3Vy53h.1Xu",
+      "firstName": "JohnSecondNewTest",
+      "lastName": "Doe",
+      "email": "jdoe@gmail.com",
+      "phoneNumber": "1234567891",
+      "companyName": "aabc",
+      "country": "United States",
+      "sessions": [
+        {
+          "sessionID": "e746835e-eff2-4d57-812e-3b867c8249fd",
+          "_id": "67e553eb71fda268ad1de15a",
+          "createdAt": "2025-03-27T13:34:35.015Z",
+          "expiresAt": "2025-03-28T01:34:35.015Z"
+        },
+        {
+          "sessionID": "53ea0a18-2699-432c-aeba-96681ddb4825",
+          "_id": "67e5e89471fda268ad1de277",
+          "createdAt": "2025-03-28T00:08:52.544Z",
+          "expiresAt": "2025-03-28T12:08:52.544Z"
+        },
+        {
+          "sessionID": "b3ff97b7-5abd-4896-9b9e-f04fb656cdf9",
+          "_id": "67e705c3456e646162bade49",
+          "createdAt": "2025-03-28T20:25:39.627Z",
+          "expiresAt": "2025-03-29T08:25:39.627Z"
+        },
+        {
+          "sessionID": "16690e2a-5289-485a-afc9-64420695fdac",
+          "_id": "67e707dd456e646162badf3a",
+          "createdAt": "2025-03-28T20:34:37.567Z",
+          "expiresAt": "2025-03-29T08:34:37.567Z"
+        },
+        {
+          "sessionID": "2d5c7b56-29b5-407c-ae73-1489becec70c",
+          "_id": "67ebf07697bd35ba37b6151f",
+          "createdAt": "2025-04-01T13:56:06.549Z",
+          "expiresAt": "2025-04-02T01:56:06.549Z"
+        },
+        {
+          "sessionID": "1ebdd118-97c4-4f8a-ae5d-7cedec9c5dfd",
+          "_id": "67eddc1197bd35ba37b61ad1",
+          "createdAt": "2025-04-03T00:53:37.501Z",
+          "expiresAt": "2025-04-03T12:53:37.501Z"
+        },
+        {
+          "sessionID": "0b3ef78a-ca6e-42eb-94a8-df7081816c1e",
+          "_id": "67eddc5397bd35ba37b61bb3",
+          "createdAt": "2025-04-03T00:54:43.570Z",
+          "expiresAt": "2025-04-03T12:54:43.570Z"
+        },
+        {
+          "sessionID": "290a5595-463f-4ef0-bb72-23f6d6f58669",
+          "_id": "67eddd9d97bd35ba37b61ce9",
+          "createdAt": "2025-04-03T01:00:13.453Z",
+          "expiresAt": "2025-04-03T13:00:13.453Z"
+        },
+        {
+          "sessionID": "765f4efa-6614-44c0-9403-8e95c65a48a1",
+          "_id": "67edde3f97bd35ba37b61d54",
+          "createdAt": "2025-04-03T01:02:55.733Z",
+          "expiresAt": "2025-04-03T13:02:55.733Z"
+        },
+        {
+          "sessionID": "6e821bf4-cb7f-4d11-9af2-50fd60b8f7dc",
+          "_id": "67ee618997bd35ba37b630c1",
+          "createdAt": "2025-04-03T10:23:05.292Z",
+          "expiresAt": "2025-04-03T22:23:05.292Z"
+        },
+        {
+          "sessionID": "453f69d4-17ee-4bcd-b088-27baa92f1a6b",
+          "_id": "67eee07797bd35ba37b632a1",
+          "createdAt": "2025-04-03T19:24:39.804Z",
+          "expiresAt": "2025-04-04T07:24:39.804Z"
+        },
+        {
+          "sessionID": "74416e66-bbe9-4309-bc1e-db50b21d1098",
+          "_id": "67ef28f797bd35ba37b635ae",
+          "createdAt": "2025-04-04T00:33:59.833Z",
+          "expiresAt": "2025-04-04T12:33:59.833Z"
+        },
+        {
+          "sessionID": "a3f4a6fa-3a10-40c3-bddb-97de698538cd",
+          "_id": "67ef37909d49609a34dd522e",
+          "createdAt": "2025-04-04T01:36:16.962Z",
+          "expiresAt": "2025-04-04T13:36:16.962Z"
+        },
+        {
+          "sessionID": "1c04eb11-f0e1-41a5-8948-a42fc45c72db",
+          "_id": "67f044946d6db3afa2aa6b75",
+          "createdAt": "2025-04-04T20:44:04.252Z",
+          "expiresAt": "2025-04-05T08:44:04.252Z"
+        },
+        {
+          "sessionID": "3ffbcb6a-0768-4392-8b83-59b42dbc6e2a",
+          "_id": "67f046956d6db3afa2aa6d20",
+          "createdAt": "2025-04-04T20:52:37.793Z",
+          "expiresAt": "2025-04-05T08:52:37.793Z"
+        },
+        {
+          "sessionID": "360fb18a-7577-4e94-9043-dd9090d8b550",
+          "_id": "67f047bc6d6db3afa2aa6f2c",
+          "createdAt": "2025-04-04T20:57:32.769Z",
+          "expiresAt": "2025-04-05T08:57:32.769Z"
+        },
+        {
+          "sessionID": "1ee6c476-2a1c-4698-8ced-91d88c8c7429",
+          "_id": "67f3ec716d6db3afa2aa8f60",
+          "createdAt": "2025-04-07T15:17:05.674Z",
+          "expiresAt": "2025-04-08T03:17:05.674Z"
+        },
+        {
+          "sessionID": "5c4c8843-0125-45c0-9d4d-62ce12c8a656",
+          "_id": "67f7f01c86ff010e57412e9c",
+          "createdAt": "2025-04-10T16:21:48.467Z",
+          "expiresAt": "2025-04-11T04:21:48.467Z"
+        },
+        {
+          "sessionID": "869290ad-b7be-4238-be9f-119cdaccfc24",
+          "_id": "67f7f09386ff010e57412fbf",
+          "createdAt": "2025-04-10T16:23:47.184Z",
+          "expiresAt": "2025-04-11T04:23:47.184Z"
+        },
+        {
+          "sessionID": "f74f6abb-b589-4035-8d58-093e1f885978",
+          "_id": "67f7f96764145a0b484798b5",
+          "createdAt": "2025-04-10T17:01:27.246Z",
+          "expiresAt": "2025-04-11T05:01:27.246Z"
+        },
+        {
+          "sessionID": "6a38bbfd-647f-47ba-991f-f69d3d50ab4d",
+          "_id": "67f7f9a464145a0b484799ac",
+          "createdAt": "2025-04-10T17:02:28.931Z",
+          "expiresAt": "2025-04-11T05:02:28.931Z"
+        },
+        {
+          "sessionID": "6f7f5450-6926-432c-ad88-c28d1cae72ba",
+          "_id": "67f7fa1f64145a0b48479b16",
+          "createdAt": "2025-04-10T17:04:31.609Z",
+          "expiresAt": "2025-04-11T05:04:31.609Z"
+        },
+        {
+          "sessionID": "63d1357d-58b6-4709-8c41-2cb526a2fbe0",
+          "_id": "67f827f7a9228e4a10efed91",
+          "createdAt": "2025-04-10T20:20:07.961Z",
+          "expiresAt": "2025-04-11T08:20:07.961Z"
+        },
+        {
+          "sessionID": "6a856f87-0d59-408b-b417-766e200b573c",
+          "_id": "67f977eaa9228e4a10f01825",
+          "createdAt": "2025-04-11T20:13:30.054Z",
+          "expiresAt": "2025-04-12T08:13:30.055Z"
+        },
+        {
+          "sessionID": "ca55bd59-c2cf-4fff-89a1-fde4aa1cda95",
+          "_id": "67fc6bc2278de37f4110bf36",
+          "createdAt": "2025-04-14T01:58:26.565Z",
+          "expiresAt": "2025-04-14T13:58:26.565Z"
+        },
+        {
+          "sessionID": "3dc4ad9a-1f15-498a-99e4-d6ad20094666",
+          "_id": "67fd0b1973553ef8eef6169e",
+          "createdAt": "2025-04-14T13:18:17.271Z",
+          "expiresAt": "2025-04-15T01:18:17.271Z"
+        },
+        {
+          "sessionID": "e863725d-effa-4e6f-b8f3-c0ec2bd4ccd9",
+          "_id": "67fd65ffef93c3b0dd187da7",
+          "createdAt": "2025-04-14T19:46:07.572Z",
+          "expiresAt": "2025-04-15T07:46:07.572Z"
+        },
+        {
+          "sessionID": "32256b6a-615d-4d70-9ec6-2686cefb4fd7",
+          "_id": "67fe5b854450db589a589172",
+          "createdAt": "2025-04-15T13:13:41.955Z",
+          "expiresAt": "2025-04-16T01:13:41.955Z"
+        }
+      ],
+      "cart": [
+        {
+          "orderID": "jjjj23-101f-4c2e-bc05-bf609c5bdfb5",
+          "orderCreated": "2025-04-10T21:27:34.023Z",
+          "numRequested": 1,
+          "productConfigurationInfo": {
+            "conveyorName": "a",
+            "chainPinType": 1,
+            "conveyorLength": 1,
+            "conveyorLengthUnit": 1,
+            "conveyorSpeed": 1,
+            "conveyorSpeedUnit": 1,
+            "conveyorIndex": "",
+            "travelDirection": 1,
+            "metalType": 1,
+            "conveyorStyle": 2,
+            "trolleyColor": 1,
+            "trolleyType": 4,
+            "surroundingTemp": 1,
+            "conveyorLoaded": 1,
+            "conveyorSwing": 2,
+            "plantLayout": 1,
+            "requiredPics": 1,
+            "operatingVoltage": 1,
+            "sideLube": 1,
+            "topLube": 1,
+            "cleanChain": 2,
+            "wireMeasurementUnit": 1,
+            "conductor4": 1,
+            "conductor7": 1,
+            "conductor2": 1,
+            "_id": "67f837c5a9228e4a10f00221"
+          },
+          "productType": "FGLM",
+          "_id": "67f837c6a9228e4a10f00222"
+        }
+      ],
+      "drafts": [
+        {
+          "cart": [
+            {
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e",
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z"
+            }
+          ],
+          "draftTitle": "Apple Test (Newest)",
+          "_id": "67ee192b97bd35ba37b62f17",
+          "cartID": "10707408-f9d0-4ac0-99f8-dc5272a4c8e7",
+          "dateSaved": "2025-04-03T05:14:19.478Z"
+        },
+        {
+          "cart": [
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222",
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z"
+            }
+          ],
+          "draftTitle": "FGLM",
+          "_id": "67f837cfa9228e4a10f003de",
+          "cartID": "d54090e7-9413-49dc-aef1-169a97334b36",
+          "dateSaved": "2025-04-10T21:27:43.822Z"
+        }
+      ],
+      "configurations": [
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Configuration #1",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            }
+          ],
+          "_id": "67c61b4887ac21635dd5f006",
+          "dateOrdered": "2025-03-03T21:12:40.781Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Test",
+          "cart": [
+            {
+              "orderID": "0f7627aa-2fbf-4e85-92b2-8c6aa33fe010",
+              "orderCreated": "2025-03-01T01:12:17.724Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef15fc972fe69b86748"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef15fc972fe69b86749"
+            },
+            {
+              "orderID": "b89c1280-2f39-4ede-92bb-87229070bdc5",
+              "orderCreated": "2025-03-01T01:12:19.188Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainSize": 1,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "_id": "67c25ef35fc972fe69b8674f"
+              },
+              "productType": "FGCO",
+              "_id": "67c25ef35fc972fe69b86750"
+            },
+            {
+              "orderID": "d7d23cf8-75ee-4fec-a4f5-98779f287161",
+              "orderCreated": "2025-03-02T04:46:31.084Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "1",
+                "chainPinType": 1,
+                "conveyorLength": "1",
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": "1",
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "1",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 3,
+                "trolleyColor": 2,
+                "trolleyType": 2,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 1,
+                "plantLayout": 2,
+                "requiredPics": 2,
+                "operatingVoltage": "1",
+                "existingMonitor": 1,
+                "newMonitor": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 3,
+                "conductor4": "1",
+                "conductor7": "1",
+                "conductor2": "1",
+                "_id": "67c3e2a7baddd4448f374300"
+              },
+              "productType": "FGLM",
+              "_id": "67c3e2a7baddd4448f374301"
+            }
+          ],
+          "_id": "67e6b1aa456e646162badcb6",
+          "dateOrdered": "2025-03-28T14:26:50.081Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67edd4ad97bd35ba37b619ec",
+          "dateOrdered": "2025-04-03T00:22:05.210Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a0497bd35ba37b62ab0",
+          "dateOrdered": "2025-04-03T04:09:40.016Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (New)",
+          "cart": [
+            {
+              "orderID": "a73b45d4-7907-4b35-aaff-dc976d06b296",
+              "orderCreated": "2025-04-03T00:20:56.880Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple_Test",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 3,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "Nothing",
+                "_id": "67edd46897bd35ba37b61857"
+              },
+              "productType": "FGCO",
+              "_id": "67edd46897bd35ba37b61858"
+            }
+          ],
+          "_id": "67ee0a6e97bd35ba37b62c38",
+          "dateOrdered": "2025-04-03T04:11:26.192Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Apple Test (Newest)",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ee194597bd35ba37b6302b",
+          "dateOrdered": "2025-04-03T05:14:45.087Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "WOOOOHOOOOOO",
+          "cart": [
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef2d9b97bd35ba37b64adb",
+          "dateOrdered": "2025-04-04T00:53:47.530Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "Zach Congif",
+          "cart": [
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            },
+            {
+              "orderID": "6a2958dc-e2ba-4879-bf3a-4b55ba7f2059",
+              "orderCreated": "2025-04-04T00:55:12.775Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainSize": 3,
+                "chainManufacturer": 3,
+                "conveyorLoaded": 2,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 1,
+                "oppsSpecification": 2,
+                "pushButtonSwitch": 2,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "1",
+                "_id": "67ef2df097bd35ba37b64e78"
+              },
+              "productType": "FGCO",
+              "_id": "67ef2df097bd35ba37b64e79"
+            },
+            {
+              "orderID": "e9b41e1b-b3e7-45b1-a34a-62c1c69b95f6",
+              "orderCreated": "2025-04-03T05:13:49.471Z",
+              "numRequested": 2,
+              "productConfigurationInfo": {
+                "conveyorName": "Apple Test Newest",
+                "chainSize": 1,
+                "chainManufacturer": 1,
+                "conveyorLoaded": 1,
+                "dripLineStatus": 1,
+                "operatingVoltTriple": 9,
+                "oppsSpecification": 1,
+                "pushButtonSwitch": 1,
+                "enclosedShroud": 1,
+                "additionalOtherInfo": "no",
+                "_id": "67ee190d97bd35ba37b62e4d"
+              },
+              "productType": "FGCO",
+              "_id": "67ee190d97bd35ba37b62e4e"
+            }
+          ],
+          "_id": "67ef3b009d49609a34dd6024",
+          "dateOrdered": "2025-04-04T01:50:56.464Z"
+        },
+        {
+          "orderStatus": "Incomplete",
+          "configurationName": "test",
+          "cart": [
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "orderID": "d393347c-101f-4c2e-bc05-bf609c5bdfb5",
+              "orderCreated": "2025-04-10T21:27:34.023Z",
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": 1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 1,
+                "conveyorSwing": 2,
+                "plantLayout": 1,
+                "requiredPics": 1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 2,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f837c5a9228e4a10f00221"
+              },
+              "productType": "FGLM",
+              "_id": "67f837c6a9228e4a10f00222"
+            },
+            {
+              "numRequested": 1,
+              "productConfigurationInfo": {
+                "conveyorName": "a",
+                "chainPinType": 1,
+                "conveyorLength": 1,
+                "conveyorLengthUnit": 1,
+                "conveyorSpeed": 1,
+                "conveyorSpeedUnit": 1,
+                "conveyorIndex": "",
+                "travelDirection": -1,
+                "metalType": 1,
+                "conveyorStyle": 2,
+                "trolleyColor": 1,
+                "trolleyType": 4,
+                "surroundingTemp": 1,
+                "conveyorLoaded": 2,
+                "conveyorSwing": 1,
+                "plantLayout": -1,
+                "requiredPics": -1,
+                "operatingVoltage": 1,
+                "sideLube": 1,
+                "topLube": 1,
+                "cleanChain": 1,
+                "wireMeasurementUnit": 1,
+                "conductor4": 1,
+                "conductor7": 1,
+                "conductor2": 1,
+                "_id": "67f9785aa9228e4a10f01def"
+              },
+              "productType": "FGLM",
+              "_id": "67f9785aa9228e4a10f01df0",
+              "orderID": "bf342d51-7f0d-452d-9d65-0a5c01892496",
+              "orderCreated": "2025-04-11T20:15:22.207Z"
+            }
+          ],
+          "_id": "67fc6bd1278de37f4110c0b2",
+          "dateOrdered": "2025-04-14T01:58:41.212Z"
+        }
+      ],
+      "__v": 268
+    }
+  ]
+}
