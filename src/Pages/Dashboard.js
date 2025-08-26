@@ -4,6 +4,8 @@ import '../Assets/styles/login.css';
 import { parseCartFromUserData } from '../hooks/useUsers';
 import OrderTable from '../components/UseList';
 import { useState, useEffect } from 'react';
+import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
+
 
 // Status color function - duplicated from OrderList for consistency
 const getStatusColor = (status) => {
@@ -88,8 +90,8 @@ function Dashboard() {
           <header className="dashboard-header">
           
             {/* Logo container */}
-            <h1>Mighty Lube</h1>
-
+            <img src={logo} alt="Mighty Lube Logo" className="logo" />  
+            
             <h1>Dashboard</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
