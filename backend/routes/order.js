@@ -5,16 +5,14 @@
 
 const express = require('express')
 const cors = require('cors')
-const db = require('../db/database')
-
+const Order = require('../models/Order')
 const router = express.Router()
-const app = router
 
-app.use(cors());
-app.use(express.json());
+router.use(cors());
+router.use(express.json());
 
 // api/order endpoint
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const orders = await Order.find().lean();
         res.json({ orders });
@@ -23,7 +21,7 @@ app.get('/', async (req, res) => {
     }
 })
 
-app.post('/import', async (req, res) => {
+router.post('/import', async (req, res) => {
     try {
         const {orders} = req.body;
         if (!Array.isArray(orders)) {

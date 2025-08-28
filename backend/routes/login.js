@@ -7,13 +7,13 @@ const cors = require('cors')
 const db = require('../db/database')
 
 const router = express.Router()
-const app = router()
 
-app.use(cors());
-app.use(express.json());
+
+router.use(cors());
+router.use(express.json());
 
 // api/login endpoint
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
 });
 
 // api/login/info endpoint
-app.get('/info', (req, res) => {
+router.get('/info', (req, res) => {
     try {
         const query = 'SELECT * FROM users';
     } catch (error) {
