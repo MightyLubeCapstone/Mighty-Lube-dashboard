@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // MongoDB Connection URI
-const uri = 'mongodb+srv://lucascolbydowlen:3rIbPfyNGaGGOUsK@dash-cluster-1.upt8jyd.mongodb.net/Dashboard';
+const uri = process.env.URI
 
 console.log('Attempting to connect to MongoDB Atlas...');
 

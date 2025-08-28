@@ -8,7 +8,7 @@ const cors = require('cors')
 const db = require('../db/database')
 
 const router = express.Router()
-const app = router()
+const app = router
 
 app.use(cors());
 app.use(express.json());

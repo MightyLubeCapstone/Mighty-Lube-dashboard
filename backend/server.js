@@ -12,7 +12,7 @@ var app = express()
 // Take in endpoint logic from a file
 const login = require('./routes/login')
 const order = require('./routes/order')
-const HTTP_PORT = 8000
+const PORT = process.env.PORT || 8000
 
 app.use(cors({
     origin: '*',
@@ -31,6 +31,6 @@ app.get('/', (req, res) => {
     res.status(200).json({ message: 'Server is running' })
 })
 
-app.listen(HTTP_PORT, () => {
-    console.log(`Server is running on port ${HTTP_PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
 })
