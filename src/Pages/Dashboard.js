@@ -23,6 +23,34 @@ const getStatusColor = (status) => {
 function Dashboard() {
   const [cart, setCart] = useState([]);
 
+  // Sort cart based on sortBy state
+  const [sortBy, setSortBy] = useState("orderID");
+
+  
+  const sortedCart = [...cart].sort((a, b) => {
+
+    // Handle date sorting
+    if (sortBy === "createdDate" || sortBy === "orderCreated") {
+      const dateA = a.orderCreated?.$date?.$numberInt || a.quantity || 0;
+      const dateB = b.orderCreated?.$date?.$numberInt || b.quantity || 0;
+      return dateB - dateA;
+    }
+
+    // Handle quantity sorting
+    if (sortBy === "quantity" || sortBy === "numRequested") {
+      const qtyA = a.numRequested?.$numberInt || a.quantity || 0;
+      const qtyB = b.numRequested?.$numberInt || b.quantity || 0;
+      return qtyB - qtyA;
+    }
+
+    // String Sorting (orderID, productType, conveyorName, status)
+    const valA = (a[sortBy] || a.productConfigurationInfo?.[sortBy] || "").toString().toLowerCase();
+    const valB = (b[sortBy] || b.productConfigurationInfo?.[sortBy] || "").toString().toLowerCase();
+    if (valA < valB) return -1;
+    if (valA > valB) return 1;
+    return 0;
+  });
+
   useEffect(() => {
     // Fetch from users.json for cart data
     fetch("/users.json")
@@ -122,7 +150,7 @@ function Dashboard() {
           </div>
 
           <main id="tblDashboard">
-              <OrderTable orders={cart} />
+              <OrderTable orders={sortedCart} sortBy={sortBy} setSortBy={setSortBy} />
           </main>
 
           {/* Admin Popup */}
