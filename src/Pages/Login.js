@@ -36,6 +36,8 @@ const Login = () => {
                         required 
                     />
                     <button type="submit">Sign In</button>
+
+                    <button type="button" onClick={() => navigate('/register')}>Register</button>
                 </form>
             </div>
         </div>
