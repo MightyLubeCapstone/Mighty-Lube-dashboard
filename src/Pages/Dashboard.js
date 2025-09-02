@@ -6,7 +6,6 @@ import OrderTable from '../components/UseList';
 import { useState, useEffect } from 'react';
 import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 
-
 // Status color function - duplicated from OrderList for consistency
 const getStatusColor = (status) => {
   switch (status) {
@@ -21,7 +20,7 @@ const getStatusColor = (status) => {
   }
 };
 
-function Dashboard() {
+function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsByStatus }) {
     const [cart, setCart] = useState([]);
     
     useEffect(() => {
@@ -41,8 +40,8 @@ function Dashboard() {
   const [adminPopupOpen, setAdminPopupOpen] = useState(false);
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
   const [configurationsPopupOpen, setConfigurationsPopupOpen] = useState(false);
-  const { orders, loading, error } = useOrders();
-
+  
+  // Removed the undefined useOrders() call
 
   const handleLogout = () => {
     // Here you would typically clear any authentication tokens
@@ -66,6 +65,7 @@ function Dashboard() {
   const closeSettingsPopup = () => {
     setSettingsPopupOpen(false);
   };
+  
   const openConfigurationsPopup = (e) => {
     e.preventDefault();
     setConfigurationsPopupOpen(true);
@@ -93,20 +93,16 @@ function Dashboard() {
   return (
     // Main dashboard container
     <div id="mainDiv">
-
       <div className="dashboard">
         {/* Div for the table */}
         <div className="dashboard-content">
-
           <header className="dashboard-header">
-          
             {/* Logo container */}
             <img src={logo} alt="Mighty Lube Logo" className="logo" />  
             
             <h1>Dashboard</h1>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-
               <nav className="nav-links">
                 <a href="#admin" onClick={openAdminPopup}>Admin</a>
                 <a href="#settings" onClick={openSettingsPopup}>Settings</a>
@@ -114,7 +110,6 @@ function Dashboard() {
               </nav>
 
               <button onClick={handleLogout} className="logout-button">Logout</button>
-
             </div>
           </header>
 
@@ -131,42 +126,8 @@ function Dashboard() {
           <main id="tblDashboard">
             <OrderTable orders={cart} />
           </main>
-
-          {/* Admin Popup */}
-          {/* NavbarPopup
-            isOpen={adminPopupOpen}
-            onClose={closeAdminPopup}
-            title="Admin Panel"
-          >
-            <div style={{ minHeight: '300px' }}>
-              <p>Admin functionality goes here.</p>
-              <ul>
-                <li>User Management</li>
-                <li>Role Permissions</li>
-                <li>System Configuration</li>
-              </ul>
-            </div>
-          </NavbarPopup> */}
-
-          {/* Settings Popup */}
-          {/* NavbarPopup
-            isOpen={settingsPopupOpen}
-            onClose={closeSettingsPopup}
-            title="Settings"
-          >
-            <div style={{ minHeight: '300px' }}>
-              <p>Settings options go here.</p>
-              <ul>
-                <li>Account Settings</li>
-                <li>Notification Preferences</li>
-                <li>Theme Options</li>
-                <li>Language Settings</li>
-              </ul>
-            </div>
-          </NavbarPopup> */}
         </div>
       </div>
-
     </div>
   );
 }
