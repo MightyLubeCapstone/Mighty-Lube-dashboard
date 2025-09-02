@@ -6,6 +6,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './Assets/styles/main.css';
 import Login from './Pages/Login.js';
+import Register from './Pages/Register.js';
 import Dashboard from './Pages/Dashboard.js';
 
 function App() {
@@ -15,6 +16,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={
+          <Dashboard 
+            orders={orders}
+            getStatusColor={getStatusColor}
+            getTotalsByStatus={getTotalsByStatus}
+            />
+          } 
+        />
       </Routes>
     </div>
     </Router>

@@ -40,6 +40,9 @@ function Dashboard() {
   const navigate = useNavigate();
   const [adminPopupOpen, setAdminPopupOpen] = useState(false);
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
+  const [configurationsPopupOpen, setConfigurationsPopupOpen] = useState(false);
+  const { orders, loading, error } = useOrders();
+
 
   const handleLogout = () => {
     // Here you would typically clear any authentication tokens
@@ -62,6 +65,14 @@ function Dashboard() {
 
   const closeSettingsPopup = () => {
     setSettingsPopupOpen(false);
+  };
+  const openConfigurationsPopup = (e) => {
+    e.preventDefault();
+    setConfigurationsPopupOpen(true);
+  };
+  
+  const closeConfigurationsPopup = () => {
+    setConfigurationsPopupOpen(false);
   };
 
   // Create formatted status counts with appropriate colors from cart data
@@ -99,6 +110,7 @@ function Dashboard() {
               <nav className="nav-links">
                 <a href="#admin" onClick={openAdminPopup}>Admin</a>
                 <a href="#settings" onClick={openSettingsPopup}>Settings</a>
+                <a href="#configurations" onClick={openConfigurationsPopup}>Configurations</a>
               </nav>
 
               <button onClick={handleLogout} className="logout-button">Logout</button>
