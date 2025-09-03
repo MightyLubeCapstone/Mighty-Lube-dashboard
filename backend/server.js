@@ -5,21 +5,25 @@
     Setup with login as example
 */
 
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
 var app = express()
+app.use(express.json())
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}))
+
+const PORT = process.env.PORT
+
+//Important functions
+const { connectDB } = require('./db/connection')
 
 // Take in endpoint logic from a file
 const login = require('./routes/login')
 const order = require('./routes/order')
-const HTTP_PORT = 8000
-
-app.use(cors({
-    origin: '*',
-    methods: ['GET','POST','PUT','DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type','Authorization']
-}))
-app.use(express.json())
 
 // set up callable endpoint to use
 app.use('/api/login', login)
@@ -31,6 +35,13 @@ app.get('/', (req, res) => {
     res.status(200).json({ message: 'Server is running' })
 })
 
-app.listen(HTTP_PORT, () => {
-    console.log(`Server is running on port ${HTTP_PORT}`)
-})
+connectDB()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`)
+        });
+    })
+    .catch(error => {
+        console.error('Failed to connect to the database:', error);
+        process.exit(1);
+    })
