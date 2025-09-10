@@ -9,14 +9,14 @@ import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 // Status color function - duplicated from OrderList for consistency
 const getStatusColor = (status) => {
   switch (status) {
-    case 'Processing':
-      return '#ffd700'; // Yellow for Processing
-    case 'Completed':
-      return '#28a745'; // Green for Completed
-    case 'Pending':
-      return '#ff8c00'; // Orange for Pending
+    case "Processing":
+      return "#ffd700"; // Yellow for Processing
+    case "Completed":
+      return "#28a745"; // Green for Completed
+    case "Pending":
+      return "#ff8c00"; // Orange for Pending
     default:
-      return 'black';
+      return "black";
   }
 };
 
@@ -45,7 +45,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
 
   const handleLogout = () => {
     // Here you would typically clear any authentication tokens
-    navigate('/');
+    navigate("/");
   };
 
   const openAdminPopup = (e) => {
@@ -85,7 +85,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
         <span style={{ color: getStatusColor(status) }}>
           {status} ({count})
         </span>
-        {index < Object.entries(counts).length - 1 ? ', ' : ''}
+        {index < Object.entries(counts).length - 1 ? ", " : ""}
       </span>
     ));
   };
@@ -98,33 +98,43 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
         <div className="dashboard-content">
           <header className="dashboard-header">
             {/* Logo container */}
-            <img src={logo} alt="Mighty Lube Logo" className="logo" />  
-            
+            <img src={logo} alt="Mighty Lube Logo" className="logo" />
+
             <h1>Dashboard</h1>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}
+            >
               <nav className="nav-links">
-                <a href="#admin" onClick={openAdminPopup}>Admin</a>
-                <a href="#settings" onClick={openSettingsPopup}>Settings</a>
-                <a href="#configurations" onClick={openConfigurationsPopup}>Configurations</a>
+                <a href="#admin" onClick={openAdminPopup}>
+                  Admin
+                </a>
+                <a href="#settings" onClick={openSettingsPopup}>
+                  Settings
+                </a>
               </nav>
 
-              <button onClick={handleLogout} className="logout-button">Logout</button>
+              <button onClick={handleLogout} className="logout-button">
+                Logout
+              </button>
             </div>
           </header>
 
           {/* Summary card */}
           <div className="summary-card">
-            <div style={{ margin: '0 20px' }}>
+            <div style={{ margin: "0 20px" }}>
               <h2>Summary</h2>
               <p>Total Orders: {cart.length}</p>
-              <p>Total Parts Ordered: {cart.reduce((sum, item) => sum + (item.quantity || 0), 0)}</p>
+              <p>
+                Total Parts Ordered:{" "}
+                {cart.reduce((sum, item) => sum + (item.quantity || 0), 0)}
+              </p>
               <p>Orders by Status: {getColoredStatusCounts()}</p>
             </div>
           </div>
 
           <main id="tblDashboard">
-            <OrderTable orders={cart} />
+              <OrderTable orders={sortedCart} sortBy={sortBy} setSortBy={setSortBy} />
           </main>
         </div>
       </div>

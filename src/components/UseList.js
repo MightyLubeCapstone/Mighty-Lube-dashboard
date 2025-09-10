@@ -4,7 +4,7 @@ This file is responsible for displaying the entire table of orders. It takes the
 import React from 'react';
 import Order from './Use';
 
-function OrderTable({ orders }) {
+function OrderTable({ orders, sortBy, setSortBy }) {
   return (
     <div className="dashboard-container">
  
@@ -16,7 +16,29 @@ function OrderTable({ orders }) {
       */}
 
       <div className="order-list-card">
-        <h2>Order List</h2>
+        <div 
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            marginBottom: '1rem' 
+          }}
+        >
+        <h2 style={{ margin: 0 }}>Order List</h2>
+        <div>
+          <label>
+            Sort by:&nbsp;
+            <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
+              <option value="orderID">Order ID</option>
+              <option value="productType">Product Type</option>
+              <option value="conveyorName">Conveyor Name</option>
+              <option value="status">Status</option>
+              <option value="quantity">Quantity</option>
+              <option value="createdDate">Created Date</option>
+              </select>
+          </label>
+          </div>
+        </div>
         <table>
           <thead>
             <tr>
