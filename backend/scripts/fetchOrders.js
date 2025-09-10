@@ -1,6 +1,31 @@
-const mongoose = require('mongoose');
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const { connectDB, disconnectDB } = require('./db/connection');
+const Order = require('./models/Order');
+
+(async () => {
+  try {
+    await connectDB();
+
+    // Dumping to users.json file. Taking from database and storing in a json, this maintains the current implementation
+    const orders = await Order.find({}).lean();
+    const outPath = path.join(__dirname, 'public', 'users.json');
+    fs.writeFileSync(outPath, JSON.stringify({ orders }, null, 2));
+    console.log(`${orders.length} Orders data has been written to ${outPath}`);
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+    process.exitCode = 1
+  } finally {
+    await disconnectDB();
+  }
+})();
+
+/*
+
+GN -
+I am not sure if we need all of this information anymore, but I do not have time to review it all right now
+I will check it out later, but for now I think the above code does everything the below code does, but just uses our new organization
 
 // MongoDB Connection URI
 const uri = 'mongodb+srv://lucascolbydowlen:3rIbPfyNGaGGOUsK@dash-cluster-1.upt8jyd.mongodb.net/Dashboard';
@@ -50,3 +75,4 @@ async function fetchCollection() {
     mongoose.connection.close();
   }
 } 
+*/

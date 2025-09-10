@@ -5,20 +5,34 @@
 
 const express = require('express')
 const cors = require('cors')
-const db = require('../../db/database')
-
+const Order = require('../models/Order')
 const router = express.Router()
-const app = router()
 
-app.use(cors());
-app.use(express.json());
+router.use(cors());
+router.use(express.json());
 
-app.get('/orders', (req, res) => {
-    const orders = req.body.orders;
-
+// api/order endpoint
+router.get('/', async (req, res) => {
     try {
-        const query = 'SELECT * FROM orders';
+        const orders = await Order.find().lean();
+        res.json({ orders });
     } catch (error) {
+        res.status(500).send({ message: 'Failed to get data' });
+    }
+})
+
+router.post('/import', async (req, res) => {
+    try {
+        const {orders} = req.body;
+        if (!Array.isArray(orders)) {
+            return res.status(400).send({ message: 'Invalid orders data' });
+        }
+
+        await Order.deleteMany({});
+        const result = await Order.insertMany(orders);
+        res.json({ inserted: result.length})
+    } catch (error) {
+        res.status(500).send({ message: 'Failed to import data' });
     }
 })
 
