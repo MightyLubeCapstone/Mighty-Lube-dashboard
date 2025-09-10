@@ -4,7 +4,9 @@ This file is responsible for displaying the entire table of orders. It takes the
 import React from 'react';
 import Order from './Use';
 
-function OrderTable({ orders, sortBy, setSortBy }) {
+// function OrderTable({ orders, sortBy, setSortBy }) {
+
+function OrderTable({ orders }) {
   return (
     <div className="dashboard-container">
  
@@ -14,8 +16,12 @@ function OrderTable({ orders, sortBy, setSortBy }) {
           The key prop is used to uniquely identify each order in the list.
           The HTML return from Order.js is used here to generate table rows for the table body.
       */}
+      
+    <div className="order-list-card">
+      <h2>Order List</h2>
 
-      <div className="order-list-card">
+{/* This is a potential functionality for sorting the table:
+
         <div 
           style={{ 
             display: 'flex', 
@@ -39,6 +45,9 @@ function OrderTable({ orders, sortBy, setSortBy }) {
           </label>
           </div>
         </div>
+
+*/}
+
         <table>
           <thead>
             <tr>

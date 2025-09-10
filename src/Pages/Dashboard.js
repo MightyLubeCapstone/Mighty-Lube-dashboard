@@ -134,7 +134,16 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
           </div>
 
           <main id="tblDashboard">
-              <OrderTable orders={sortedCart} sortBy={sortBy} setSortBy={setSortBy} />
+{/* 
+OrderTable here serves as a function call to the function defined in the UseList.js file under src\components\UseList.js.
+The function is being passed the cart variable to be used as an argument in the OrderTable function, 
+additional arguments will need to be defined by the user via UI Input if we choose to add a sort function.
+
+The parameters for OrderTable are defined in the UseList.js file.
+
+The return for the function is a table
+*/}
+              <OrderTable orders={cart} />
           </main>
         </div>
       </div>
