@@ -24,10 +24,12 @@ const { connectDB } = require('./db/connection')
 // Take in endpoint logic from a file
 const login = require('./routes/login')
 const order = require('./routes/order')
+const mappings = require('./routes/mappings')
 
 // set up callable endpoint to use
 app.use('/api/login', login)
 app.use('/api/order', order)
+app.use('/api/mappings', mappings)
 
 
 // The naked domain
