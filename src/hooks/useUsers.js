@@ -34,7 +34,8 @@ export function parseCartFromUserData(data) {
       productType,
       conveyorName,
       quantity,
-      createdDate
+      createdDate,
+      productConfigurationInfo: item.productConfigurationInfo ?? null
     };
   };
 

@@ -105,17 +105,62 @@ export function flattenMappingKeys(mappingObject, parentKey = '') {
 function collectPreferencesFromMapping(mappingObject, configObject, parentKey = '') {
     const items = [];
     if (!mappingObject || typeof mappingObject !== 'object') return items;
+
+    // Normalize config once for lookups
+    const localConfig = (configObject && typeof configObject === 'object') ? configObject : {};
+
+    const toNumericIndex = (raw) => {
+        if (raw == null) return undefined;
+        // Extended JSON { $numberInt: "..." }
+        if (typeof raw === 'object' && raw.$numberInt) {
+            const n = parseInt(raw.$numberInt, 10);
+            return Number.isFinite(n) ? n : undefined;
+        }
+        // Plain number
+        if (typeof raw === 'number') return raw;
+        // String containing number
+        const n = parseInt(String(raw), 10);
+        return Number.isFinite(n) ? n : undefined;
+    };
+
     for (const key of Object.keys(mappingObject)) {
         const value = mappingObject[key];
         const path = parentKey ? `${parentKey}.${key}` : key;
+
         if (isLeafMappingObject(value)) {
-            const selectedIndex = configObject && Object.prototype.hasOwnProperty.call(configObject, key)
-                ? configObject[key]
-                : undefined;
-            const label = typeof selectedIndex === 'number' ? (value[selectedIndex] || 'Undefined') : 'Undefined';
+            let selectedIndex = undefined;
+            let label = 'Undefined';
+
+            if (Object.prototype.hasOwnProperty.call(localConfig, key)) {
+                selectedIndex = localConfig[key];
+                const numericIndex = toNumericIndex(selectedIndex);
+
+                if (Array.isArray(value)) {
+                    if (typeof numericIndex === 'number') {
+                        // Support both 0-based and 1-based input indices
+                        const zeroBased = (numericIndex >= 0 && numericIndex < value.length)
+                            ? numericIndex
+                            : numericIndex - 1;
+                        if (zeroBased >= 0 && zeroBased < value.length) {
+                            label = value[zeroBased];
+                        }
+                    }
+                } else if (value && typeof value === 'object') {
+                    // Enum-like object with numeric string keys
+                    if (Object.prototype.hasOwnProperty.call(value, numericIndex)) {
+                        label = value[numericIndex];
+                    } else if (Object.prototype.hasOwnProperty.call(value, String(numericIndex))) {
+                        label = value[String(numericIndex)];
+                    } else if (Object.prototype.hasOwnProperty.call(value, selectedIndex)) {
+                        label = value[selectedIndex];
+                    }
+                }
+            }
+
             items.push({ name: path, index: selectedIndex, label });
         } else if (value && typeof value === 'object') {
-            items.push(...collectPreferencesFromMapping(value, configObject, path));
+            const nextConfig = (localConfig && typeof localConfig[key] === 'object') ? localConfig[key] : undefined;
+            items.push(...collectPreferencesFromMapping(value, nextConfig, path));
         }
     }
     return items;
@@ -129,7 +174,6 @@ export async function getMappingKeysForProductType(productType) {
     const imported = productTypeToImported[productType];
     if (imported && typeof imported === 'object') {
         try { if (typeof window !== 'undefined') { window[productType] = imported; } } catch (e) {}
-        console.log('[mappingRegistry] using imported mapping for', productType);
         const keys = flattenMappingKeys(imported);
         return { keys, candidates: ['[imported]'], successPath: '[imported]' };
     }
@@ -144,7 +188,6 @@ export async function getMappingForProductType(productType) {
     // If window[productType] was set during resolution, return it
     try {
         if (typeof window !== 'undefined' && window[productType] && typeof window[productType] === 'object') {
-            console.log('[mappingRegistry] returning mapping object from window for', productType);
             return { mapping: window[productType], sourcePath: result.successPath, candidates: result.candidates };
         }
     } catch (e) {}
@@ -166,7 +209,5 @@ export async function getPreferencesForProduct(productType, configurationObject)
     return { items, sourcePath };
 }
 
-// Confirm module loaded
-console.log('[mappingRegistry] module loaded');
 
 
