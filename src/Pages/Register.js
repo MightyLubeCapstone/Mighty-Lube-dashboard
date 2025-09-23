@@ -92,7 +92,7 @@ const Register = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    /*const handleSubmit = (e) => {
         e.preventDefault();
         
         if (validateForm()) {
@@ -102,7 +102,48 @@ const Register = () => {
             // For now, just navigate to login page
             navigate('/');
         }
-    };
+    }; */
+    const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (validateForm()) {
+    try {
+      const response = await fetch(`https://mighty-lube.com/api/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          emailAddress: formData.email,
+          phoneNumber: formData.phone,
+          companyName: formData.companyName,
+          country: formData.country,
+        }),
+      });
+
+      if (response.status === 201) {
+        const responseData = await response.json();
+
+        // store sessionID like Dart's SharedPreferences
+        localStorage.setItem("sessionID", responseData.sessionID);
+
+        console.log("Registration successful:", responseData);
+        navigate("/"); // redirect to login or dashboard
+      } else {
+        const errorText = await response.text();
+        console.error("Account creation failed:", errorText);
+        setErrors((prev) => ({ ...prev, api: "Registration failed." }));
+      }
+    } catch (e) {
+      console.error("Error:", e);
+      setErrors((prev) => ({ ...prev, api: "Network or server error." }));
+    }
+  }
+};
 
     return (
       <div className="login-page">
