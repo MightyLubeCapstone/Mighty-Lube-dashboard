@@ -8,10 +8,38 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        navigate('/dashboard');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      try {
+          const response = await fetch("https://mighty-lube.com/api/sessions", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: email, // backend expects "username"
+          password: password,
+        }),
+      });
+
+      if (response.ok && response.status === 201) {
+        const responseData = await response.json();
+
+        if (responseData.sessionID) {
+          localStorage.setItem("sessionID", responseData.sessionID);
+        }
+
+        console.log("Login successful:", responseData);
+        navigate("/dashboard");
+      } else {
+        const errorText = await response.text();
+        console.error("Login failed:", errorText);
+      }
+    } catch (err) {
+      console.error("Error:", err);
     }
+  };
 
     return (
         <div className="login-container">
@@ -22,7 +50,7 @@ const Login = () => {
                 <h1>Welcome Back</h1>
                 <form onSubmit={handleSubmit}>
                     <input 
-                        type="email" 
+                        type="username" 
                         placeholder="Email" 
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)}
@@ -36,7 +64,6 @@ const Login = () => {
                         required 
                     />
                     <button type="submit">Sign In</button>
-
                     <button type="button" onClick={() => navigate('/register')}>Register</button>
                 </form>
             </div>
