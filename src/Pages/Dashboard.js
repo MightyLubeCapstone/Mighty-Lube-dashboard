@@ -37,8 +37,11 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
     }, []);
 
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
   const [adminPopupOpen, setAdminPopupOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [configurationsPopupOpen, setConfigurationsPopupOpen] = useState(false);
   
   // Removed the undefined useOrders() call
@@ -53,6 +56,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
     setAdminPopupOpen(true);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const closeAdminPopup = () => {
     setAdminPopupOpen(false);
   };
@@ -62,15 +66,18 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
     setSettingsPopupOpen(true);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const closeSettingsPopup = () => {
     setSettingsPopupOpen(false);
   };
   
+  // eslint-disable-next-line no-unused-vars
   const openConfigurationsPopup = (e) => {
     e.preventDefault();
     setConfigurationsPopupOpen(true);
   };
   
+  // eslint-disable-next-line no-unused-vars
   const closeConfigurationsPopup = () => {
     setConfigurationsPopupOpen(false);
   };

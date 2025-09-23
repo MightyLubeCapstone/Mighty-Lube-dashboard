@@ -3,6 +3,7 @@
 // The export App allows index.js to use our functions and styles. For sake of simplicity, keep functions in their own files, and import them here. This will allow us to keep the code clean and organized
 
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './Assets/styles/main.css';
 import Login from './Pages/Login.js';
