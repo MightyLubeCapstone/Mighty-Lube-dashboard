@@ -1,40 +1,40 @@
 // Frontend-only map from product code to a file path that contains the mapping object in the models folder.
 // Fill these paths so they are accessible by the frontend (e.g., served from /public or a CDN).
-import fgco_Mapping from '../models/fgco_Mapping.js';
-import fglm_Mapping from '../models/fglm_Mapping.js';
-import enumMappingsCC5_CL from '../models/CC5_CL_Mappings.js';
-import enumMappingsCC5_OP4OE from '../models/CC5_OP4OE_Mappings.js';
-import enumMappingsCOE_CDL from '../models/COE_CDL_Mappings.js';
-import enumMappingsCOE_CEL from '../models/COE_CEL_Mappings.js';
-import enumMappingsCOE_OP4OE from '../models/COE_OP4OE_Mappings.js';
-import enumMappingsFT_FTL from '../models/FT_FTL_Mappings.js';
-import enumMappingsFT_OP4OE from '../models/FT_OP4OE_Mappings.js';
-import enumMappingsFT_OPCO from '../models/FT_OPCO_Mappings.js';
-import enumMappingsIBR_OP4OE from '../models/IBR_OP4OE_Mappings.js';
-import enumMappingsIBR_RFC from '../models/IBR_RFC_Mappings.js';
-import enumMappingsOHP_001 from '../models/OHP_001_Mappings.js';
-import enumMappingsOHP_2100I from '../models/OHP_2100I_Mappings.js';
-import enumMappingsOHP_9000I from '../models/OHP_9000I_Mappings.js';
-import enumMappingsOHP_CBS from '../models/OHP_CBS_Mappings.js';
-import enumMappingsOHP_CDL from '../models/OHP_CDL_Mappings.js';
-import enumMappingsOHP_ES from '../models/OHP_ES_Mappings.js';
-import enumMappingsOHP_OEB from '../models/OHP_OEB_Mappings.js';
-import enumMappingsOHP_YCB from '../models/OHP_YCB_Mappings.js';
-import enumMappingsOHP_PMM from '../models/OHP_PMM_Mappings.js';
-import enumMappingsOHP_OP55 from '../models/OHP_OP55_Mappings.js';
-import enumMappingsOHP_OP8NP from '../models/OHP_OP8NP_Mappings.js';
-import enumMappingsOHP_OP13 from '../models/OHP_OP13_Mappings.js';
-import enumMappingsOHP_PML from '../models/OHP_PML_Mappings.js';
-import enumMappingsOHP_OP8 from '../models/OHP_OP8_Mappings.js';
-import enumMappingsETI_807 from '../models/ETI_807_Mappings.js';
-import enumMappingsETI_91 from '../models/ETI_91_Mappings.js';
-import enumMappingsETI_9000INVL from '../models/ETI_9000INVL_Mappings.js';
-import enumMappingsETI_OP48E from '../models/ETI_OP48E_Mappings.js';
-import enumMappingsETO_2100 from '../models/ETO_2100_Mappings.js';
-import enumMappingsETO_9000E from '../models/ETO_9000E_Mappings.js';
-import enumMappingsETO_OP48E from '../models/ETO_OP48E_Mappings.js';
-import enumMappingsIFT_IFTL from '../models/IFT_IFTL_Mappings.js';
-import enumMappingsIFT_OP4OE from '../models/IFT_OP4OE_Mappings.js';
+import fgco_Mapping from './models/fgco_Mapping.js';
+import fglm_Mapping from './models/fglm_Mapping.js';
+import enumMappingsCC5_CL from './models/CC5_CL_Mappings.js';
+import enumMappingsCC5_OP4OE from './models/CC5_OP4OE_Mappings.js';
+import enumMappingsCOE_CDL from './models/COE_CDL_Mappings.js';
+import enumMappingsCOE_CEL from './models/COE_CEL_Mappings.js';
+import enumMappingsCOE_OP4OE from './models/COE_OP4OE_Mappings.js';
+import enumMappingsFT_FTL from './models/FT_FTL_Mappings.js';
+import enumMappingsFT_OP4OE from './models/FT_OP4OE_Mappings.js';
+import enumMappingsFT_OPCO from './models/FT_OPCO_Mappings.js';
+import enumMappingsIBR_OP4OE from './models/IBR_OP4OE_Mappings.js';
+import enumMappingsIBR_RFC from './models/IBR_RFC_Mappings.js';
+import enumMappingsOHP_001 from './models/OHP_001_Mappings.js';
+import enumMappingsOHP_2100I from './models/OHP_2100I_Mappings.js';
+import enumMappingsOHP_9000I from './models/OHP_9000I_Mappings.js';
+import enumMappingsOHP_CBS from './models/OHP_CBS_Mappings.js';
+import enumMappingsOHP_CDL from './models/OHP_CDL_Mappings.js';
+import enumMappingsOHP_ES from './models/OHP_ES_Mappings.js';
+import enumMappingsOHP_OEB from './models/OHP_OEB_Mappings.js';
+import enumMappingsOHP_YCB from './models/OHP_YCB_Mappings.js';
+import enumMappingsOHP_PMM from './models/OHP_PMM_Mappings.js';
+import enumMappingsOHP_OP55 from './models/OHP_OP55_Mappings.js';
+import enumMappingsOHP_OP8NP from './models/OHP_OP8NP_Mappings.js';
+import enumMappingsOHP_OP13 from './models/OHP_OP13_Mappings.js';
+import enumMappingsOHP_PML from './models/OHP_PML_Mappings.js';
+import enumMappingsOHP_OP8 from './models/OHP_OP8_Mappings.js';
+import enumMappingsETI_807 from './models/ETI_807_Mappings.js';
+import enumMappingsETI_91 from './models/ETI_91_Mappings.js';
+import enumMappingsETI_9000INVL from './models/ETI_9000INVL_Mappings.js';
+import enumMappingsETI_OP48E from './models/ETI_OP48E_Mappings.js';
+import enumMappingsETO_2100 from './models/ETO_2100_Mappings.js';
+import enumMappingsETO_9000E from './models/ETO_9000E_Mappings.js';
+import enumMappingsETO_OP48E from './models/ETO_OP48E_Mappings.js';
+import enumMappingsIFT_IFTL from './models/IFT_IFTL_Mappings.js';
+import enumMappingsIFT_OP4OE from './models/IFT_OP4OE_Mappings.js';
 
 export const productTypeToImported = {
     FGCO: fgco_Mapping,
@@ -75,10 +75,6 @@ export const productTypeToImported = {
     // IFT_OPCO: enumMappingsIFT_OPCO,
 };
 
-// Optional globals if you include mapping scripts via <script> tags in public/index.html
-// Update names to match actual global variable identifiers defined by those scripts
-// Removed legacy global variable lookup
-
 function isLeafMappingObject(obj) {
     if (!obj || typeof obj !== 'object') return false;
     const values = Object.values(obj);
@@ -101,24 +97,19 @@ export function flattenMappingKeys(mappingObject, parentKey = '') {
     return collected;
 }
 
-//Unfinished
 function collectPreferencesFromMapping(mappingObject, configObject, parentKey = '') {
     const items = [];
     if (!mappingObject || typeof mappingObject !== 'object') return items;
 
-    // Normalize config once for lookups
     const localConfig = (configObject && typeof configObject === 'object') ? configObject : {};
 
     const toNumericIndex = (raw) => {
         if (raw == null) return undefined;
-        // Extended JSON { $numberInt: "..." }
         if (typeof raw === 'object' && raw.$numberInt) {
             const n = parseInt(raw.$numberInt, 10);
             return Number.isFinite(n) ? n : undefined;
         }
-        // Plain number
         if (typeof raw === 'number') return raw;
-        // String containing number
         const n = parseInt(String(raw), 10);
         return Number.isFinite(n) ? n : undefined;
     };
@@ -137,7 +128,6 @@ function collectPreferencesFromMapping(mappingObject, configObject, parentKey = 
 
                 if (Array.isArray(value)) {
                     if (typeof numericIndex === 'number') {
-                        // Support both 0-based and 1-based input indices
                         const zeroBased = (numericIndex >= 0 && numericIndex < value.length)
                             ? numericIndex
                             : numericIndex - 1;
@@ -146,7 +136,6 @@ function collectPreferencesFromMapping(mappingObject, configObject, parentKey = 
                         }
                     }
                 } else if (value && typeof value === 'object') {
-                    // Enum-like object with numeric string keys
                     if (Object.prototype.hasOwnProperty.call(value, numericIndex)) {
                         label = value[numericIndex];
                     } else if (Object.prototype.hasOwnProperty.call(value, String(numericIndex))) {
@@ -166,26 +155,20 @@ function collectPreferencesFromMapping(mappingObject, configObject, parentKey = 
     return items;
 }
 
-// Removed fetch/dynamic path resolution to avoid CRA import constraints
-
 export async function getMappingKeysForProductType(productType) {
     if (!productType) return [];
-    // Prefer imported registry (authoritative, no network/parsing)
     const imported = productTypeToImported[productType];
     if (imported && typeof imported === 'object') {
         try { if (typeof window !== 'undefined') { window[productType] = imported; } } catch (e) {}
         const keys = flattenMappingKeys(imported);
         return { keys, candidates: ['[imported]'], successPath: '[imported]' };
     }
-    // No global bindings
     console.warn('[mappingRegistry] No imported/global mapping found for', productType);
     return { keys: [], candidates: [], successPath: null };
 }
 
-// Get the full mapping object (not just keys). Will attempt the same resolution strategy.
 export async function getMappingForProductType(productType) {
     const result = await getMappingKeysForProductType(productType);
-    // If window[productType] was set during resolution, return it
     try {
         if (typeof window !== 'undefined' && window[productType] && typeof window[productType] === 'object') {
             return { mapping: window[productType], sourcePath: result.successPath, candidates: result.candidates };
@@ -194,10 +177,8 @@ export async function getMappingForProductType(productType) {
     return { mapping: null, sourcePath: result.successPath, candidates: result.candidates };
 }
 
-// Get preference list (variable -> chosen label) based on provided configuration object
 export async function getPreferencesForProduct(productType, configurationObject) {
     if (!productType) return { items: [], sourcePath: null };
-    // Prefer imported mapping
     const imported = productTypeToImported[productType];
     let mappingObject = imported;
     let sourcePath = '[imported]';
@@ -208,6 +189,5 @@ export async function getPreferencesForProduct(productType, configurationObject)
     const items = collectPreferencesFromMapping(mappingObject, configurationObject || {});
     return { items, sourcePath };
 }
-
 
 

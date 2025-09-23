@@ -247,10 +247,9 @@ tr:nth-child(even) {
 
 /* SweetAlert2 large popup styling */
 .swal2-fullscreen-popup {
-    width: 80%;
-    height: 80vh;
-    max-width: 80%;
-    max-height: 60vh;
+    width: 75%;
+    max-width: 75%;
+    height: 75vh;
     min-width: 600px;
     min-height: 700px;
     margin: 0 auto;
@@ -267,15 +266,16 @@ tr:nth-child(even) {
 }
 
 .swal2-fullscreen-popup .swal2-html-container {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 0.5rem 1.5rem; /* reduce bottom gap above actions */
     font-size: 1rem;
     margin: 0;
     text-align: left;
     display: block;
+    overflow: hidden; /* prevent inner container from scrolling */
 }
 
 .swal2-fullscreen-popup .swal2-actions {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 1rem 1.5rem; /* tighten below content */
     margin: 0;
     text-align: left;
 }

@@ -1,9 +1,26 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import { getMappingKeysForProductType, getPreferencesForProduct } from '../utils/mappingRegistry';
+import { getMappingKeysForProductType, getPreferencesForProduct } from '../mappingRegistry';
 
 function Order({ order }) {
   const getStatus = (quantity) => 'Pending';
+
+  const toTitleFromCamelOrSnake = (input) => {
+    if (!input || typeof input !== 'string') return '';
+    const parts = input.split('.');
+    const humanized = parts.map((part) => {
+      const spaced = part
+        .replace(/[_-]+/g, ' ')
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+        .replace(/\s+/g, ' ')
+        .trim();
+      return spaced
+        .split(' ')
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
+    });
+    return humanized.join(' | ');
+  };
 
   const handleDetailsClick = async () => {
     try {
@@ -33,13 +50,24 @@ function Order({ order }) {
 
       const keysHtml = keys.length === 0
         ? `<em>No mapping keys found for ${order.productType}${displayPath ? ' at ' + displayPath : ''}.</em>`
-        : '<ul style="margin: 0; padding-left: 18px;">' + keys.map(k => {
-            const it = byName[k];
-            const label = it && typeof it.label !== 'undefined' ? it.label : 'Undefined';
-            const idx = it && typeof it.index !== 'undefined' ? it.index : '';
-            const right = idx !== '' ? ` — ${label}` : ` — ${label}`;
-            return `<li>${k}${right}</li>`;
-          }).join('') + '</ul>';
+        : (
+          '<div style="display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">'
+          + keys.map(k => {
+              const it = byName[k];
+              const label = it && typeof it.label !== 'undefined' ? it.label : 'Undefined';
+              const idx = it && typeof it.index !== 'undefined' ? it.index : '';
+              return `
+                <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:10px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                    <span style="font-weight:600; color:#111827;">${toTitleFromCamelOrSnake(k)}</span>
+                    ${idx !== '' ? `<span style="color:#6b7280; font-size:12px;">Index: ${idx}</span>` : ''}
+                  </div>
+                  <div style="color:#374151; font-size:13px;">${label}</div>
+                </div>
+              `;
+            }).join('')
+          + '</div>'
+        );
 
       Swal.fire({
         title: `Order #${order.orderID} Details`,
@@ -63,9 +91,9 @@ function Order({ order }) {
             <div style="margin-bottom: 15px;">
               <strong>Created Date:</strong> ${order.createdDate}
             </div>
-            <div style="margin-bottom: 15px;">
-              <strong>Mapping Variables:</strong>
-              <div style=\"max-height: 240px; overflow:auto; border: 1px solid #eee; padding: 8px; border-radius: 4px;\">${keysHtml}</div>
+            <div style="margin-bottom: 0;">
+              <strong style="display:inline-block; margin-bottom: 8px;">Mapping Variables:</strong>
+              <div style="max-height: 31.5vh; overflow:auto; border: 1px solid #e5e7eb; padding: 12px; border-radius: 8px; background:#ffffff;">${keysHtml}</div>
             </div>
           </div>
         `,
@@ -76,8 +104,8 @@ function Order({ order }) {
         showCloseButton: true,
         allowOutsideClick: true,
         allowEscapeKey: true,
-        width: '80%',
-        height: '60vh',
+        width: '90%',
+        height: '100vh',
         customClass: {
           popup: 'swal2-fullscreen-popup'
         }
