@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Assets/styles/login.css';
 import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
+import Swal from "sweetalert2";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -35,6 +36,19 @@ const Login = () => {
       } else {
         const errorText = await response.text();
         console.error("Login failed:", errorText);
+        if (errorText.includes("Invalid credentials")) {
+          Swal.fire({
+            icon: "error",
+            title: "Login Failed",
+            text: "Invalid password. Please try again.",
+          });
+        } else if (errorText.includes("username")) {
+          Swal.fire({
+            icon: "error",
+            title: "Invalid Username",
+            text: "The username you entered does not exist.",
+          });
+        }
       }
     } catch (err) {
       console.error("Error:", err);
