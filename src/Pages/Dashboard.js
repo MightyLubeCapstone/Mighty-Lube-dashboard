@@ -24,7 +24,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
     const [cart, setCart] = useState([]);
     
     useEffect(() => {
-      // Fetch from users.json for cart data
+   /*   // Fetch from users.json for cart data
       fetch('/users.json')
         .then(res => res.json())
         .then(json => {
@@ -33,7 +33,34 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
         })
         .catch(error => {
           console.error('Error loading users:', error);
+        }); */
+      // where we fetch the cart data from the API
+          const fetchConfigurations = async () => {
+      try {
+        const token = localStorage.getItem("sessionID"); // like SharedPreferences in Flutter
+        const response = await fetch('https://mighty-lube.com/api/configurations', {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
         });
+
+        if (response.ok) {
+          const data = await response.json();
+          const parsed = parseCartFromUserData(data.configurations); 
+          setCart(parsed);
+        } else if (response.status === 400) {
+          setCart([]);
+        } else {
+          setCart([]);
+        }
+      } catch (error) {
+        console.error("Error fetching configurations:", error);
+        setCart([]);
+      }
+    };
+
+    fetchConfigurations();
     }, []);
 
   const navigate = useNavigate();

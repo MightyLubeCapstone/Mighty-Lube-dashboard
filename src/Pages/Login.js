@@ -65,7 +65,7 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="username" 
-                        placeholder="Email" 
+                        placeholder="Username" 
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)}
                         required 
