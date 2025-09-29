@@ -9,12 +9,12 @@ import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
 // Status color function - duplicated from OrderList for consistency
 const getStatusColor = (status) => {
   switch (status) {
-    case "Processing":
-      return "#ffd700"; // Yellow for Processing
-    case "Completed":
-      return "#28a745"; // Green for Completed
+    case "Requested":
+      return "#ffa500"; // Orange for Requested
+    case "Complete":
+      return "#28a745"; // Green for Complete
     case "Pending":
-      return "#ff8c00"; // Orange for Pending
+      return "#ff6b35"; // More orange for Pending
     default:
       return "black";
   }
@@ -22,6 +22,16 @@ const getStatusColor = (status) => {
 
 function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsByStatus }) {
     const [cart, setCart] = useState([]);
+
+    const handleStatusChange = (orderID, newStatus) => {
+      setCart(prevCart => 
+        prevCart.map(order => 
+          order.orderID === orderID 
+            ? { ...order, orderStatus: { ...order.orderStatus, status: newStatus } }
+            : order
+        )
+      );
+    };
     
     useEffect(() => {
    /*   // Fetch from users.json for cart data
@@ -111,8 +121,12 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
 
   // Create formatted status counts with appropriate colors from cart data
   const getColoredStatusCounts = () => {
-    // If all cart items are treated as Pending
-    const counts = { Pending: cart.length };
+    // Count actual statuses from cart data
+    const counts = cart.reduce((acc, order) => {
+      const status = order.orderStatus?.status || 'Requested';
+      acc[status] = (acc[status] || 0) + 1;
+      return acc;
+    }, {});
 
     return Object.entries(counts).map(([status, count], index) => (
       <span key={status}>
@@ -177,7 +191,7 @@ The parameters for OrderTable are defined in the UseList.js file.
 
 The return for the function is a table
 */}
-              <OrderTable orders={cart} />
+              <OrderTable orders={cart} onStatusChange={handleStatusChange} />
           </main>
         </div>
       </div>

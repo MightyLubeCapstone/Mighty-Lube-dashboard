@@ -6,7 +6,13 @@ import Order from './Use';
 
 // function OrderTable({ orders, sortBy, setSortBy }) {
 
-function OrderTable({ orders }) {
+function OrderTable({ orders, onStatusChange }) {
+  const handleStatusChange = (orderID, newStatus) => {
+    if (onStatusChange) {
+      onStatusChange(orderID, newStatus);
+    }
+  };
+
   return (
     <div className="dashboard-container">
  
@@ -62,7 +68,7 @@ function OrderTable({ orders }) {
           </thead>
           <tbody>
             {orders.map((order, idx) => (
-              <Order key={`${order.orderID}-${idx}`} order={order} />
+              <Order key={`${order.orderID}-${idx}`} order={order} onStatusChange={handleStatusChange} />
             ))}
           </tbody>
         </table>
