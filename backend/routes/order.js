@@ -36,4 +36,42 @@ router.post('/import', async (req, res) => {
     }
 })
 
+// PUT /api/order/user_orders/allCarts - Update user preferences for all carts
+router.put('/user_orders/allCarts', async (req, res) => {
+    try {
+        const { userID, order } = req.body;
+        
+        if (!userID || !order) {
+            return res.status(400).json({ 
+                message: 'userID and order are required' 
+            });
+        }
+
+        // Find and update the order
+        const updatedOrder = await Order.findOneAndUpdate(
+            { orderID: order.orderID },
+            { 
+                ...order,
+                updatedAt: new Date()
+            },
+            { new: true }
+        );
+
+        if (!updatedOrder) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+
+        res.json({ 
+            message: 'User preferences updated successfully',
+            userID: userID,
+            orderID: order.orderID,
+            updatedAt: updatedOrder.updatedAt
+        });
+
+    } catch (error) {
+        console.error('Error updating user preferences:', error);
+        res.status(500).json({ message: 'Failed to update user preferences' });
+    }
+});
+
 module.exports = router

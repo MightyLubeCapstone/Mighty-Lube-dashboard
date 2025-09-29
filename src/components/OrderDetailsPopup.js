@@ -3,7 +3,7 @@ import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForPr
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
 
-function OrderDetailsPopup({ isOpen, onClose, order }) {
+function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   const [mappingData, setMappingData] = useState({ keys: [], items: [], mapping: null });
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -98,7 +98,82 @@ function OrderDetailsPopup({ isOpen, onClose, order }) {
     }));
   };
 
-  const toggleEdit = () => {
+  const updateUserPreferences = async () => {
+    try {
+      const token = localStorage.getItem("sessionID");
+      if (!token) {
+        console.error('No session token found');
+        return;
+      }
+
+      if (!userID) {
+        console.error('No userID provided');
+        alert('User ID not available. Please refresh and try again.');
+        return;
+      }
+
+      // Build the updated product configuration info from the current mapping data
+      const updatedConfig = { ...order.productConfigurationInfo };
+      
+      // Update the configuration with the new mapping values
+      mappingData.items.forEach(item => {
+        if (item.index !== null) {
+          // Convert the mapping key to the appropriate configuration path
+          const keyParts = item.name.split('.');
+          let current = updatedConfig;
+          
+          // Navigate to the correct nested property
+          for (let i = 0; i < keyParts.length - 1; i++) {
+            if (!current[keyParts[i]]) {
+              current[keyParts[i]] = {};
+            }
+            current = current[keyParts[i]];
+          }
+          
+          // Set the final value
+          current[keyParts[keyParts.length - 1]] = item.index;
+        }
+      });
+
+      // Create the complete order object with updated configuration
+      const updatedOrder = {
+        ...order,
+        productConfigurationInfo: updatedConfig
+      };
+
+      const response = await fetch('https://mighty-lube.com/api/order/user_orders/allCarts', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          userID: userID,
+          order: updatedOrder
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Preferences updated successfully:', result);
+        // Optionally show a success message to the user
+        alert('Preferences updated successfully!');
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to update preferences:', errorData);
+        alert('Failed to update preferences. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error updating preferences:', error);
+      alert('Error updating preferences. Please check your connection and try again.');
+    }
+  };
+
+  const toggleEdit = async () => {
+    if (isEditing) {
+      // User is pressing "Done" - save the changes
+      await updateUserPreferences();
+    }
     setIsEditing(!isEditing);
   };
 
