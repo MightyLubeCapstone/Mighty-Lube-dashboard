@@ -5,6 +5,7 @@ import { parseCartFromUserData } from '../hooks/useUsers';
 import OrderTable from '../components/UseList';
 import { useState, useEffect } from 'react';
 import logo from '../Assets/Images/ML_Logo-w-tag-vector.svg';
+import Swal from 'sweetalert2';
 
 // Status color function - duplicated from OrderList for consistency
 const getStatusColor = (status) => {
@@ -90,7 +91,28 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
 
   const openSettingsPopup = (e) => {
     e.preventDefault();
-    setSettingsPopupOpen(true);
+    Swal.fire({
+      title: 'Settings',
+      html: `
+        <div style="text-align: left; padding: 20px;">
+          <div style="margin-bottom: 15px;">
+            <strong>Settings options go here.</strong>
+          </div>
+          <!-- Add more settings fields here as needed -->
+        </div>
+      `,
+      background: '#ffffff',
+      showConfirmButton: true,
+      confirmButtonText: 'Close',
+      confirmButtonColor: '#007bff',
+      showCloseButton: true,
+      allowOutsideClick: true,
+      allowEscapeKey: true,
+      width: '80%',
+      customClass: {
+        popup: 'swal2-fullscreen-popup'
+      }
+    });
   };
 
   // eslint-disable-next-line no-unused-vars
