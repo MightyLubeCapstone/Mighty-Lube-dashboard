@@ -39,7 +39,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
           const fetchConfigurations = async () => {
       try {
         const token = localStorage.getItem("sessionID"); // like SharedPreferences in Flutter
-        const response = await fetch('https://mighty-lube.com/api/configurations', {
+        const response = await fetch('https://mighty-lube.com/api/user_orders/allCarts', {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
@@ -48,7 +48,9 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
 
         if (response.ok) {
           const data = await response.json();
-          const parsed = parseCartFromUserData(data.configurations); 
+          console.log("Fetched configurations:", data);
+          const parsed = parseCartFromUserData(data); 
+          console.log("Parsed cart data:", parsed);
           setCart(parsed);
         } else if (response.status === 400) {
           setCart([]);
