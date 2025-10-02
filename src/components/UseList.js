@@ -49,6 +49,7 @@ function OrderTable({ orders }) {
         <thead>
           <tr>
             <th onClick={() => handleHeaderClick('orderID')}>Order ID{getHeaderArrow('orderID')}</th>
+            <th onClick={() => handleHeaderClick('username')}>User{getHeaderArrow('username')}</th>
             <th onClick={() => handleHeaderClick('productType')}>Type{getHeaderArrow('productType')}</th>
             <th onClick={() => handleHeaderClick('conveyorName')}>Conveyor{getHeaderArrow('conveyorName')}</th>
             <th onClick={() => handleHeaderClick('status')}>Status{getHeaderArrow('status')}</th>
