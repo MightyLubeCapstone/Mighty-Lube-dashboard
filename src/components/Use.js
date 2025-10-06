@@ -70,6 +70,7 @@ function Order({ order, onStatusChange }) {
   return (
     <>
       <tr key={order.orderID}>
+        <td>#{order.username}</td>
         <td>#{order.orderID}</td>
         <td>{order.productType}</td>
         <td>{order.conveyorName}</td>

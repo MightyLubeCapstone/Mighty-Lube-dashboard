@@ -39,17 +39,23 @@ export function parseCartFromUserData(data) {
     };
   };
 
-  const flattenUsersArray = (users) => {
-    const all = [];
-    for (const user of users) {
-      if (Array.isArray(user?.cart)) {
-        for (const item of user.cart) {
-          all.push(normalizeCartItem(item));
-        }
+const flattenUsersArray = (users) => {
+  const all = [];
+  for (const user of users) {
+    const cart = user?.productConfigurationInfo?.cart;
+    if (Array.isArray(cart)) {
+      for (const item of cart) {
+        all.push({
+          ...normalizeCartItem(item),
+          username: user.username,
+          userID: user.userID,
+          configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown'
+        });
       }
     }
-    return all;
-  };
+  }
+  return all;
+};
 
   // If array: treat as array of users and flatten all carts
   if (Array.isArray(data)) {

@@ -1,78 +1,69 @@
-/*
-This file is responsible for displaying the entire table of orders. It takes the individual rows created in Order.js and puts them together.
-*/
-import React from 'react';
+import React, { useState } from 'react';
 import Order from './Use';
 
-// function OrderTable({ orders, sortBy, setSortBy }) {
+function OrderTable({ orders }) {
+  const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
 
-function OrderTable({ orders, onStatusChange }) {
-  const handleStatusChange = (orderID, newStatus) => {
-    if (onStatusChange) {
-      onStatusChange(orderID, newStatus);
+  // Sorting function
+  const sortedOrders = [...orders].sort((a, b) => {
+    const { key, direction } = sortConfig;
+    if (!a[key]) return 1;
+    if (!b[key]) return -1;
+
+    let comparison = 0;
+
+    if (key === 'quantity') {
+      comparison = a[key] - b[key]; // numeric sort
+    } else if (key === 'createdDate') {
+      comparison = new Date(a[key]) - new Date(b[key]); // date sort
+    } else {
+      comparison = String(a[key]).localeCompare(String(b[key])); // string sort
     }
+
+    return direction === 'asc' ? comparison : -comparison;
+  });
+
+  // Click handler for headers
+  const handleHeaderClick = (key) => {
+    setSortConfig(prev => {
+      if (prev.key === key) {
+        // Same key -> reverse direction
+        return { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' };
+      } else {
+        // New key -> ascending by default
+        return { key, direction: 'asc' };
+      }
+    });
+  };
+
+  // Optional: display arrow in header
+  const getHeaderArrow = (key) => {
+    if (sortConfig.key !== key) return '';
+    return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
   };
 
   return (
-    <div className="dashboard-container">
- 
-
-      {/* Here the table begins generating the overall look. It creates the headers and fills in the body of the table using a reference to the Order.js file.
-          The body of the table is filled dynamically using the map function to iterate through the orders array and create a new Order component for each order.
-          The key prop is used to uniquely identify each order in the list.
-          The HTML return from Order.js is used here to generate table rows for the table body.
-      */}
-      
     <div className="order-list-card">
       <h2>Order List</h2>
-
-{/* This is a potential functionality for sorting the table:
-
-        <div 
-          style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center', 
-            marginBottom: '1rem' 
-          }}
-        >
-        <h2 style={{ margin: 0 }}>Order List</h2>
-        <div>
-          <label>
-            Sort by:&nbsp;
-            <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
-              <option value="orderID">Order ID</option>
-              <option value="productType">Product Type</option>
-              <option value="conveyorName">Conveyor Name</option>
-              <option value="status">Status</option>
-              <option value="quantity">Quantity</option>
-              <option value="createdDate">Created Date</option>
-              </select>
-          </label>
-          </div>
-        </div>
-
-*/}
-
-        <table>
-          <thead>
-            <tr>
-              <th>Order ID</th>
-              <th>Type</th>
-              <th>Conveyor</th>
-              <th>Status</th>
-              <th>Quantity</th>
-              <th>Created</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order, idx) => (
-              <Order key={`${order.orderID}-${idx}`} order={order} onStatusChange={handleStatusChange} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th onClick={() => handleHeaderClick('orderID')}>Order ID{getHeaderArrow('orderID')}</th>
+            <th onClick={() => handleHeaderClick('username')}>User{getHeaderArrow('username')}</th>
+            <th onClick={() => handleHeaderClick('productType')}>Type{getHeaderArrow('productType')}</th>
+            <th onClick={() => handleHeaderClick('conveyorName')}>Conveyor{getHeaderArrow('conveyorName')}</th>
+            <th onClick={() => handleHeaderClick('status')}>Status{getHeaderArrow('status')}</th>
+            <th onClick={() => handleHeaderClick('quantity')}>Quantity{getHeaderArrow('quantity')}</th>
+            <th onClick={() => handleHeaderClick('createdDate')}>Created{getHeaderArrow('createdDate')}</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedOrders.map((order, idx) => (
+            <Order key={`${order.orderID}-${idx}`} order={order} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
