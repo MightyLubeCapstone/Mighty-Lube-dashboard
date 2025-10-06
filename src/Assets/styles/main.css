@@ -211,6 +211,14 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
+/* Fixed width for status column to prevent layout shifts */
+th:nth-child(4), td:nth-child(4) {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    padding-left: 8px;
+}
+
 th {
     background-color: #f8f9fa;
     font-weight: 600;

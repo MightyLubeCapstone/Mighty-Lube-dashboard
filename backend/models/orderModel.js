@@ -10,8 +10,8 @@ const OrderSchema = new mongoose.Schema({
   },
   numRequested: Number,
   orderStatus: {
-    status: { type: String, enum: ['Processing', 'Completed', 'Pending', 'Unknown'], default: 'Unknown' },
-    completionStatus: { type: String, default: 'Unknown' }
+    status: { type: String, enum: ['Requested', 'Pending', 'Complete'], default: 'Requested' },
+    completionStatus: { type: String, default: 'Requested' }
   }
 }, { timestamps: true });
 
