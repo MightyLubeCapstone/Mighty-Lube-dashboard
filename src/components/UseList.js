@@ -1,16 +1,30 @@
 /*
 This file is responsible for displaying the entire table of orders. It takes the individual rows created in Order.js and puts them together.
 */
-import React from 'react';
+import React, { useState } from 'react';
 import Order from './Use';
+import OrderDetailsPopup from './OrderDetailsPopup';
 
 // function OrderTable({ orders, sortBy, setSortBy }) {
 
 function OrderTable({ orders, onStatusChange }) {
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [popupOpen, setPopupOpen] = useState(false);
+
   const handleStatusChange = (orderID, newStatus) => {
     if (onStatusChange) {
       onStatusChange(orderID, newStatus);
     }
+  };
+
+  const handleDetailsClick = (order) => {
+    setSelectedOrder(order);
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+    setSelectedOrder(null);
   };
 
   return (
@@ -68,11 +82,24 @@ function OrderTable({ orders, onStatusChange }) {
           </thead>
           <tbody>
             {orders.map((order, idx) => (
-              <Order key={`${order.orderID}-${idx}`} order={order} onStatusChange={handleStatusChange} />
+              <Order 
+                key={`${order.orderID}-${idx}`} 
+                order={order} 
+                onStatusChange={handleStatusChange}
+                onDetailsClick={handleDetailsClick}
+              />
             ))}
           </tbody>
         </table>
       </div>
+      
+      {/* Popup rendered outside table structure */}
+      <OrderDetailsPopup 
+        isOpen={popupOpen} 
+        onClose={closePopup} 
+        order={selectedOrder}
+        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
+      />
     </div>
   );
 }
