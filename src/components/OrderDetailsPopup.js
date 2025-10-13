@@ -112,12 +112,25 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
     // For now, we'll just log the change
     console.log(`Changed ${mappingKey} to index ${newIndex}`);
     
+    // Get the new display value from the mapping
+    const options = getMappingOptions(mappingKey);
+    const newDisplayValue = options[newIndex] || 'Undefined';
+    
+    // Convert string index back to number for originalValue
+    const numericIndex = parseInt(newIndex, 10);
+    
     // Update the local state to reflect the change
     setMappingData(prev => ({
       ...prev,
       items: prev.items.map(item => 
         item.name === mappingKey 
-          ? { ...item, index: newIndex, label: getMappingOptions(mappingKey)[newIndex] || 'Undefined' }
+          ? { 
+              ...item, 
+              value: newDisplayValue,           // Display value (e.g., "Frost")
+              originalValue: numericIndex,      // Original numeric value (e.g., 2)
+              index: numericIndex               // For compatibility
+              // Note: label should NOT change - it should stay as the field name
+            }
           : item
       )
     }));
@@ -283,7 +296,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
                       <div className="mapping-control">
                         {item.isEnum ? (
                           <select
-                            value={currentIndex || ''}
+                            value={String(currentIndex || '')}
                             onChange={(e) => handleDropdownChange(item.name, e.target.value)}
                             className="mapping-dropdown"
                           >
