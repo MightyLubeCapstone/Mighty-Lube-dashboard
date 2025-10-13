@@ -135,15 +135,6 @@ function Order({ order, onStatusChange, onDetailsClick }) {
           <button className="details-button" onClick={handleDetailsClick}>Details</button>
         </td>
       </tr>
-<<<<<<< HEAD
-=======
-      <OrderDetailsPopup 
-        isOpen={popupOpen} 
-        onClose={closePopup} 
-        order={order}
-        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
-      />
->>>>>>> 877cd3be45ef306792e6ea3a0891b6a0f2b20583
     </>
   );
 }

@@ -4,6 +4,8 @@ import OrderDetailsPopup from './OrderDetailsPopup';
 
 function OrderTable({ orders }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [popupOpen, setPopupOpen] = useState(false);
 
   // Sorting function
   const sortedOrders = [...orders].sort((a, b) => {
@@ -71,10 +73,22 @@ function OrderTable({ orders }) {
         </thead>
         <tbody>
           {sortedOrders.map((order, idx) => (
-            <Order key={`${order.orderID}-${idx}`} order={order} />
+            <Order 
+              key={`${order.orderID}-${idx}`} 
+              order={order} 
+              onDetailsClick={handleDetailsClick}
+            />
           ))}
         </tbody>
       </table>
+      
+      {/* Popup rendered outside table structure */}
+      <OrderDetailsPopup 
+        isOpen={popupOpen} 
+        onClose={closePopup} 
+        order={selectedOrder}
+        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
+      />
     </div>
   );
 }
