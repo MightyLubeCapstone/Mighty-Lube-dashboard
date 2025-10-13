@@ -94,18 +94,21 @@ function Order({ order, onStatusChange }) {
               {status}
             </span>
             {isDropdownOpen && (
-              <div style={{
-                position: 'fixed',
-                top: `${dropdownPosition.top}px`,
-                left: `${dropdownPosition.left}px`,
-                backgroundColor: 'white',
-                border: '1px solid #e5e7eb',
-                borderRadius: '6px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                zIndex: 9999,
-                minWidth: '130px',
-                overflow: 'hidden'
-              }}>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '100%',        
+                      left: 0,          
+                      marginTop: '4px',   
+                      backgroundColor: 'white',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '6px',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                      zIndex: 9999,
+                      minWidth: '130px',
+                      overflow: 'hidden'
+                    }}
+                  >
                 {['Requested', 'Pending', 'Complete'].map((statusOption) => (
                   <div
                     key={statusOption}
