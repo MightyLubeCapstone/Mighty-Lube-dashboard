@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Order from './Use';
+import OrderDetailsPopup from './OrderDetailsPopup';
 
 function OrderTable({ orders }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
@@ -40,6 +41,16 @@ function OrderTable({ orders }) {
   const getHeaderArrow = (key) => {
     if (sortConfig.key !== key) return '';
     return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
+  };
+
+  const handleDetailsClick = (order) => {
+    setSelectedOrder(order);
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+    setSelectedOrder(null);
   };
 
   return (

@@ -1,79 +1,63 @@
-const mongoose = require("mongoose");
-const templateA = require("./templateA.js");
-const uuid = require("uuid");
-const getDecodedInfo = require("./getDecodedInfo.js");
-
-const CC5_CLSchema = new mongoose.Schema({
+// Extracted schema for COE_CEL - browser-compatible version
+export const COE_CEL_Schema = {
   conveyorName: {
     type: String,
     required: true,
   },
-
-  cc5ChainSize: {
+  chainSize: {
     type: Number,
-    enum: [1, 2, 3, 4, 5, 6, 7, 8],
+    enum: [1, 2, 3, 4, 5],
     required: true,
   },
-
   otherChainSize: {
     type: String,
     required: function () {
-      return this.cc5ChainSize === 8;
+      return this.cc5ChainSize === 5;
     },
   },
-
   industrialChainManufacturer: {
     type: Number,
     enum: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     required: true,
   },
-
-  otherChainManufacturer: {
+  otherIndustrialChainManufacturer: {
     type: String,
     required: function () {
       return this.industrialChainManufacturer === 9;
     },
   },
-
   conveyorLength: {
     type: Number,
-    required: false,
+    required: true,
   },
-
   conveyorLengthUnit: {
     type: Number,
     enum: [1, 2, 3, 4],
-    required: false,
+    required: true,
   },
-
   conveyorSpeed: {
-    type: String,
-    required: false,
+    type: Number,
+    required: true,
   },
-
   conveyorSpeedUnit: {
     type: Number,
     enum: [1, 2],
-    required: false,
+    required: true,
   },
-
   conveyorIndex: {
-    type: String,
+    type: Number,
     required: false,
   },
-
   travelDirection: {
     type: Number,
     enum: [1, 2],
     required: false,
   },
-
   appEnviroment: {
     type: Number,
     enum: [1, 2, 3, 4, 5, 6, 7],
     required: true,
   },
-
   ovenStatus: {
     type: Number,
     enum: [1, 2],
@@ -81,163 +65,136 @@ const CC5_CLSchema = new mongoose.Schema({
       return this.appEnviroment === 3;
     },
   },
-
   ovenTemp: {
     type: Number,
     required: function () {
       return this.appEnviroment === 3;
     },
   },
-
   otherAppEnviroment: {
     type: String,
     required: function () {
       return this.appEnviroment === 7;
     },
   },
-
   surroundingTemp: {
     type: Number,
     enum: [1, 2],
     required: false,
   },
-
-  strandStatus: {
+  conveyorLoaded: {
     type: Number,
     enum: [1, 2],
-    required: true,
+    required: false,
   },
-
+  conveyorSwing: {
+    type: Number,
+    enum: [1, 2],
+    required: false,
+  },
   plantLayout: {
     type: Number,
     enum: [1, 2],
     required: false,
   },
-
   requiredPics: {
     type: Number,
     enum: [1, 2],
     required: false,
   },
-
   operatingVoltage: {
-    type: String,
+    type: Number,
     required: true,
   },
-
-  monitorData: templateA,
-
-  outboardStatus: {
+  monitorData: {
+    // templateA reference - would need to be defined separately
+    type: Object,
+    required: false,
+  },
+  wheelSealedChain: {
     type: Number,
     enum: [1, 2],
     required: true,
   },
-
-  highRollerStatus: {
+  templateDData: {
+    // templateD reference - would need to be defined separately
+    type: Object,
+    required: function () {
+      return this.wheelSealedChain === 1;
+    },
+  },
+  templateEData: {
+    // templateE reference - would need to be defined separately
+    type: Object,
+    required: false,
+  },
+  wheelOpenType: {
+    type: Number,
+    enum: [1, 2, 3],
+    required: false,
+  },
+  wheelClosedType: {
+    type: Number,
+    enum: [1, 2, 3],
+    required: false,
+  },
+  openStatus: {
     type: Number,
     enum: [1, 2],
-    required: true,
+    required: false,
   },
-
+  catDriveStatus: {
+    type: Number,
+    enum: [1, 2],
+    required: false,
+  },
+  railLubeStatus: {
+    type: Number,
+    enum: [1, 2],
+    required: false,
+  },
+  externalLubeStatus: {
+    type: Number,
+    enum: [1, 2],
+    required: false,
+  },
   lubeBrand: {
     type: String,
     required: false,
   },
-
   lubeType: {
     type: String,
     required: false,
   },
-
   lubeViscosity: {
     type: String,
     required: false,
   },
-
-  cleanChain: {
+  chainCleanStatus: {
     type: Number,
     enum: [1, 2],
     required: false,
   },
-
   wireMeasurementUnit: {
     type: Number,
     enum: [1, 2, 3, 4],
     required: false,
   },
-
   conductor2: {
     type: Number,
     required: false,
   },
-
   conductor4: {
     type: Number,
     required: false,
   },
-
   conductor7: {
     type: Number,
     required: false,
   },
-
   conductor12: {
     type: Number,
     required: false,
   },
+};
 
-  junctionBoxNum: {
-    type: Number,
-    required: false,
-  },
-
-  cc5UnitType: {
-    type: Number,
-    enum: [1, 2, 3, 4],
-    required: false,
-  },
-
-  powerRailWidth: {
-    type: Number,
-    required: false,
-  },
-
-  powerRailHeight: {
-    type: Number,
-    required: false,
-  },
-
-  rollerWheelA1: {
-    type: Number,
-    required: false,
-  },
-
-  rollerWheelB1: {
-    type: Number,
-    required: false,
-  },
-
-  linkD1: {
-    type: Number,
-    required: false,
-  },
-
-  wheelPitchM1: {
-    type: Number,
-    required: false,
-  },
-
-  rollerPinY1: {
-    type: Number,
-    required: false,
-  },
-
-  rollerPinZ1: {
-    type: Number,
-    required: false,
-  },
-});
-
-const CC5_CL = mongoose.models.CC5_CL || mongoose.model("CC5_CL", CC5_CLSchema);
-module.exports = CC5_CL;
-module.exports.CC5_CLobj = CC5_CLSchema;

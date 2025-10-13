@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import OrderDetailsPopup from './OrderDetailsPopup';
 
-function Order({ order, onStatusChange }) {
-  const [popupOpen, setPopupOpen] = useState(false);
+function Order({ order, onStatusChange, onDetailsClick }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(order.orderStatus?.status || 'Requested');
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
@@ -26,11 +24,9 @@ function Order({ order, onStatusChange }) {
   const getStatus = (quantity) => currentStatus;
 
   const handleDetailsClick = () => {
-    setPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setPopupOpen(false);
+    if (onDetailsClick) {
+      onDetailsClick(order);
+    }
   };
 
   const handleStatusClick = () => {
@@ -136,12 +132,15 @@ function Order({ order, onStatusChange }) {
           <button className="details-button" onClick={handleDetailsClick}>Details</button>
         </td>
       </tr>
+<<<<<<< HEAD
+=======
       <OrderDetailsPopup 
         isOpen={popupOpen} 
         onClose={closePopup} 
         order={order}
         userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
       />
+>>>>>>> 877cd3be45ef306792e6ea3a0891b6a0f2b20583
     </>
   );
 }

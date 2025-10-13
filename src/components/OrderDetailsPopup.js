@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForProductType } from '../mappingRegistry';
+import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForProductType, getEnhancedOrderDetails, productTypeToImported } from '../mappingRegistry';
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
 
 function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   const [mappingData, setMappingData] = useState({ keys: [], items: [], mapping: null });
+  const [enhancedDetails, setEnhancedDetails] = useState({ items: [] });
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -17,19 +18,19 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   const loadMappingData = async () => {
     setLoading(true);
     try {
-      const result = await getMappingKeysForProductType(order.productType);
-      const keys = (result && Array.isArray(result.keys)) ? result.keys : [];
+      // Load enhanced details with schema-based enum resolution
+      const enhancedResult = await getEnhancedOrderDetails(order.productType, order.productConfigurationInfo || {});
+      setEnhancedDetails(enhancedResult);
       
-      const productConfig = (order && order.productConfigurationInfo && typeof order.productConfigurationInfo === 'object')
-        ? order.productConfigurationInfo
-        : {};
+      // Use enhanced details for the mapping variables display
+      const keys = enhancedResult.items.map(item => item.name);
+      const items = enhancedResult.items;
+      
+      // Get mapping from the productTypeToImported
+      const imported = productTypeToImported[order.productType];
+      const mapping = imported ? imported.mapping : null;
 
-      const prefs = await getPreferencesForProduct(order.productType, productConfig);
-      const items = (prefs && Array.isArray(prefs.items)) ? prefs.items : [];
-
-      const mappingResult = await getMappingForProductType(order.productType);
-      const mapping = mappingResult.mapping;
-
+      console.log('Mapping data:', { keys, items, mapping });
       setMappingData({ keys, items, mapping });
     } catch (error) {
       console.error('Failed to load mapping data:', error);
@@ -56,30 +57,54 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   };
 
   const getMappingOptions = (mappingKey) => {
-    if (!mappingData.mapping) return {};
-    
-    const keyParts = mappingKey.split('.');
-    let current = mappingData.mapping;
-    
-    for (const part of keyParts) {
-      if (current && typeof current === 'object' && current[part]) {
-        current = current[part];
-      } else {
-        return {};
-      }
+    if (!mappingData.mapping) {
+      console.log('No mapping data available');
+      return {};
     }
     
-    return current;
+    // Direct access to mapping by field name
+    const mapping = mappingData.mapping[mappingKey];
+    console.log(`Getting mapping options for ${mappingKey}:`, mapping);
+    
+    if (mapping && typeof mapping === 'object') {
+      return mapping;
+    }
+    
+    return {};
   };
 
   const getCurrentValue = (mappingKey) => {
     const item = mappingData.items.find(item => item.name === mappingKey);
-    return item ? item.label : 'Undefined';
+    if (!item) return 'Undefined';
+    
+    const value = item.value;
+    if (value === 'undefined') return 'undefined';
+    if (value === null || value === undefined) return 'Not set';
+    if (typeof value === 'object') return JSON.stringify(value);
+    return String(value);
   };
 
   const getCurrentIndex = (mappingKey) => {
     const item = mappingData.items.find(item => item.name === mappingKey);
-    return item ? item.index : null;
+    if (!item) return null;
+    
+    // Get the original user value (before enum resolution)
+    const originalValue = item.originalValue;
+    if (originalValue === 'undefined' || originalValue === null || originalValue === undefined) return null;
+    if (typeof originalValue === 'object') return null; // Don't show index for objects
+    if (typeof originalValue === 'string') return null; // Don't show index for strings
+    return String(originalValue);
+  };
+
+  const getFieldType = (mappingKey) => {
+    const item = mappingData.items.find(item => item.name === mappingKey);
+    if (!item) return 'Unknown';
+    
+    if (item.isEnum) return 'Enum';
+    if (item.type === String) return 'String';
+    if (item.type === Number) return 'Number';
+    if (item.type === Boolean) return 'Boolean';
+    return 'Unknown';
   };
 
   const handleDropdownChange = (mappingKey, newIndex) => {
@@ -93,6 +118,20 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       items: prev.items.map(item => 
         item.name === mappingKey 
           ? { ...item, index: newIndex, label: getMappingOptions(mappingKey)[newIndex] || 'Undefined' }
+          : item
+      )
+    }));
+  };
+
+  const handleInputChange = (mappingKey, newValue) => {
+    console.log(`Changed ${mappingKey} to value ${newValue}`);
+    
+    // Update the local state to reflect the change
+    setMappingData(prev => ({
+      ...prev,
+      items: prev.items.map(item => 
+        item.name === mappingKey 
+          ? { ...item, value: newValue, originalValue: newValue }
           : item
       )
     }));
@@ -223,33 +262,55 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
             </div>
           ) : (
             <div className="mapping-grid">
-              {mappingData.keys.map((key) => {
-                const options = getMappingOptions(key);
-                const currentValue = getCurrentValue(key);
-                const currentIndex = getCurrentIndex(key);
+              {mappingData.items.map((item) => {
+                const options = getMappingOptions(item.name);
+                const currentValue = getCurrentValue(item.name);
+                const currentIndex = getCurrentIndex(item.name);
+                const fieldType = getFieldType(item.name);
                 
                 return (
-                  <div key={key} className="mapping-item">
+                  <div key={item.name} className="mapping-item">
                     <div className="mapping-header">
-                      <span className="mapping-label">{toTitleFromCamelOrSnake(key)}</span>
-                      {currentIndex !== null && (
-                        <span className="mapping-index">Index: {currentIndex}</span>
-                      )}
+                      <span className="mapping-label">{item.label}</span>
+                      <div className="mapping-meta">
+                        {currentIndex !== null && (
+                          <span className="mapping-index">Index: {currentIndex}</span>
+                        )}
+                        <span className={`mapping-type ${fieldType.toLowerCase()}-type`}>{fieldType}</span>
+                      </div>
                     </div>
                     {isEditing && (
                       <div className="mapping-control">
-                        <select
-                          value={currentIndex || ''}
-                          onChange={(e) => handleDropdownChange(key, e.target.value)}
-                          className="mapping-dropdown"
-                        >
-                          <option value="">Select an option</option>
-                          {Object.entries(options).map(([index, label]) => (
-                            <option key={index} value={index}>
-                              {index}: {label}
-                            </option>
-                          ))}
-                        </select>
+                        {item.isEnum ? (
+                          <select
+                            value={currentIndex || ''}
+                            onChange={(e) => handleDropdownChange(item.name, e.target.value)}
+                            className="mapping-dropdown"
+                          >
+                            <option value="">Select an option</option>
+                            {Object.entries(options).map(([index, label]) => (
+                              <option key={index} value={index}>
+                                {index}: {label}
+                              </option>
+                            ))}
+                          </select>
+                        ) : fieldType === 'String' ? (
+                          <input
+                            type="text"
+                            value={currentValue === 'undefined' ? '' : currentValue}
+                            onChange={(e) => handleInputChange(item.name, e.target.value)}
+                            className="mapping-input string-input"
+                            placeholder="Enter text..."
+                          />
+                        ) : fieldType === 'Number' ? (
+                          <input
+                            type="number"
+                            value={currentValue === 'undefined' ? '' : currentValue}
+                            onChange={(e) => handleInputChange(item.name, e.target.value)}
+                            className="mapping-input number-input"
+                            placeholder="Enter number..."
+                          />
+                        ) : null}
                       </div>
                     )}
                     <div className="mapping-current-value">
