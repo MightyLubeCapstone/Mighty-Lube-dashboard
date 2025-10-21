@@ -46,6 +46,8 @@ function OrderTable({ orders }) {
   };
 
   const handleDetailsClick = (order) => {
+    console.log('Order passed to details:', order);
+    console.log('Order ID in details:', order?.orderID);
     setSelectedOrder(order);
     setPopupOpen(true);
   };

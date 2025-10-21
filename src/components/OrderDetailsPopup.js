@@ -187,22 +187,36 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
         }
       });
 
+      // Debug: Log the order and orderID
+      console.log('Order object:', order);
+      console.log('Order ID:', order?.orderID);
+      console.log('Updated config:', updatedConfig);
+
       // Create the complete order object with updated configuration
       const updatedOrder = {
         ...order,
         productConfigurationInfo: updatedConfig
       };
 
-      const response = await fetch('https://mighty-lube.com/api/order/user_orders/allCarts', {
+      const requestBody = {
+        userID: userID,
+        order: {
+          orderID: order.orderID,
+          numRequested: order.numRequested || order.quantity,
+          orderStatus: order.orderStatus || { status: "Requested" },
+          productConfigurationInfo: updatedConfig
+        }
+      };
+
+      console.log('Request body:', requestBody);
+
+      const response = await fetch('https://mighty-lube.com/api/orders/editing', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          userID: userID,
-          order: updatedOrder
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
