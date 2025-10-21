@@ -46,6 +46,8 @@ function OrderTable({ orders }) {
   };
 
   const handleDetailsClick = (order) => {
+    console.log('Order passed to details:', order);
+    console.log('Order ID in details:', order?.orderID);
     setSelectedOrder(order);
     setPopupOpen(true);
   };
@@ -87,7 +89,7 @@ function OrderTable({ orders }) {
         isOpen={popupOpen} 
         onClose={closePopup} 
         order={selectedOrder}
-        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
+        userID={selectedOrder?.userID}
       />
     </div>
   );

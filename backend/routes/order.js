@@ -74,4 +74,45 @@ router.put('/user_orders/allCarts', async (req, res) => {
     }
 });
 
+// PUT /api/orders/editing - Update order configuration
+router.put('/editing', async (req, res) => {
+    try {
+        const { userID, order } = req.body;
+        
+        if (!userID || !order || !order.orderID) {
+            return res.status(400).json({ 
+                message: 'userID and order with orderID are required' 
+            });
+        }
+
+        // Find and update the order with new configuration
+        const updatedOrder = await Order.findOneAndUpdate(
+            { orderID: order.orderID },
+            { 
+                numRequested: order.numRequested,
+                orderStatus: order.orderStatus,
+                productConfigurationInfo: order.productConfigurationInfo,
+                updatedAt: new Date()
+            },
+            { new: true }
+        );
+
+        if (!updatedOrder) {
+            return res.status(404).json({ message: 'Order not found' });
+        }
+
+        res.json({ 
+            message: 'Order configuration updated successfully',
+            userID: userID,
+            orderID: order.orderID,
+            updatedOrder: updatedOrder,
+            updatedAt: updatedOrder.updatedAt
+        });
+
+    } catch (error) {
+        console.error('Error updating order configuration:', error);
+        res.status(500).json({ message: 'Failed to update order configuration' });
+    }
+});
+
 module.exports = router
