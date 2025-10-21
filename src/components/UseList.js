@@ -89,7 +89,7 @@ function OrderTable({ orders }) {
         isOpen={popupOpen} 
         onClose={closePopup} 
         order={selectedOrder}
-        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
+        userID={selectedOrder?.userID}
       />
     </div>
   );
