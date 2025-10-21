@@ -64,7 +64,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
     
     // Direct access to mapping by field name
     const mapping = mappingData.mapping[mappingKey];
-    console.log(`Getting mapping options for ${mappingKey}:`, mapping);
+    //console.log(`Getting mapping options for ${mappingKey}:`, mapping);
     
     if (mapping && typeof mapping === 'object') {
       return mapping;
@@ -169,23 +169,20 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       
       // Update the configuration with the new mapping values
       mappingData.items.forEach(item => {
-        if (item.index !== null) {
-          // Convert the mapping key to the appropriate configuration path
-          const keyParts = item.name.split('.');
-          let current = updatedConfig;
-          
-          // Navigate to the correct nested property
-          for (let i = 0; i < keyParts.length - 1; i++) {
-            if (!current[keyParts[i]]) {
-              current[keyParts[i]] = {};
-            }
-            current = current[keyParts[i]];
-          }
-          
-          // Set the final value
-          current[keyParts[keyParts.length - 1]] = item.index;
+      const value = item.index ?? item.value; // use index for enums, value for strings
+      if (value !== undefined && value !== null) {
+        const keyParts = item.name.split('.');
+        let current = updatedConfig;
+
+        for (let i = 0; i < keyParts.length - 1; i++) {
+          if (!current[keyParts[i]]) current[keyParts[i]] = {};
+          current = current[keyParts[i]];
         }
+
+        current[keyParts[keyParts.length - 1]] = value;
+      }
       });
+
 
       // Debug: Log the order and orderID
       console.log('Order object:', order);
@@ -208,7 +205,6 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
         }
       };
 
-      console.log('Request body:', requestBody);
 
       const response = await fetch('https://mighty-lube.com/api/orders/editing', {
         method: 'PUT',
