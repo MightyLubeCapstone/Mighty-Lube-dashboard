@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForProductType, getEnhancedOrderDetails, productTypeToImported } from '../mappingRegistry';
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
+import Swal from "sweetalert2";
+
 
 function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   const [mappingData, setMappingData] = useState({ keys: [], items: [], mapping: null });
@@ -219,15 +221,25 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
         const result = await response.json();
         console.log('Preferences updated successfully:', result);
         // Optionally show a success message to the user
-        alert('Preferences updated successfully!');
+          Swal.fire({
+            icon: "success",
+            title: "Preferences Updated",
+            text: "Your preferences have been updated successfully.",
+          });
       } else {
         const errorData = await response.json();
-        console.error('Failed to update preferences:', errorData);
-        alert('Failed to update preferences. Please try again.');
+          Swal.fire({
+            icon: "error",
+            title: "Update Failed",
+            text: `Failed to update preferences: ${errorData.message || 'Unknown error'}`,
+          });
       }
     } catch (error) {
-      console.error('Error updating preferences:', error);
-      alert('Error updating preferences. Please check your connection and try again.');
+          Swal.fire({
+            icon: "error",
+            title: "Update Failed",
+            text: "Could not connect to the server. Please try again later.",
+          });
     }
   };
 
