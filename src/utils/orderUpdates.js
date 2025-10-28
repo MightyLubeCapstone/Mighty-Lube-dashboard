@@ -33,6 +33,9 @@ export const updateOrderStatus = async (orderID, newStatus, userID, orderData) =
       body: JSON.stringify(requestBody),
     });
 
+    console.log('Response status:', response.status);
+    console.log('Response ok:', response.ok);
+    
     if (response.ok) {
       const result = await response.json();
       console.log('Status updated successfully:', result);
@@ -51,7 +54,15 @@ export const updateOrderStatus = async (orderID, newStatus, userID, orderData) =
   }
 };
 
-export const updateOrderConfiguration = async (orderID, updatedConfig, userID, orderData) => {  
+export const updateOrderConfiguration = async (orderID, updatedConfig, userID, orderData) => {
+  console.log('=== updateOrderConfiguration called ===');
+  console.log('1. orderID:', orderID);
+  console.log('2. updatedConfig:', updatedConfig);
+  console.log('3. userID:', userID);
+  console.log('4. orderData:', orderData);
+  console.log('5. updatedConfig type:', typeof updatedConfig);
+  console.log('6. updatedConfig is null/undefined:', updatedConfig === null || updatedConfig === undefined);
+  
   try {
     const token = localStorage.getItem("sessionID");
     if (!token) {

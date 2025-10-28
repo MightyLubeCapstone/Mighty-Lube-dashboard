@@ -42,6 +42,30 @@ export function parseCartFromUserData(data) {
 const flattenUsersArray = (users) => {
   const all = [];
   for (const user of users) {
+    // Handle new data structure with configurations array
+    const configurations = user?.configurations;
+    if (Array.isArray(configurations)) {
+      for (const config of configurations) {
+        const cart = config?.cart;
+        if (Array.isArray(cart)) {
+          for (const item of cart) {
+            const orderData = {
+              ...normalizeCartItem(item),
+              username: user.username,
+              userID: user.userID,
+              configurationName: config?.configurationName ?? 'Unknown',
+              orderStatus: {
+                status: config?.orderStatus ?? 'Requested'
+              }
+            };
+            console.log('Processing order with status:', config?.orderStatus, 'for config:', config?.configurationName);
+            all.push(orderData);
+          }
+        }
+      }
+    }
+    
+    // Handle legacy data structure with productConfigurationInfo.cart
     const cart = user?.productConfigurationInfo?.cart;
     if (Array.isArray(cart)) {
       // Get the orderStatus from the cart/parent object

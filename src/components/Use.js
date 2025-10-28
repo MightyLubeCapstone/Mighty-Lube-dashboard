@@ -8,6 +8,11 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
   const dropdownRef = useRef(null);
   const statusButtonRef = useRef(null);
 
+  // Debug logging to see what order data looks like
+  console.log('Order component received order:', order);
+  console.log('Order orderStatus:', order.orderStatus);
+  console.log('Current status being set to:', order.orderStatus?.status || 'Requested');
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
