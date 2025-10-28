@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForProductType, getEnhancedOrderDetails, productTypeToImported } from '../mappingRegistry';
+import { useNavigate } from 'react-router-dom';
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
+import Swal from "sweetalert2";
+
 
 function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   const [mappingData, setMappingData] = useState({ keys: [], items: [], mapping: null });
@@ -39,6 +42,9 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
     }
   };
 
+  const navigate = useNavigate();
+
+
   const toTitleFromCamelOrSnake = (input) => {
     if (!input || typeof input !== 'string') return '';
     const parts = input.split('.');
@@ -64,7 +70,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
     
     // Direct access to mapping by field name
     const mapping = mappingData.mapping[mappingKey];
-    console.log(`Getting mapping options for ${mappingKey}:`, mapping);
+    //console.log(`Getting mapping options for ${mappingKey}:`, mapping);
     
     if (mapping && typeof mapping === 'object') {
       return mapping;
@@ -169,23 +175,25 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       
       // Update the configuration with the new mapping values
       mappingData.items.forEach(item => {
-        if (item.index !== null) {
-          // Convert the mapping key to the appropriate configuration path
-          const keyParts = item.name.split('.');
-          let current = updatedConfig;
-          
-          // Navigate to the correct nested property
-          for (let i = 0; i < keyParts.length - 1; i++) {
-            if (!current[keyParts[i]]) {
-              current[keyParts[i]] = {};
-            }
-            current = current[keyParts[i]];
-          }
-          
-          // Set the final value
-          current[keyParts[keyParts.length - 1]] = item.index;
+      const value = item.index ?? item.value; // use index for enums, value for strings
+      if (value !== undefined && value !== null) {
+        const keyParts = item.name.split('.');
+        let current = updatedConfig;
+
+        for (let i = 0; i < keyParts.length - 1; i++) {
+          if (!current[keyParts[i]]) current[keyParts[i]] = {};
+          current = current[keyParts[i]];
         }
+
+        current[keyParts[keyParts.length - 1]] = value;
+      }
       });
+
+
+      // Debug: Log the order and orderID
+      console.log('Order object:', order);
+      console.log('Order ID:', order?.orderID);
+      console.log('Updated config:', updatedConfig);
 
       // Create the complete order object with updated configuration
       const updatedOrder = {
@@ -193,31 +201,50 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
         productConfigurationInfo: updatedConfig
       };
 
-      const response = await fetch('https://mighty-lube.com/api/order/user_orders/allCarts', {
+      const requestBody = {
+        userID: userID,
+        order: {
+          orderID: order.orderID,
+          numRequested: order.numRequested || order.quantity,
+          orderStatus: order.orderStatus || { status: "Requested" },
+          productConfigurationInfo: updatedConfig
+        }
+      };
+      console.log('Request body for update:', requestBody);
+
+      const response = await fetch('https://mighty-lube.com/api/orders/editing', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          userID: userID,
-          order: updatedOrder
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
         const result = await response.json();
         console.log('Preferences updated successfully:', result);
         // Optionally show a success message to the user
-        alert('Preferences updated successfully!');
+          Swal.fire({
+            icon: "success",
+            title: "Preferences Updated",
+            text: "Your preferences have been updated successfully.",
+          });
+          navigate(0); // Refresh the page to reflect changes
       } else {
         const errorData = await response.json();
-        console.error('Failed to update preferences:', errorData);
-        alert('Failed to update preferences. Please try again.');
+          Swal.fire({
+            icon: "error",
+            title: "Update Failed",
+            text: `Failed to update preferences: ${errorData.message || 'Unknown error'}`,
+          });
       }
     } catch (error) {
-      console.error('Error updating preferences:', error);
-      alert('Error updating preferences. Please check your connection and try again.');
+          Swal.fire({
+            icon: "error",
+            title: "Update Failed",
+            text: "Could not connect to the server. Please try again later.",
+          });
     }
   };
 
