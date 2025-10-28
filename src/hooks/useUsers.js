@@ -44,12 +44,16 @@ const flattenUsersArray = (users) => {
   for (const user of users) {
     const cart = user?.productConfigurationInfo?.cart;
     if (Array.isArray(cart)) {
+      // Get the orderStatus from the cart/parent object
+      const cartOrderStatus = user?.productConfigurationInfo?.orderStatus || 'Requested';
+      
       for (const item of cart) {
         all.push({
           ...normalizeCartItem(item),
           username: user.username,
           userID: user.userID,
-          configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown'
+          configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown',
+          orderStatus: { status: cartOrderStatus }
         });
       }
     }

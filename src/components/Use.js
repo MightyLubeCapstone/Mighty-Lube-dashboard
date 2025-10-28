@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { updateOrderStatus } from '../utils/orderUpdates';
 
-function Order({ order, onStatusChange, onDetailsClick }) {
+function Order({ order, onStatusChange, onDetailsClick, userID }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(order.orderStatus?.status || 'Requested');
-  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const dropdownRef = useRef(null);
   const statusButtonRef = useRef(null);
 
@@ -30,21 +30,36 @@ function Order({ order, onStatusChange, onDetailsClick }) {
   };
 
   const handleStatusClick = () => {
-    if (!isDropdownOpen && statusButtonRef.current) {
-      const rect = statusButtonRef.current.getBoundingClientRect();
-      setDropdownPosition({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX
-      });
-    }
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleStatusChange = (newStatus) => {
+  const handleStatusChange = async (newStatus) => {
     setCurrentStatus(newStatus);
     setIsDropdownOpen(false);
-    if (onStatusChange) {
-      onStatusChange(order.orderID, newStatus);
+    
+    // Call the API to update the status
+    if (userID) {
+      console.log('Calling updateOrderStatus...');
+      const success = await updateOrderStatus(order.orderID, newStatus, userID, order);
+      console.log('updateOrderStatus returned:', success);
+      
+      if (success === true) {
+        console.log('Status updated successfully in backend');
+        // Only update local state if backend update was successful
+        if (onStatusChange) {
+          onStatusChange(order.orderID, newStatus);
+        }
+      } else {
+        console.error('Failed to update status in backend - success was:', success);
+        // Revert the local status change if backend update failed
+        setCurrentStatus(order.orderStatus?.status || 'Requested');
+        alert('Failed to update order status. Please try again.');
+      }
+    } else {
+      console.warn('No userID available for status update');
+      // Revert the local status change if no userID
+      setCurrentStatus(order.orderStatus?.status || 'Requested');
+      alert('User ID not available. Please refresh and try again.');
     }
   };
 

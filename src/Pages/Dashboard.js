@@ -59,6 +59,9 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
         if (response.ok) {
           const data = await response.json();
           console.log("Fetched configurations:", data);
+          console.log("Data structure check - is array:", Array.isArray(data));
+          console.log("Data structure check - has users:", data?.users);
+          console.log("Data structure check - first user structure:", data?.[0] || data?.users?.[0]);
           const parsed = parseCartFromUserData(data); 
           console.log("Parsed cart data:", parsed);
           setCart(parsed);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Order from './Use';
 import OrderDetailsPopup from './OrderDetailsPopup';
 
-function OrderTable({ orders }) {
+function OrderTable({ orders, onStatusChange }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -46,6 +46,8 @@ function OrderTable({ orders }) {
   };
 
   const handleDetailsClick = (order) => {
+    console.log('Order passed to details:', order);
+    console.log('Order ID in details:', order?.orderID);
     setSelectedOrder(order);
     setPopupOpen(true);
   };
@@ -76,7 +78,9 @@ function OrderTable({ orders }) {
             <Order 
               key={`${order.orderID}-${idx}`} 
               order={order} 
+              onStatusChange={onStatusChange}
               onDetailsClick={handleDetailsClick}
+              userID={order.userID}
             />
           ))}
         </tbody>
@@ -87,7 +91,7 @@ function OrderTable({ orders }) {
         isOpen={popupOpen} 
         onClose={closePopup} 
         order={selectedOrder}
-        userID="8d6cf435-e789-42a3-8ac6-82cf9b06dcc0"
+        userID={selectedOrder?.userID}
       />
     </div>
   );
