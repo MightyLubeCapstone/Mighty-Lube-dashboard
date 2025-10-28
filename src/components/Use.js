@@ -4,6 +4,7 @@ import { updateOrderStatus } from '../utils/orderUpdates';
 function Order({ order, onStatusChange, onDetailsClick, userID }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(order.orderStatus?.status || 'Requested');
+  const [isUpdating, setIsUpdating] = useState(false);
   const dropdownRef = useRef(null);
   const statusButtonRef = useRef(null);
 
@@ -34,32 +35,46 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
   };
 
   const handleStatusChange = async (newStatus) => {
+    // Store the previous status for potential rollback
+    const previousStatus = currentStatus;
+    
+    // Optimistic update - update UI immediately
     setCurrentStatus(newStatus);
     setIsDropdownOpen(false);
+    setIsUpdating(true);
     
-    // Call the API to update the status
-    if (userID) {
-      console.log('Calling updateOrderStatus...');
-      const success = await updateOrderStatus(order.orderID, newStatus, userID, order);
-      console.log('updateOrderStatus returned:', success);
-      
-      if (success === true) {
-        console.log('Status updated successfully in backend');
-        // Only update local state if backend update was successful
-        if (onStatusChange) {
-          onStatusChange(order.orderID, newStatus);
+    // Update parent component immediately for seamless UI
+    if (onStatusChange) {
+      onStatusChange(order.orderID, newStatus);
+    }
+    
+    try {
+      // Call the API to update the status in the background
+      if (userID) {
+        console.log('Calling updateOrderStatus...');
+        const success = await updateOrderStatus(order.orderID, newStatus, userID, order);
+        console.log('updateOrderStatus returned:', success);
+        
+        if (success !== true) {
+          console.error('Failed to update status in backend - success was:', success);
+          // Revert the optimistic update if backend update failed
+          setCurrentStatus(previousStatus);
+          if (onStatusChange) {
+            onStatusChange(order.orderID, previousStatus);
+          }
+          alert('Failed to update order status. Please try again.');
         }
       } else {
-        console.error('Failed to update status in backend - success was:', success);
-        // Revert the local status change if backend update failed
-        setCurrentStatus(order.orderStatus?.status || 'Requested');
-        alert('Failed to update order status. Please try again.');
+        console.warn('No userID available for status update');
+        // Revert the optimistic update if no userID
+        setCurrentStatus(previousStatus);
+        if (onStatusChange) {
+          onStatusChange(order.orderID, previousStatus);
+        }
+        alert('User ID not available. Please refresh and try again.');
       }
-    } else {
-      console.warn('No userID available for status update');
-      // Revert the local status change if no userID
-      setCurrentStatus(order.orderStatus?.status || 'Requested');
-      alert('User ID not available. Please refresh and try again.');
+    } finally {
+      setIsUpdating(false);
     }
   };
 
@@ -91,20 +106,21 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
               ref={statusButtonRef}
               style={{ 
                 color: getStatusColor(status), 
-                cursor: 'pointer',
+                cursor: isUpdating ? 'not-allowed' : 'pointer',
                 padding: '4px 4px 4px 0px',
                 border: '1px solid transparent',
                 borderRadius: '4px',
                 display: 'block',
                 width: '100%',
                 textAlign: 'left',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                opacity: isUpdating ? 0.7 : 1
               }}
-              onClick={handleStatusClick}
+              onClick={isUpdating ? undefined : handleStatusClick}
             >
-              {status}
+              {isUpdating ? 'Updating...' : status}
             </span>
-            {isDropdownOpen && (
+            {isDropdownOpen && !isUpdating && (
                   <div
                     style={{
                       position: 'absolute',

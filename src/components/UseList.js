@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Order from './Use';
 import OrderDetailsPopup from './OrderDetailsPopup';
 
-function OrderTable({ orders, onStatusChange }) {
+function OrderTable({ orders, onStatusChange, onOrderUpdate }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -92,6 +92,7 @@ function OrderTable({ orders, onStatusChange }) {
         onClose={closePopup} 
         order={selectedOrder}
         userID={selectedOrder?.userID}
+        onOrderUpdate={onOrderUpdate}
       />
     </div>
   );

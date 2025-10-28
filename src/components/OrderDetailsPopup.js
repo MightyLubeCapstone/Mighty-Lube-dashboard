@@ -6,11 +6,12 @@ import '../Assets/styles/Popup.css';
 import Swal from "sweetalert2";
 
 
-function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
+function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
   const [mappingData, setMappingData] = useState({ keys: [], items: [], mapping: null });
   const [enhancedDetails, setEnhancedDetails] = useState({ items: [] });
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
     if (isOpen && order) {
@@ -157,6 +158,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
   };
 
   const updateUserPreferences = async () => {
+    setIsSaving(true);
     try {
       const token = localStorage.getItem("sessionID");
       if (!token) {
@@ -189,7 +191,6 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       }
       });
 
-
       // Debug: Log the order and orderID
       console.log('Order object:', order);
       console.log('Order ID:', order?.orderID);
@@ -200,6 +201,11 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
         ...order,
         productConfigurationInfo: updatedConfig
       };
+
+      // Optimistic update - update parent component immediately
+      if (onOrderUpdate) {
+        onOrderUpdate(order.orderID, updatedOrder);
+      }
 
       const requestBody = {
         userID: userID,
@@ -224,15 +230,21 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       if (response.ok) {
         const result = await response.json();
         console.log('Preferences updated successfully:', result);
+        
         // Optionally show a success message to the user
           Swal.fire({
             icon: "success",
             title: "Preferences Updated",
             text: "Your preferences have been updated successfully.",
           });
-          navigate(0); // Refresh the page to reflect changes
       } else {
         const errorData = await response.json();
+        
+        // Revert the optimistic update if backend update failed
+        if (onOrderUpdate) {
+          onOrderUpdate(order.orderID, order); // Revert to original order
+        }
+        
           Swal.fire({
             icon: "error",
             title: "Update Failed",
@@ -240,11 +252,18 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
           });
       }
     } catch (error) {
+      // Revert the optimistic update if there was an error
+      if (onOrderUpdate) {
+        onOrderUpdate(order.orderID, order); // Revert to original order
+      }
+      
           Swal.fire({
             icon: "error",
             title: "Update Failed",
             text: "Could not connect to the server. Please try again later.",
           });
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -290,8 +309,9 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
             <button 
               className={`edit-button ${isEditing ? 'editing' : ''}`}
               onClick={toggleEdit}
+              disabled={isSaving}
             >
-              {isEditing ? 'Done' : 'Edit'}
+              {isSaving ? 'Saving...' : (isEditing ? 'Done' : 'Edit')}
             </button>
           </div>
           {loading ? (

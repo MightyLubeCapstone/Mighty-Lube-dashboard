@@ -36,7 +36,6 @@ export const updateOrderStatus = async (orderID, newStatus, userID, orderData) =
     if (response.ok) {
       const result = await response.json();
       console.log('Status updated successfully:', result);
-      window.location.reload(); // Refresh the page to reflect changes
       return true;
     } else {
       const errorData = await response.json();

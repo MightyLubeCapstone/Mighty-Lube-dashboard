@@ -33,6 +33,16 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
         )
       );
     };
+
+    const handleOrderUpdate = (orderID, updatedOrder) => {
+      setCart(prevCart => 
+        prevCart.map(order => 
+          order.orderID === orderID 
+            ? { ...order, ...updatedOrder }
+            : order
+        )
+      );
+    };
     
     useEffect(() => {
    /*   // Fetch from users.json for cart data
@@ -218,7 +228,7 @@ The parameters for OrderTable are defined in the UseList.js file.
 
 The return for the function is a table
 */}
-              <OrderTable orders={cart} onStatusChange={handleStatusChange} />
+              <OrderTable orders={cart} onStatusChange={handleStatusChange} onOrderUpdate={handleOrderUpdate} />
           </main>
         </div>
       </div>
