@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getMappingKeysForProductType, getPreferencesForProduct, getMappingForProductType, getEnhancedOrderDetails, productTypeToImported } from '../mappingRegistry';
+import { useNavigate } from 'react-router-dom';
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
 import Swal from "sweetalert2";
@@ -40,6 +41,9 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
       setLoading(false);
     }
   };
+
+  const navigate = useNavigate();
+
 
   const toTitleFromCamelOrSnake = (input) => {
     if (!input || typeof input !== 'string') return '';
@@ -206,7 +210,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
           productConfigurationInfo: updatedConfig
         }
       };
-
+      console.log('Request body for update:', requestBody);
 
       const response = await fetch('https://mighty-lube.com/api/orders/editing', {
         method: 'PUT',
@@ -226,6 +230,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID }) {
             title: "Preferences Updated",
             text: "Your preferences have been updated successfully.",
           });
+          navigate(0); // Refresh the page to reflect changes
       } else {
         const errorData = await response.json();
           Swal.fire({
