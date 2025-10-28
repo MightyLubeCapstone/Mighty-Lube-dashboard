@@ -24,14 +24,55 @@ const getStatusColor = (status) => {
 function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsByStatus }) {
     const [cart, setCart] = useState([]);
 
+    // Extract fetchConfigurations function to make it reusable - fetches ALL orders
+    const fetchConfigurations = async (isRefresh = false) => {
+      try {
+        console.log(isRefresh ? '🔄 Refreshing ALL orders from API...' : '📥 Loading ALL orders from API...');
+        const token = localStorage.getItem("sessionID"); // like SharedPreferences in Flutter
+        const response = await fetch('https://mighty-lube.com/api/user_orders/allCarts', {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched configurations:", data);
+          console.log("Data structure check - is array:", Array.isArray(data));
+          console.log("Data structure check - has users:", data?.users);
+          console.log("Data structure check - first user structure:", data?.[0] || data?.users?.[0]);
+          const parsed = parseCartFromUserData(data); 
+          console.log(`Parsed cart data (${parsed.length} orders):`, parsed);
+          setCart(parsed);
+          console.log(isRefresh ? '✅ ALL orders refreshed successfully!' : '✅ ALL orders loaded successfully!');
+          return parsed; // Return the parsed data
+        } else if (response.status === 400) {
+          console.log('No orders found (400 response)');
+          setCart([]);
+          return [];
+        } else {
+          console.log(`API error: ${response.status}`);
+          setCart([]);
+          return [];
+        }
+      } catch (error) {
+        console.error("Error fetching configurations:", error);
+        setCart([]);
+        return [];
+      }
+    };
+
     const handleStatusChange = (orderID, newStatus) => {
-      setCart(prevCart => 
-        prevCart.map(order => 
-          order.orderID === orderID 
-            ? { ...order, orderStatus: { ...order.orderStatus, status: newStatus } }
-            : order
-        )
-      );
+      // This function is no longer needed since we do a full refresh after status update
+      // The refresh will get the latest data from the backend
+      console.log(`Status change requested for order ${orderID} to ${newStatus} - will refresh from backend`);
+    };
+
+    // Function to refresh orders after status update - same as page load
+    const refreshOrders = async () => {
+      console.log('🔄 Refreshing ALL orders after status update (same as page load)...');
+      await fetchConfigurations(true); // true indicates this is a refresh
     };
 
     const handleOrderUpdate = (orderID, updatedOrder) => {
@@ -56,37 +97,7 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
           console.error('Error loading users:', error);
         }); */
       // where we fetch the cart data from the API
-          const fetchConfigurations = async () => {
-      try {
-        const token = localStorage.getItem("sessionID"); // like SharedPreferences in Flutter
-        const response = await fetch('https://mighty-lube.com/api/user_orders/allCarts', {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-          },
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Fetched configurations:", data);
-          console.log("Data structure check - is array:", Array.isArray(data));
-          console.log("Data structure check - has users:", data?.users);
-          console.log("Data structure check - first user structure:", data?.[0] || data?.users?.[0]);
-          const parsed = parseCartFromUserData(data); 
-          console.log("Parsed cart data:", parsed);
-          setCart(parsed);
-        } else if (response.status === 400) {
-          setCart([]);
-        } else {
-          setCart([]);
-        }
-      } catch (error) {
-        console.error("Error fetching configurations:", error);
-        setCart([]);
-      }
-    };
-
-    fetchConfigurations();
+      fetchConfigurations(false); // false indicates this is initial load
     }, []);
 
   const navigate = useNavigate();
@@ -228,7 +239,7 @@ The parameters for OrderTable are defined in the UseList.js file.
 
 The return for the function is a table
 */}
-              <OrderTable orders={cart} onStatusChange={handleStatusChange} onOrderUpdate={handleOrderUpdate} />
+              <OrderTable orders={cart} onStatusChange={handleStatusChange} onOrderUpdate={handleOrderUpdate} onRefreshOrders={refreshOrders} />
           </main>
         </div>
       </div>

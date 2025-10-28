@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { updateOrderStatus } from '../utils/orderUpdates';
 
-function Order({ order, onStatusChange, onDetailsClick, userID }) {
+function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [currentStatus, setCurrentStatus] = useState(order.orderStatus?.status || 'Requested');
   const [isUpdating, setIsUpdating] = useState(false);
   const dropdownRef = useRef(null);
   const statusButtonRef = useRef(null);
 
+  // Use the status from the order prop instead of local state
+  const currentStatus = order.orderStatus?.status || 'Requested';
+
   // Debug logging to see what order data looks like
   console.log('Order component received order:', order);
   console.log('Order orderStatus:', order.orderStatus);
-  console.log('Current status being set to:', order.orderStatus?.status || 'Requested');
+  console.log('Current status being set to:', currentStatus);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -27,6 +29,11 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
     };
   }, []);
 
+  // Update currentStatus when order prop changes (after refresh)
+  useEffect(() => {
+    console.log('Order prop changed, current status is now:', order.orderStatus?.status || 'Requested');
+  }, [order.orderStatus?.status]);
+
   const getStatus = (quantity) => currentStatus;
 
   const handleDetailsClick = () => {
@@ -40,21 +47,12 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
   };
 
   const handleStatusChange = async (newStatus) => {
-    // Store the previous status for potential rollback
-    const previousStatus = currentStatus;
-    
-    // Optimistic update - update UI immediately
-    setCurrentStatus(newStatus);
+    // Show updating state
     setIsDropdownOpen(false);
     setIsUpdating(true);
     
-    // Update parent component immediately for seamless UI
-    if (onStatusChange) {
-      onStatusChange(order.orderID, newStatus);
-    }
-    
     try {
-      // Call the API to update the status in the background
+      // Call the API to update the status first
       if (userID) {
         console.log('Calling updateOrderStatus...');
         const success = await updateOrderStatus(order.orderID, newStatus, userID, order);
@@ -62,22 +60,21 @@ function Order({ order, onStatusChange, onDetailsClick, userID }) {
         
         if (success !== true) {
           console.error('Failed to update status in backend - success was:', success);
-          // Revert the optimistic update if backend update failed
-          setCurrentStatus(previousStatus);
-          if (onStatusChange) {
-            onStatusChange(order.orderID, previousStatus);
-          }
           alert('Failed to update order status. Please try again.');
+        } else {
+          // If backend update was successful, refresh the orders list to get fresh data
+          console.log('Status updated successfully, refreshing ALL orders from backend...');
+          if (onRefreshOrders) {
+            await onRefreshOrders(); // Wait for refresh to complete
+          }
         }
       } else {
         console.warn('No userID available for status update');
-        // Revert the optimistic update if no userID
-        setCurrentStatus(previousStatus);
-        if (onStatusChange) {
-          onStatusChange(order.orderID, previousStatus);
-        }
         alert('User ID not available. Please refresh and try again.');
       }
+    } catch (error) {
+      console.error('Error updating status:', error);
+      alert('Error updating status. Please try again.');
     } finally {
       setIsUpdating(false);
     }
