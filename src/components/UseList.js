@@ -71,6 +71,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
             <th onClick={() => handleHeaderClick('status')}>Status{getHeaderArrow('status')}</th>
             <th onClick={() => handleHeaderClick('quantity')}>Quantity{getHeaderArrow('quantity')}</th>
             <th onClick={() => handleHeaderClick('createdDate')}>Created{getHeaderArrow('createdDate')}</th>
+            <th>Time Elapsed</th>
             <th>Action</th>
           </tr>
         </thead>
