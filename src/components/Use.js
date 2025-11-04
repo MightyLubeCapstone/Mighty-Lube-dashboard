@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { updateOrderStatus } from '../utils/orderUpdates';
+import OrderTimer from './OrderTimer';
 
 function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -163,6 +164,7 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
         </td>
         <td>{order.quantity}</td>
         <td>{order.createdDate}</td>
+        <td><OrderTimer createdTime={order.createdDate} /></td>
         <td>
           <button className="details-button" onClick={handleDetailsClick}>Details</button>
         </td>
