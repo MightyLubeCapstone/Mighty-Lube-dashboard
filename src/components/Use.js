@@ -97,7 +97,9 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
 
   return (
     <>
+    {console.log('Rendering Order component for orderID:', order)}
       <tr key={order.orderID}>
+        <td>{order.configurationName}</td>
         <td>#{order.orderID}</td>
         <td>{order.username}</td>
         <td>{order.productType}</td>

@@ -63,6 +63,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
       <table>
         <thead>
           <tr>
+            <th onClick={() => handleHeaderClick('configurationName')}>Configuration{getHeaderArrow('configurationName')}</th>
             <th onClick={() => handleHeaderClick('orderID')}>Order ID{getHeaderArrow('orderID')}</th>
             <th onClick={() => handleHeaderClick('username')}>User{getHeaderArrow('username')}</th>
             <th onClick={() => handleHeaderClick('productType')}>Type{getHeaderArrow('productType')}</th>
