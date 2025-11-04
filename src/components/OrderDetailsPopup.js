@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Popup from './Popup';
 import '../Assets/styles/Popup.css';
 import Swal from "sweetalert2";
+import { parseCartFromUserData } from '../hooks/useUsers';
 
 
 function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
@@ -12,18 +13,54 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [freshOrder, setFreshOrder] = useState(null);
 
-  useEffect(() => {
-    if (isOpen && order) {
-      loadMappingData();
+  // Fetch fresh order data from the database when popup opens
+  const fetchFreshOrder = async (orderID) => {
+    try {
+      console.log('Fetching fresh order data for orderID:', orderID);
+      const token = localStorage.getItem("sessionID");
+      if (!token) {
+        console.error('No session token found');
+        return null;
+      }
+
+      const response = await fetch('https://mighty-lube.com/api/user_orders/allCarts', {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const parsed = parseCartFromUserData(data);
+        // Find the specific order by orderID
+        const foundOrder = parsed.find(o => o.orderID === orderID);
+        if (foundOrder) {
+          console.log('Found fresh order data:', foundOrder);
+          return foundOrder;
+        } else {
+          console.warn('Order not found in fresh data, using cached order');
+          return null;
+        }
+      } else {
+        console.error('Failed to fetch fresh order data:', response.status);
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching fresh order data:', error);
+      return null;
     }
-  }, [isOpen, order]);
+  };
 
-  const loadMappingData = async () => {
+  const loadMappingData = async (orderToUse) => {
+    if (!orderToUse) return;
+    
     setLoading(true);
     try {
       // Load enhanced details with schema-based enum resolution
-      const enhancedResult = await getEnhancedOrderDetails(order.productType, order.productConfigurationInfo || {});
+      const enhancedResult = await getEnhancedOrderDetails(orderToUse.productType, orderToUse.productConfigurationInfo || {});
       setEnhancedDetails(enhancedResult);
       
       // Use enhanced details for the mapping variables display
@@ -31,7 +68,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
       const items = enhancedResult.items;
       
       // Get mapping from the productTypeToImported
-      const imported = productTypeToImported[order.productType];
+      const imported = productTypeToImported[orderToUse.productType];
       const mapping = imported ? imported.mapping : null;
 
       console.log('Mapping data:', { keys, items, mapping });
@@ -42,6 +79,33 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (isOpen && order) {
+      // Fetch fresh order data when popup opens
+      const loadFreshData = async () => {
+        setLoading(true);
+        const fresh = await fetchFreshOrder(order.orderID);
+        if (fresh) {
+          setFreshOrder(fresh);
+          // Load mapping data with fresh order
+          await loadMappingData(fresh);
+        } else {
+          // Fallback to cached order if fresh fetch fails
+          setFreshOrder(order);
+          await loadMappingData(order);
+        }
+        setLoading(false);
+      };
+      loadFreshData();
+    } else if (!isOpen) {
+      // Reset state when popup closes
+      setFreshOrder(null);
+    }
+  }, [isOpen, order?.orderID]);
+
+  // Use freshOrder if available, otherwise fallback to order prop
+  const currentOrder = freshOrder || order;
 
   const navigate = useNavigate();
 
@@ -172,8 +236,14 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
         return;
       }
 
+      if (!currentOrder) {
+        console.error('No order data available');
+        alert('Order data not available. Please try again.');
+        return;
+      }
+
       // Build the updated product configuration info from the current mapping data
-      const updatedConfig = { ...order.productConfigurationInfo };
+      const updatedConfig = { ...currentOrder.productConfigurationInfo };
       
       // Update the configuration with the new mapping values
       mappingData.items.forEach(item => {
@@ -192,27 +262,27 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
       });
 
       // Debug: Log the order and orderID
-      console.log('Order object:', order);
-      console.log('Order ID:', order?.orderID);
+      console.log('Order object:', currentOrder);
+      console.log('Order ID:', currentOrder?.orderID);
       console.log('Updated config:', updatedConfig);
 
       // Create the complete order object with updated configuration
       const updatedOrder = {
-        ...order,
+        ...currentOrder,
         productConfigurationInfo: updatedConfig
       };
 
       // Optimistic update - update parent component immediately
       if (onOrderUpdate) {
-        onOrderUpdate(order.orderID, updatedOrder);
+        onOrderUpdate(currentOrder.orderID, updatedOrder);
       }
 
       const requestBody = {
         userID: userID,
         order: {
-          orderID: order.orderID,
-          numRequested: order.numRequested || order.quantity,
-          orderStatus: order.orderStatus || { status: "Requested" },
+          orderID: currentOrder.orderID,
+          numRequested: currentOrder.numRequested || currentOrder.quantity,
+          orderStatus: currentOrder.orderStatus || { status: "Requested" },
           productConfigurationInfo: updatedConfig
         }
       };
@@ -231,6 +301,13 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
         const result = await response.json();
         console.log('Preferences updated successfully:', result);
         
+        // Fetch fresh order data after successful update
+        const fresh = await fetchFreshOrder(currentOrder.orderID);
+        if (fresh) {
+          setFreshOrder(fresh);
+          await loadMappingData(fresh);
+        }
+        
         // Optionally show a success message to the user
           Swal.fire({
             icon: "success",
@@ -242,7 +319,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
         
         // Revert the optimistic update if backend update failed
         if (onOrderUpdate) {
-          onOrderUpdate(order.orderID, order); // Revert to original order
+          onOrderUpdate(currentOrder.orderID, currentOrder); // Revert to original order
         }
         
           Swal.fire({
@@ -253,8 +330,8 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
       }
     } catch (error) {
       // Revert the optimistic update if there was an error
-      if (onOrderUpdate) {
-        onOrderUpdate(order.orderID, order); // Revert to original order
+      if (onOrderUpdate && currentOrder) {
+        onOrderUpdate(currentOrder.orderID, currentOrder); // Revert to original order
       }
       
           Swal.fire({
@@ -275,31 +352,31 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
     setIsEditing(!isEditing);
   };
 
-  if (!isOpen || !order) return null;
+  if (!isOpen || !currentOrder) return null;
 
   return (
     <Popup isOpen={isOpen} onClose={onClose}>
       <div className="order-details-content">
-        <h2>Order #{order.orderID} Details</h2>
+        <h2>Order #{currentOrder.orderID} Details</h2>
         
         <div className="order-info">
           <div className="info-row">
-            <strong>Order ID:</strong> #{order.orderID}
+            <strong>Order ID:</strong> #{currentOrder.orderID}
           </div>
           <div className="info-row">
-            <strong>Product Type:</strong> {order.productType}
+            <strong>Product Type:</strong> {currentOrder.productType}
           </div>
           <div className="info-row">
-            <strong>Conveyor:</strong> {order.conveyorName}
+            <strong>Conveyor:</strong> {currentOrder.conveyorName}
           </div>
           <div className="info-row">
             <strong>Status:</strong> <span style={{ color: '#ffa500' }}>Pending</span>
           </div>
           <div className="info-row">
-            <strong>Quantity:</strong> {order.quantity}
+            <strong>Quantity:</strong> {currentOrder.quantity}
           </div>
           <div className="info-row">
-            <strong>Created Date:</strong> {order.createdDate}
+            <strong>Created Date:</strong> {currentOrder.createdDate}
           </div>
         </div>
 
@@ -318,7 +395,7 @@ function OrderDetailsPopup({ isOpen, onClose, order, userID, onOrderUpdate }) {
             <div className="loading">Loading mapping data...</div>
           ) : mappingData.keys.length === 0 ? (
             <div className="no-mappings">
-              <em>No mapping keys found for {order.productType}.</em>
+              <em>No mapping keys found for {currentOrder.productType}.</em>
             </div>
           ) : (
             <div className="mapping-grid">
