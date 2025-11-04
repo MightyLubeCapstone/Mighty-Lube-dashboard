@@ -19,7 +19,7 @@ export function parseCartFromUserData(data) {
       : parseInt(rawNumRequested?.['$numberInt'] ?? '0', 10);
 
     // orderCreated can be ISO string or Extended JSON
-    const rawDate = item.orderCreated;
+    /*const rawDate = item.orderCreated;
     let createdDate = 'Unknown';
     if (typeof rawDate === 'string') {
       const d = new Date(rawDate);
@@ -27,17 +27,28 @@ export function parseCartFromUserData(data) {
     } else {
       const ext = rawDate?.['$date']?.['$numberLong'];
       createdDate = ext ? new Date(Number(ext)).toLocaleString() : 'Unknown';
-    }
+    } */
 
     return {
       orderID,
       productType,
       conveyorName,
       quantity,
-      createdDate,
       productConfigurationInfo: item.productConfigurationInfo ?? null
     };
   };
+
+  const fixDate = (rawDate) => {
+    let createdDate = 'Undknown';
+    if (typeof rawDate === 'string') {
+      const d = new Date(rawDate);
+      createdDate = isNaN(d.getTime()) ? 'Undknown' : d.toLocaleString();
+    } else {
+      const ext = rawDate?.['$date']?.['$numberLong'];
+      createdDate = ext ? new Date(Number(ext)).toLocaleString() : 'Undknown';
+    } 
+    return createdDate;
+  }
 
 const flattenUsersArray = (users) => {
   const all = [];
@@ -56,9 +67,9 @@ const flattenUsersArray = (users) => {
               configurationName: config?.configurationName ?? 'Unknown',
               orderStatus: {
                 status: config?.orderStatus ?? 'Requested'
-              }
+              },
+              createdDate: fixDate(config?.dateOrdered) || 'Unknown'
             };
-            console.log('Processing order with status:', config?.orderStatus, 'for config:', config?.configurationName);
             all.push(orderData);
           }
         }
@@ -77,7 +88,8 @@ const flattenUsersArray = (users) => {
           username: user.username,
           userID: user.userID,
           configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown',
-          orderStatus: { status: cartOrderStatus }
+          orderStatus: { status: cartOrderStatus },
+          createdDate: fixDate(user.productConfigurationInfo?.dateOrdered) || 'Unknown'
         });
       }
     }

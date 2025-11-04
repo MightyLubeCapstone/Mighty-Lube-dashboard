@@ -11,9 +11,7 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
   const currentStatus = order.orderStatus?.status || 'Requested';
 
   // Debug logging to see what order data looks like
-  console.log('Order component received order:', order);
-  console.log('Order orderStatus:', order.orderStatus);
-  console.log('Current status being set to:', currentStatus);
+
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -97,7 +95,6 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
 
   return (
     <>
-    {console.log('Rendering Order component for orderID:', order)}
       <tr key={order.orderID}>
         <td>{order.configurationName}</td>
         <td>#{order.orderID}</td>
