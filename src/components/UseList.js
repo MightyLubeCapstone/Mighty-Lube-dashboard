@@ -63,7 +63,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
       <table>
         <thead>
           <tr>
-            <th onClick={() => handleHeaderClick('configurationName')}>Configuration{getHeaderArrow('configurationName')}</th>
+            <th onClick={() => handleHeaderClick('configurationName')}>Configuration Name{getHeaderArrow('configurationName')}</th>
             <th onClick={() => handleHeaderClick('orderID')}>Order ID{getHeaderArrow('orderID')}</th>
             <th onClick={() => handleHeaderClick('username')}>User{getHeaderArrow('username')}</th>
             <th onClick={() => handleHeaderClick('productType')}>Type{getHeaderArrow('productType')}</th>
@@ -71,7 +71,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
             <th onClick={() => handleHeaderClick('status')}>Status{getHeaderArrow('status')}</th>
             <th onClick={() => handleHeaderClick('quantity')}>Quantity{getHeaderArrow('quantity')}</th>
             <th onClick={() => handleHeaderClick('createdDate')}>Created{getHeaderArrow('createdDate')}</th>
-            <th>Time Elapsed</th>
+            <th onClick={() => handleHeaderClick('timeElapsed')}>Time Elapsed{getHeaderArrow('timeElapsed')}</th>
             <th>Action</th>
           </tr>
         </thead>
