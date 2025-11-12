@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to VM
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
             cd ~/Mighty-Lube-backend
             git pull origin main
             npm install
