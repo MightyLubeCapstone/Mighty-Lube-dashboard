@@ -21,10 +21,29 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to VM
+      - name: Deploy
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-            cd ~/mighty-lube-dashboard
-            git pull origin main
-            npm install
-            pm2 restart all || pm2 start app.js --name "mighty-lube-dashboard"
+          ssh -T -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            -o IdentitiesOnly=yes -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" '
+              set -euo pipefail
+              APP_DIR="/home/deployweb/dashboard"
+              REPO="https://github.com/YOURORG/YOURREPO.git"
+
+              if [ ! -d "$APP_DIR/.git" ]; then
+                mkdir -p "$(dirname "$APP_DIR")"
+                git clone "$REPO" "$APP_DIR"
+              else
+                git -C "$APP_DIR" remote set-url origin "$REPO"
+              fi
+
+              git -C "$APP_DIR" fetch --all --prune
+              git -C "$APP_DIR" checkout -B main origin/main
+              git -C "$APP_DIR" reset --hard origin/main
+
+              cd "$APP_DIR"
+              if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
+              npm run --if-present build
+              pm2 reload mighty-lube-dashboard || pm2 start app.js --name "mighty-lube-dashboard"
+              pm2 save
+            '
