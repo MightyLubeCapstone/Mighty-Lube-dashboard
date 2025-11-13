@@ -10,16 +10,26 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
   // Sorting function
   const sortedOrders = [...orders].sort((a, b) => {
     const { key, direction } = sortConfig;
+    if (key == 'timeElapsed') {
+      const aTime = new Date(a.createdDate);
+      const bTime = new Date(b.createdDate);
+      const aElapsed = (new Date() - aTime) / 1000;
+      const bElapsed = (new Date() - bTime) / 1000;
+      return direction === 'asc' ? aElapsed - bElapsed : bElapsed - aElapsed;
+    }
     if (!a[key]) return 1;
     if (!b[key]) return -1;
 
-    let comparison = 0;
 
+    let comparison = 0;
     if (key === 'quantity') {
       comparison = a[key] - b[key]; // numeric sort
-    } else if (key === 'createdDate') {
+    } else if (key === 'createdDate' || key === 'timeElapsed') {
       comparison = new Date(a[key]) - new Date(b[key]); // date sort
-    } else {
+    } else if (key === 'orderStatus') {
+      comparison = String(a[key].status).localeCompare(String(b[key].status)); // string sort for status
+    } 
+    else {
       comparison = String(a[key]).localeCompare(String(b[key])); // string sort
     }
 
@@ -46,8 +56,6 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
   };
 
   const handleDetailsClick = (order) => {
-    console.log('Order passed to details:', order);
-    console.log('Order ID in details:', order?.orderID);
     setSelectedOrder(order);
     setPopupOpen(true);
   };
@@ -68,7 +76,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
             <th onClick={() => handleHeaderClick('username')}>User{getHeaderArrow('username')}</th>
             <th onClick={() => handleHeaderClick('productType')}>Type{getHeaderArrow('productType')}</th>
             <th onClick={() => handleHeaderClick('conveyorName')}>Conveyor{getHeaderArrow('conveyorName')}</th>
-            <th onClick={() => handleHeaderClick('status')}>Status{getHeaderArrow('status')}</th>
+            <th onClick={() => handleHeaderClick('orderStatus')}>Status{getHeaderArrow('orderStatus')}</th>
             <th onClick={() => handleHeaderClick('quantity')}>Quantity{getHeaderArrow('quantity')}</th>
             <th onClick={() => handleHeaderClick('createdDate')}>Created{getHeaderArrow('createdDate')}</th>
             <th onClick={() => handleHeaderClick('timeElapsed')}>Time Elapsed{getHeaderArrow('timeElapsed')}</th>

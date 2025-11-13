@@ -30,7 +30,7 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
 
   // Update currentStatus when order prop changes (after refresh)
   useEffect(() => {
-    console.log('Order prop changed, current status is now:', order.orderStatus?.status || 'Requested');
+    // console.log('Order prop changed, current status is now:', order.orderStatus?.status || 'Requested');
   }, [order.orderStatus?.status]);
 
   const getStatus = (quantity) => currentStatus;
@@ -53,16 +53,16 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
     try {
       // Call the API to update the status first
       if (userID) {
-        console.log('Calling updateOrderStatus...');
+        // console.log('Calling updateOrderStatus...');
         const success = await updateOrderStatus(order.orderID, newStatus, userID, order);
-        console.log('updateOrderStatus returned:', success);
+        // console.log('updateOrderStatus returned:', success);
         
         if (success !== true) {
           console.error('Failed to update status in backend - success was:', success);
           alert('Failed to update order status. Please try again.');
         } else {
           // If backend update was successful, refresh the orders list to get fresh data
-          console.log('Status updated successfully, refreshing ALL orders from backend...');
+          // console.log('Status updated successfully, refreshing ALL orders from backend...');
           if (onRefreshOrders) {
             await onRefreshOrders(); // Wait for refresh to complete
           }
