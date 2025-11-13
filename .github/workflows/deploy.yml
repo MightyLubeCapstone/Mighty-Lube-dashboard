@@ -24,7 +24,7 @@ jobs:
       - name: Deploy to VM
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-            cd ~/Mighty-Lube-backend
+            cd ~/Mighty-Lube-dashboard
             git pull origin main
             npm install
             pm2 restart all || pm2 start app.js --name "mighty-lube-dashboard"
