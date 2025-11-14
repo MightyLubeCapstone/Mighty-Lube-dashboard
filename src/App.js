@@ -10,6 +10,17 @@ import Login from './Pages/Login.js';
 import Register from './Pages/Register.js';
 import Dashboard from './Pages/Dashboard.js';
 
+const ProtectedRoute = ({ children }) => {
+  const hasSession = !!localStorage.getItem("sessionID");
+
+  if (!hasSession) {
+    // Not logged in: send them to the login page under /dashboard
+    return <Navigate to="/dashboard/login" replace />;
+  }
+
+  return children;
+};
+
 function App() {
   const [orders, setOrders] = useState([]);
 
@@ -19,6 +30,7 @@ function App() {
       acc[order.status] = (acc[order.status] || 0) + 1;
       return acc;
     }, {});
+
     return Object.entries(counts)
       .map(([status, count]) => `${status} (${count})`)
       .join(', ');
@@ -37,18 +49,20 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={
-          <Dashboard 
-            orders={orders}
-            getTotalsByStatus={getTotalsByStatus}
+      <div className="App">
+        <Routes>
+          <Route path="/dashboard/login" element={<Login />} />
+          <Route path="dashboard/register" element={<Register />} />
+          <Route path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard orders={orders} getTotalsByStatus={getTotalsByStatus} />
+              </ProtectedRoute>
+            } />
+          <Route path="/dashboard/*" element={<Navigate to="/dashboard/login" replace />}
           />
-        } />
-      </Routes>
-    </div>
+        </Routes>
+      </div>
     </Router>
   );
 }
