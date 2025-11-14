@@ -77,9 +77,9 @@ jobs:
               if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
               npm run --if-present build
 
-              # Ensure pm2 is available even if installed globally
-              command -v pm2 >/dev/null 2>&1 || export PATH="$PATH:$(npm bin -g)"
-
-              pm2 reload "$PM2_NAME" || pm2 start app.js --name "$PM2_NAME"
-              pm2 save
+              # Deploy the built static files to Nginx web root
+              sudo mkdir -p /var/www/mighty-lube-dashboard
+              sudo rm -rf /var/www/mighty-lube-dashboard/*
+              sudo cp -r build/* /var/www/mighty-lube-dashboard/
+              sudo chown -R www-data:www-data /var/www/mighty-lube-dashboard
             '
