@@ -107,12 +107,12 @@ function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsB
   const [settingsPopupOpen, setSettingsPopupOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [configurationsPopupOpen, setConfigurationsPopupOpen] = useState(false);
-  
+
   // Removed the undefined useOrders() call
 
   const handleLogout = () => {
-    // Here you would typically clear any authentication tokens
-    navigate("/");
+    localStorage.removeItem("sessionID");
+    navigate("/dashboard/login");
   };
 
   const openAdminPopup = (e) => {
