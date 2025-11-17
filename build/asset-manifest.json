@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0992dac2.css",
+    "main.js": "/static/js/main.19b384b5.js",
+    "static/js/453.51b20bab.chunk.js": "/static/js/453.51b20bab.chunk.js",
+    "static/media/ML_Logo-w-tag-vector.svg": "/static/media/ML_Logo-w-tag-vector.d5239fa7838d6b48a551bf6b26b8d709.svg",
+    "index.html": "/index.html",
+    "main.0992dac2.css.map": "/static/css/main.0992dac2.css.map",
+    "main.19b384b5.js.map": "/static/js/main.19b384b5.js.map",
+    "453.51b20bab.chunk.js.map": "/static/js/453.51b20bab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0992dac2.css",
+    "static/js/main.19b384b5.js"
+  ]
+}
