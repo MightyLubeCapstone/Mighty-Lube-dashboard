@@ -23,16 +23,81 @@ const getStatusColor = (status) => {
 
 function Dashboard({ orders = [], getStatusColor: propGetStatusColor, getTotalsByStatus }) {
     const [cart, setCart] = useState([]);
+    const API_BASE = 'https://mighty-lube.com/api';
+    const ORDERS_API = `${API_BASE}/orders`;
 
-    const handleStatusChange = (orderID, newStatus) => {
-      setCart(prevCart => 
-        prevCart.map(order => 
-          order.orderID === orderID 
-            ? { ...order, orderStatus: { ...order.orderStatus, status: newStatus } }
-            : order
-        )
-      );
+    const getAuthHeaders = () => {
+      const token = localStorage.getItem('sessionID');
+      return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : '',
+      };
     };
+
+    const handleStatusChange = async (orderID, newStatus) => {
+      const existing = cart.find(o => o.orderID === orderID);
+      if (!existing) return;
+
+      const updatedOrder = {
+        ...existing,
+        orderStatus: { ...(existing.orderStatus || {}), status: newStatus },
+      };
+
+      try {
+        const resp = await fetch(`${ORDERS_API}/editing`, {
+          method: 'PUT',
+          headers: getAuthHeaders(),
+          body: JSON.stringify({ order: { orderID, orderStatus: updatedOrder.orderStatus } }),
+        });
+        if (!resp.ok) throw new Error('Failed to update status');
+        setCart(prevCart => 
+          prevCart.map(order => 
+            order.orderID === orderID 
+              ? { ...order, orderStatus: { ...order.orderStatus, status: newStatus } }
+              : order
+          )
+        );
+      } catch (e) {
+        Swal.fire({ title: 'Error', text: 'Could not update status on server.', icon: 'error' });
+      }
+    };
+    
+    const handleDeleteOrder = async (order) => {
+      const result = await Swal.fire({
+        title: 'Delete configuration?',
+        html: `Are you sure you want to delete configuration <strong>${order.configurationName || `#${order.orderID}`}</strong>?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#dc2626',
+      });
+      if (!result.isConfirmed) return;
+
+      // Use configId if available, otherwise fall back to orderID
+      const configId = order.configId || order.orderID;
+      if (!configId) {
+        Swal.fire({ title: 'Error', text: 'Configuration ID not found.', icon: 'error' });
+        return;
+      }
+
+      try {
+        const resp = await fetch(`${API_BASE}/configurations/${configId}`, {
+          method: 'DELETE',
+          headers: getAuthHeaders(),
+        });
+        if (!resp.ok) {
+          const errorData = await resp.json().catch(() => ({ message: 'Delete failed' }));
+          throw new Error(errorData.message || 'Delete failed');
+        }
+        // Remove all orders from this configuration from the cart
+        setCart(prev => prev.filter(o => o.configId !== configId));
+        Swal.fire({ title: 'Deleted', text: `Configuration ${order.configurationName || `#${order.orderID}`} was removed.`, icon: 'success', timer: 1400, showConfirmButton: false });
+      } catch (e) {
+        Swal.fire({ title: 'Error', text: e.message || 'Could not delete on server.', icon: 'error' });
+      }
+    };
+
     
     useEffect(() => {
    /*   // Fetch from users.json for cart data
@@ -215,7 +280,11 @@ The parameters for OrderTable are defined in the UseList.js file.
 
 The return for the function is a table
 */}
-              <OrderTable orders={cart} onStatusChange={handleStatusChange} />
+              <OrderTable 
+                orders={cart} 
+                onStatusChange={handleStatusChange}
+                onDelete={handleDeleteOrder}
+              />
           </main>
         </div>
       </div>

@@ -42,6 +42,24 @@ export function parseCartFromUserData(data) {
 const flattenUsersArray = (users) => {
   const all = [];
   for (const user of users) {
+    // Check if user has configurations array (new structure)
+    if (Array.isArray(user.configurations)) {
+      for (const config of user.configurations) {
+        const cart = config?.cart;
+        if (Array.isArray(cart)) {
+          for (const item of cart) {
+            all.push({
+              ...normalizeCartItem(item),
+              username: user.username,
+              userID: user.userID,
+              configurationName: config?.configurationName ?? 'Unknown',
+              configId: config?._id?.['$oid'] || config?._id || config?.id || null
+            });
+          }
+        }
+      }
+    }
+    // Fallback to old structure (productConfigurationInfo.cart)
     const cart = user?.productConfigurationInfo?.cart;
     if (Array.isArray(cart)) {
       for (const item of cart) {
@@ -49,7 +67,8 @@ const flattenUsersArray = (users) => {
           ...normalizeCartItem(item),
           username: user.username,
           userID: user.userID,
-          configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown'
+          configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown',
+          configId: user.productConfigurationInfo?._id?.['$oid'] || user.productConfigurationInfo?._id || user.productConfigurationInfo?.id || null
         });
       }
     }

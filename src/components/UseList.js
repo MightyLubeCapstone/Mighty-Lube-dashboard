@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Order from './Use';
 import OrderDetailsPopup from './OrderDetailsPopup';
 
-function OrderTable({ orders }) {
+function OrderTable({ orders, onDelete, onStatusChange }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -79,6 +79,8 @@ function OrderTable({ orders }) {
               key={`${order.orderID}-${idx}`} 
               order={order} 
               onDetailsClick={handleDetailsClick}
+              onDelete={onDelete}
+              onStatusChange={onStatusChange}
             />
           ))}
         </tbody>
