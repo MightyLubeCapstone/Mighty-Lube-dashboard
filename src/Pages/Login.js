@@ -13,7 +13,7 @@ const Login = () => {
       e.preventDefault();
       
       try {
-          const response = await fetch("https://mighty-lube.com/api/`adminSessions", {
+          const response = await fetch("https://mighty-lube.com/api/adminSessions", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
