@@ -2,23 +2,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import { updateOrderStatus } from '../utils/orderUpdates';
 import OrderTimer from './OrderTimer';
 
-function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders }) {
+function Order({ order, onStatusChange, onDetailsClick, onDelete, userID, onRefreshOrders }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [currentStatus, setCurrentStatus] = useState(order.orderStatus?.status || 'Requested');
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const dropdownRef = useRef(null);
   const statusButtonRef = useRef(null);
-
-  // Use the status from the order prop instead of local state
-  const currentStatus = order.orderStatus?.status || 'Requested';
-
-  // Debug logging to see what order data looks like
-
+  const actionMenuRef = useRef(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
+      }
+      if (actionMenuRef.current && !actionMenuRef.current.contains(event.target)) {
+        setIsActionMenuOpen(false);
       }
     };
 
@@ -76,6 +77,13 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
       alert('Error updating status. Please try again.');
     } finally {
       setIsUpdating(false);
+    }
+  };
+
+  const handleDelete = () => {
+    setIsActionMenuOpen(false);
+    if (onDelete) {
+      onDelete(order);
     }
   };
 
@@ -166,7 +174,50 @@ function Order({ order, onStatusChange, onDetailsClick, userID, onRefreshOrders 
         <td>{order.createdDate}</td>
         <td><OrderTimer createdTime={order.createdDate} /></td>
         <td>
-          <button className="details-button" onClick={handleDetailsClick}>Details</button>
+          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '8px' }} ref={actionMenuRef}>
+            <button className="details-button" onClick={handleDetailsClick}>Details</button>
+            <button
+              aria-label="More actions"
+              onClick={() => setIsActionMenuOpen((v) => !v)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '18px',
+                padding: '4px 8px',
+                lineHeight: 1,
+              }}
+              title="More actions"
+            >
+              ⋮
+            </button>
+            {isActionMenuOpen && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  right: 0,
+                  marginTop: '4px',
+                  backgroundColor: 'white',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  zIndex: 10000,
+                  minWidth: '150px',
+                  overflow: 'hidden'
+                }}
+              >
+                <div
+                  style={{ padding: '10px 12px', cursor: 'pointer', color: '#dc2626' }}
+                  onClick={handleDelete}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#fef2f2'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
+                >
+                  Delete order
+                </div>
+              </div>
+            )}
+          </div>
         </td>
       </tr>
     </>

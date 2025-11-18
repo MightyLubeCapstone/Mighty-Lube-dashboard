@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Order from './Use';
 import OrderDetailsPopup from './OrderDetailsPopup';
 
-function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
+function OrderTable({ orders, onDelete, onStatusChange, onOrderUpdate, onRefreshOrders }) {
   const [sortConfig, setSortConfig] = useState({ key: 'orderID', direction: 'asc' });
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [popupOpen, setPopupOpen] = useState(false);
@@ -10,7 +10,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
   // Sorting function
   const sortedOrders = [...orders].sort((a, b) => {
     const { key, direction } = sortConfig;
-    if (key == 'timeElapsed') {
+    if (key === 'timeElapsed') {
       const aTime = new Date(a.createdDate);
       const bTime = new Date(b.createdDate);
       const aElapsed = (new Date() - aTime) / 1000;
@@ -90,6 +90,7 @@ function OrderTable({ orders, onStatusChange, onRefreshOrders }) {
               order={order} 
               onStatusChange={onStatusChange}
               onDetailsClick={handleDetailsClick}
+              onDelete={onDelete}
               userID={order.userID}
               onRefreshOrders={onRefreshOrders}
             />

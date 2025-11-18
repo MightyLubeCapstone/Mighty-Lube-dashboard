@@ -39,13 +39,13 @@ export function parseCartFromUserData(data) {
   };
 
   const fixDate = (rawDate) => {
-    let createdDate = 'Undknown';
+    let createdDate = 'Unknown';
     if (typeof rawDate === 'string') {
       const d = new Date(rawDate);
-      createdDate = isNaN(d.getTime()) ? 'Undknown' : d.toLocaleString();
+      createdDate = isNaN(d.getTime()) ? 'Unknown' : d.toLocaleString();
     } else {
       const ext = rawDate?.['$date']?.['$numberLong'];
-      createdDate = ext ? new Date(Number(ext)).toLocaleString() : 'Undknown';
+      createdDate = ext ? new Date(Number(ext)).toLocaleString() : 'Unknown';
     } 
     return createdDate;
   }
@@ -60,7 +60,7 @@ const flattenUsersArray = (users) => {
         const cart = config?.cart;
         if (Array.isArray(cart)) {
           for (const item of cart) {
-            const orderData = {
+            all.push({
               ...normalizeCartItem(item),
               username: user.username,
               userID: user.userID,
@@ -68,9 +68,9 @@ const flattenUsersArray = (users) => {
               orderStatus: {
                 status: config?.orderStatus ?? 'Requested'
               },
-              createdDate: fixDate(config?.dateOrdered) || 'Unknown'
-            };
-            all.push(orderData);
+              createdDate: fixDate(config?.dateOrdered) || 'Unknown',
+              configId: config?._id?.['$oid'] || config?._id || config?.id || null
+            });
           }
         }
       }
@@ -89,7 +89,8 @@ const flattenUsersArray = (users) => {
           userID: user.userID,
           configurationName: user.productConfigurationInfo?.configurationName ?? 'Unknown',
           orderStatus: { status: cartOrderStatus },
-          createdDate: fixDate(user.productConfigurationInfo?.dateOrdered) || 'Unknown'
+          createdDate: fixDate(user.productConfigurationInfo?.dateOrdered) || 'Unknown',
+          configId: user.productConfigurationInfo?._id?.['$oid'] || user.productConfigurationInfo?._id || user.productConfigurationInfo?.id || null
         });
       }
     }
