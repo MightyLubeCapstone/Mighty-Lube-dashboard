@@ -1,0 +1,19 @@
+/*
+This file contains the styling for the index file elements. These are essentially the global styles
+React handles css files as global, make sure you reference unique elements. Do not attempt to edit these containers anywhere else
+Example: In this file we access the body element, this does not only change the body tag of the index file, but all body tags
+*/
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,85 @@
+name: Deploy to GCP VM
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    types: [closed]
+
+jobs:
+  deploy:
+    # If you kept the pull_request trigger above, this if keeps it to merged PRs only.
+    # If you only want push, you can remove this whole `if:`.
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code (not required for SSH deploys, but harmless)
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf "%s\n" "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Test SSH (debug)
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          PORT="${SSH_PORT:-22}"
+          ssh-keyscan -p "$PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh -T -i ~/.ssh/id_ed25519 -p "$PORT" \
+            -o IdentitiesOnly=yes -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no \
+            "$SSH_USER@$SSH_HOST" 'echo OK-remote && whoami && pwd && hostname'
+
+      - name: Deploy to VM
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          PORT="${SSH_PORT:-22}"
+          USER_HOST="${SSH_USER}@${SSH_HOST}"
+
+          ssh-keyscan -p "$PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+          ssh -T -i ~/.ssh/id_ed25519 -p "$PORT" \
+            -o IdentitiesOnly=yes -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no \
+            "$USER_HOST" '
+              set -euo pipefail
+
+              APP_DIR="/home/deployweb/mighty-lube-dashboard"
+              REPO="https://github.com/MightyLubeCapstone/Mighty-Lube-dashboard.git"
+              PM2_NAME="mighty-lube-dashboard"
+
+              # If APP_DIR exists but is NOT a git repo, back it up then clone
+              if [ -d "$APP_DIR" ] && [ ! -d "$APP_DIR/.git" ]; then
+                echo "Backing up non-git directory at $APP_DIR"
+                mv "$APP_DIR" "${APP_DIR}.bak.$(date +%s)"
+              fi
+
+              # Clone if missing; otherwise keep remote correct
+              if [ ! -d "$APP_DIR/.git" ]; then
+                mkdir -p "$(dirname "$APP_DIR")"
+                git clone "$REPO" "$APP_DIR"
+              else
+                git -C "$APP_DIR" remote set-url origin "$REPO"
+              fi
+
+              git -C "$APP_DIR" fetch --all --prune
+              git -C "$APP_DIR" checkout -B main origin/main
+              git -C "$APP_DIR" reset --hard origin/main
+
+              cd "$APP_DIR"
+              if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
+              npm run --if-present build
+
+              # Deploy the built static files to Nginx web root
+              sudo mkdir -p /var/www/mighty-lube-dashboard
+              sudo rm -rf /var/www/mighty-lube-dashboard/*
+              sudo cp -r build/* /var/www/mighty-lube-dashboard/
+              sudo chown -R www-data:www-data /var/www/mighty-lube-dashboard
+            '
