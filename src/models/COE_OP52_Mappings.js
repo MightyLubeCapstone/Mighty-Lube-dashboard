@@ -17,6 +17,3 @@ const enumMappingsCOE_OP52 = {
 };
 
 module.exports = enumMappingsCOE_OP52;
-  
-
-DONT FORGET ADD A ROUTE FOR THIS
